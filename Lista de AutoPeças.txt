@@ -1,0 +1,70 @@
+Categorias
+	Acessórios
+	Cambio
+	Motor
+	Suspensão Dianteira
+	Suspensão Traseira
+	Injeção
+	Diferencial
+	Carroceria
+	Embreagem
+	Refrigeração
+	ArCondicionado
+	Elétrica
+	Freio
+	Escapamento
+	Válvulas
+	
+Peças
+
+	Virabrequim 
+	Pivo dianteiro
+	Amortecedor
+	Rolamento
+	Esticador de Correia
+	Mangueira
+	Embreagem
+	Pistão do motor
+	Filtro de Ar
+	Anel de segmento
+	Pastilha Freio Dianteiro
+	Sapata de Freio
+	Junta Homocinética
+	Cubro Traseiro
+	Coxim escapamento
+	Valvula Termostática
+	Cilindro de Embreagem
+	Caixa de Direção
+	Bomba de Água
+
+Veiculos
+	Fiesta
+	Courier
+	Ka
+	Escort
+	Mondeo
+	Fusion
+	Fiesta Sedan
+	Focus
+	New Fiesta
+
+Fornecedores
+	Brembo
+	Motorcraft
+	Valeo
+	Denso
+	ACDelco
+	Moura
+	Aethra
+	Bosch
+	Basf
+	Brasmec
+	Bosal
+	Cummins
+	Eaton
+	Delphi
+	Fameq
+	Fras-le
+	Gestamp
+	
+

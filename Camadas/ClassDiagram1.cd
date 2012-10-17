@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Camadas.BussinessLayer">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>iAAAIAMBEAASBAIIAAUAQgACAAACQIAQAAQgAACBAQA=</HashCode>
+      <FileName>BussinessLayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Camadas.DataAccess">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>SAIQYEAAAAAIBAAYKAAEAABBIAggAigIBBEgBAACBAg=</HashCode>
+      <FileName>DataAccess.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Camadas.Cliente">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CQAAAAwAAEBSAAMAAAAChACAAQgIgAAAAYAACAAAAGA=</HashCode>
+      <FileName>Cliente.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Camadas.Fornecedor">
+    <Position X="14.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>iEAAAIgAgABAAAAACAAQBAAAEAAIAAQAAAAQAAAAECA=</HashCode>
+      <FileName>Fornecedor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Camadas.ItensVenda">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIABQCAAAAIAAAKAAAAAAAAAAAAQAAIAAYAAAAAQg=</HashCode>
+      <FileName>ItensVenda.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Camadas.Operacoes">
+    <Position X="7.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Operacoes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Camadas.Peca">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAQABIIAACRAAAAAkAAAYABAAEAQQAAAAAQg=</HashCode>
+      <FileName>Peca.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Camadas.Veiculo">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAABAAAUAwCAAAAAgACAAAAAAQAAAAEAgAAAAIAQA=</HashCode>
+      <FileName>Veiculo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Camadas.Venda">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAgIAgAAgAgAAAAAEEAAYACACEAAABAIQAAEAAEBEAA=</HashCode>
+      <FileName>Venda.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Camadas.Vendedor">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAoAAAAAAAAAEEgCABACAAAAGAIAAAIAQAAQAEAA=</HashCode>
+      <FileName>Vendedor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Camadas.Categoria">
+    <Position X="5.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAQQAAAAEAAAAAAAAAAQAAAAEAAA=</HashCode>
+      <FileName>Categoria.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
