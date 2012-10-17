@@ -49,6 +49,7 @@
     <Compile Include="Operacoes.cs" />
     <Compile Include="Peca.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Teste.cs" />
     <Compile Include="Veiculo.cs" />
     <Compile Include="Venda.cs" />
     <Compile Include="Vendedor.cs" />
