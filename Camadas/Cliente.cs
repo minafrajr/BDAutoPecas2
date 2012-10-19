@@ -28,6 +28,7 @@ namespace Camadas
         }
 
         private string cpf;
+        
         public string CPF
         {
             get { return cpf; }

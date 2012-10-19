@@ -38,6 +38,7 @@
             this.bt_Deleta = new System.Windows.Forms.Button();
             this.bt_gravar = new System.Windows.Forms.Button();
             this.dtg_Venda = new System.Windows.Forms.DataGridView();
+            this.dtg_col_Item = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -47,6 +48,10 @@
             this.bt_PesquisarCliente = new System.Windows.Forms.Button();
             this.myTextBox2 = new AutoPeçasUI.MyTextBox();
             this.myTextBox1 = new AutoPeçasUI.MyTextBox();
+            this.dtg_col_DescricaoPeca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtg_col_PrecoUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtg_col_Quant = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtg_col_subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Venda)).BeginInit();
             this.SuspendLayout();
@@ -155,17 +160,30 @@
             this.bt_gravar.Size = new System.Drawing.Size(47, 44);
             this.bt_gravar.TabIndex = 9;
             this.bt_gravar.UseVisualStyleBackColor = false;
+            this.bt_gravar.Click += new System.EventHandler(this.bt_gravar_Click);
             // 
             // dtg_Venda
             // 
             this.dtg_Venda.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dtg_Venda.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtg_Venda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtg_Venda.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dtg_col_Item,
+            this.dtg_col_DescricaoPeca,
+            this.dtg_col_PrecoUnit,
+            this.dtg_col_Quant,
+            this.dtg_col_subtotal});
             this.dtg_Venda.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dtg_Venda.Location = new System.Drawing.Point(0, 239);
             this.dtg_Venda.Name = "dtg_Venda";
             this.dtg_Venda.Size = new System.Drawing.Size(959, 211);
             this.dtg_Venda.TabIndex = 13;
+            // 
+            // dtg_col_Item
+            // 
+            this.dtg_col_Item.HeaderText = "Item";
+            this.dtg_col_Item.Name = "dtg_col_Item";
+            this.dtg_col_Item.ReadOnly = true;
             // 
             // label1
             // 
@@ -250,6 +268,30 @@
             this.myTextBox1.Size = new System.Drawing.Size(384, 20);
             this.myTextBox1.TabIndex = 14;
             // 
+            // dtg_col_DescricaoPeca
+            // 
+            this.dtg_col_DescricaoPeca.HeaderText = "Peca";
+            this.dtg_col_DescricaoPeca.Name = "dtg_col_DescricaoPeca";
+            this.dtg_col_DescricaoPeca.ReadOnly = true;
+            // 
+            // dtg_col_PrecoUnit
+            // 
+            this.dtg_col_PrecoUnit.HeaderText = "Preço Unitario";
+            this.dtg_col_PrecoUnit.Name = "dtg_col_PrecoUnit";
+            this.dtg_col_PrecoUnit.ReadOnly = true;
+            // 
+            // dtg_col_Quant
+            // 
+            this.dtg_col_Quant.HeaderText = "Quant";
+            this.dtg_col_Quant.Name = "dtg_col_Quant";
+            this.dtg_col_Quant.ReadOnly = true;
+            // 
+            // dtg_col_subtotal
+            // 
+            this.dtg_col_subtotal.HeaderText = "Subtotal";
+            this.dtg_col_subtotal.Name = "dtg_col_subtotal";
+            this.dtg_col_subtotal.ReadOnly = true;
+            // 
             // Form_Venda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -303,5 +345,10 @@
         private System.Windows.Forms.Button bt_Concluir;
         private System.Windows.Forms.Button bt_ConsultaPeca;
         private System.Windows.Forms.Button bt_PesquisarCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtg_col_Item;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtg_col_DescricaoPeca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtg_col_PrecoUnit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtg_col_Quant;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtg_col_subtotal;
     }
 }

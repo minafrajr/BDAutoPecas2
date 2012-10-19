@@ -100,5 +100,20 @@ namespace Matriz
                 throw erro;
             }
         }
+
+        /// <summary>
+        /// Resgata o id do cliente a partir do datagridview e o transfere para o textbox de código de cliente.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dtg_Cliente_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            lb_Cod.Visible = true;
+            tb_CodigoCliente.Visible = true;
+
+            tb_CodigoCliente.Text = dtg_Cliente[0, dtg_Cliente.CurrentCellAddress.Y].Value.ToString();     
+        }
+
+        
     }
 }

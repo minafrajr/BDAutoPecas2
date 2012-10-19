@@ -133,6 +133,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtg_Produtos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dtg_Produtos.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dtg_Produtos_CellMouseClick);
             // 
             // label1
             // 

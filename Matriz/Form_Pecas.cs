@@ -74,6 +74,7 @@ namespace Matriz
         {
             try
             {
+
                 if (MessageBox.Show("Deseja deletar a peça de código " + tb_IDpeca.Text + "?", "Confirmação", MessageBoxButtons.YesNo).Equals(DialogResult.Yes))
                 {
                     peca.IDPeca = Convert.ToInt32(tb_IDpeca.Text);
@@ -174,6 +175,15 @@ namespace Matriz
             cmb_IDVeiculo.ResetText();
             tb_IDpeca.Clear();
             tb_nomepeca.Clear();
+        }
+
+        private void dtg_Produtos_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            tb_IDpeca.Visible = true;
+            label5.Visible = true;
+
+            tb_IDpeca.Text = dtg_Produtos.Rows[dtg_Produtos.CurrentCellAddress.X].Cells[1].Value.ToString();
+
         }
         
     }

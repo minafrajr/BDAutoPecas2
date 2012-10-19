@@ -43,6 +43,12 @@ namespace Matriz
         private void bt_PesquisarCliente_Click(object sender, EventArgs e)
         {
 
+        }       
+
+        private void bt_gravar_Click(object sender, EventArgs e)
+        {
+            //dtg_Venda.Rows.Add("1","virabrequim","30","2,60","78,00" );
+
         }
 
        
