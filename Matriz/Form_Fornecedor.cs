@@ -68,7 +68,7 @@ namespace Matriz
                 fornecedor.CEP = msktb_CEP.Text;
                 fornecedor.Endereco = tb_endrua.Text + tb_numendereco.Text + tb_complemento.Text ;
                 fornecedor.Bairro = tb_bairro.Text;
-                fornecedor.DataContrato = dtp_Fornecedor.Value.ToString(); ;
+                fornecedor.DataContrato = dtp_Fornecedor.Value.Date;
                 fornecedor.Telefone = msk_telfixo.Text;
                 fornecedor.TelefoneCelular = mskt_telcel.Text;
 
