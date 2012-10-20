@@ -18,7 +18,7 @@ namespace Camadas
         string telefonefixo;
         string telefonecelular;
         string cep;
-        DateTime datacontrato;
+        string datacontrato;
 
         #endregion Atributos
 
@@ -70,7 +70,7 @@ namespace Camadas
             set { telefonecelular = value; } 
         }
 
-        public DateTime DataContrato
+        public string DataContrato
         {
             get { return datacontrato; }
             set { datacontrato = value; }

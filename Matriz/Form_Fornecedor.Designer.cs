@@ -44,11 +44,11 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.msktb_CEP = new Matriz.Msktextbox();
             this.label8 = new System.Windows.Forms.Label();
-            this.tb_end4 = new AutoPeçasUI.MyTextBox();
+            this.tb_bairro = new AutoPeçasUI.MyTextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.tb_end3 = new AutoPeçasUI.MyTextBox();
+            this.tb_complemento = new AutoPeçasUI.MyTextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.tb_end2 = new AutoPeçasUI.MyTextBox();
+            this.tb_numendereco = new AutoPeçasUI.MyTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tb_endrua = new AutoPeçasUI.MyTextBox();
             this.ckb_Filtrar = new System.Windows.Forms.CheckBox();
@@ -56,9 +56,9 @@
             this.msktb_CNPJ = new Matriz.Msktextbox();
             this.tb_NomeFornecedor = new AutoPeçasUI.MyTextBox();
             this.tb_IDFornecedor = new AutoPeçasUI.MyTextBox();
-            this.msktextbox1 = new Matriz.Msktextbox();
+            this.msk_telfixo = new Matriz.Msktextbox();
             this.label9 = new System.Windows.Forms.Label();
-            this.msktextbox2 = new Matriz.Msktextbox();
+            this.mskt_telcel = new Matriz.Msktextbox();
             this.label10 = new System.Windows.Forms.Label();
             this.dtgv_fornecedores = new System.Windows.Forms.DataGridView();
             this.label11 = new System.Windows.Forms.Label();
@@ -217,11 +217,11 @@
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.groupBox1.Controls.Add(this.msktb_CEP);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.tb_end4);
+            this.groupBox1.Controls.Add(this.tb_bairro);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.tb_end3);
+            this.groupBox1.Controls.Add(this.tb_complemento);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.tb_end2);
+            this.groupBox1.Controls.Add(this.tb_numendereco);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.tb_endrua);
             this.groupBox1.Controls.Add(this.label3);
@@ -254,12 +254,12 @@
             this.label8.TabIndex = 26;
             this.label8.Text = "CEP:";
             // 
-            // tb_end4
+            // tb_bairro
             // 
-            this.tb_end4.Location = new System.Drawing.Point(66, 67);
-            this.tb_end4.Name = "tb_end4";
-            this.tb_end4.Size = new System.Drawing.Size(207, 26);
-            this.tb_end4.TabIndex = 3;
+            this.tb_bairro.Location = new System.Drawing.Point(66, 67);
+            this.tb_bairro.Name = "tb_bairro";
+            this.tb_bairro.Size = new System.Drawing.Size(207, 26);
+            this.tb_bairro.TabIndex = 3;
             // 
             // label7
             // 
@@ -271,12 +271,12 @@
             this.label7.TabIndex = 24;
             this.label7.Text = "Bairro:";
             // 
-            // tb_end3
+            // tb_complemento
             // 
-            this.tb_end3.Location = new System.Drawing.Point(708, 22);
-            this.tb_end3.Name = "tb_end3";
-            this.tb_end3.Size = new System.Drawing.Size(255, 26);
-            this.tb_end3.TabIndex = 2;
+            this.tb_complemento.Location = new System.Drawing.Point(708, 22);
+            this.tb_complemento.Name = "tb_complemento";
+            this.tb_complemento.Size = new System.Drawing.Size(255, 26);
+            this.tb_complemento.TabIndex = 2;
             // 
             // label6
             // 
@@ -288,12 +288,12 @@
             this.label6.TabIndex = 22;
             this.label6.Text = "Complemento:";
             // 
-            // tb_end2
+            // tb_numendereco
             // 
-            this.tb_end2.Location = new System.Drawing.Point(529, 22);
-            this.tb_end2.Name = "tb_end2";
-            this.tb_end2.Size = new System.Drawing.Size(46, 26);
-            this.tb_end2.TabIndex = 21;
+            this.tb_numendereco.Location = new System.Drawing.Point(529, 22);
+            this.tb_numendereco.Name = "tb_numendereco";
+            this.tb_numendereco.Size = new System.Drawing.Size(46, 26);
+            this.tb_numendereco.TabIndex = 21;
             // 
             // label4
             // 
@@ -359,17 +359,16 @@
             this.tb_IDFornecedor.TabIndex = 1;
             this.tb_IDFornecedor.Visible = false;
             // 
-            // msktextbox1
+            // msk_telfixo
             // 
-            this.msktextbox1.BackColor = System.Drawing.SystemColors.Window;
-            this.msktextbox1.Location = new System.Drawing.Point(123, 135);
-            this.msktextbox1.Mask = "(99) 0000-0000";
-            this.msktextbox1.Name = "msktextbox1";
-            this.msktextbox1.RejectInputOnFirstFailure = true;
-            this.msktextbox1.ResetOnPrompt = false;
-            this.msktextbox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.msktextbox1.Size = new System.Drawing.Size(82, 20);
-            this.msktextbox1.TabIndex = 26;
+            this.msk_telfixo.BackColor = System.Drawing.SystemColors.Window;
+            this.msk_telfixo.Location = new System.Drawing.Point(123, 135);
+            this.msk_telfixo.Mask = "(99) 0000-0000";
+            this.msk_telfixo.Name = "msk_telfixo";
+            this.msk_telfixo.RejectInputOnFirstFailure = true;
+            this.msk_telfixo.ResetOnPrompt = false;
+            this.msk_telfixo.Size = new System.Drawing.Size(82, 20);
+            this.msk_telfixo.TabIndex = 26;
             // 
             // label9
             // 
@@ -381,17 +380,16 @@
             this.label9.TabIndex = 27;
             this.label9.Text = "Telefone Fixo:";
             // 
-            // msktextbox2
+            // mskt_telcel
             // 
-            this.msktextbox2.BackColor = System.Drawing.SystemColors.Window;
-            this.msktextbox2.Location = new System.Drawing.Point(360, 135);
-            this.msktextbox2.Mask = "(99) 0000-0000";
-            this.msktextbox2.Name = "msktextbox2";
-            this.msktextbox2.RejectInputOnFirstFailure = true;
-            this.msktextbox2.ResetOnPrompt = false;
-            this.msktextbox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.msktextbox2.Size = new System.Drawing.Size(82, 20);
-            this.msktextbox2.TabIndex = 28;
+            this.mskt_telcel.BackColor = System.Drawing.SystemColors.Window;
+            this.mskt_telcel.Location = new System.Drawing.Point(360, 135);
+            this.mskt_telcel.Mask = "(99) 0000-0000";
+            this.mskt_telcel.Name = "mskt_telcel";
+            this.mskt_telcel.RejectInputOnFirstFailure = true;
+            this.mskt_telcel.ResetOnPrompt = false;
+            this.mskt_telcel.Size = new System.Drawing.Size(82, 20);
+            this.mskt_telcel.TabIndex = 28;
             // 
             // label10
             // 
@@ -443,9 +441,9 @@
             this.Controls.Add(this.dtp_Fornecedor);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.dtgv_fornecedores);
-            this.Controls.Add(this.msktextbox2);
+            this.Controls.Add(this.mskt_telcel);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.msktextbox1);
+            this.Controls.Add(this.msk_telfixo);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.ckb_Filtrar);
             this.Controls.Add(this.tb_filtro);
@@ -493,18 +491,18 @@
         private AutoPeçasUI.MyTextBox tb_endrua;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label8;
-        private AutoPeçasUI.MyTextBox tb_end4;
+        private AutoPeçasUI.MyTextBox tb_bairro;
         private System.Windows.Forms.Label label7;
-        private AutoPeçasUI.MyTextBox tb_end3;
+        private AutoPeçasUI.MyTextBox tb_complemento;
         private System.Windows.Forms.Label label6;
-        private AutoPeçasUI.MyTextBox tb_end2;
+        private AutoPeçasUI.MyTextBox tb_numendereco;
         private System.Windows.Forms.Label label4;
         private Msktextbox msktb_CEP;
         private System.Windows.Forms.CheckBox ckb_Filtrar;
         private AutoPeçasUI.MyTextBox tb_filtro;
-        private Msktextbox msktextbox1;
+        private Msktextbox msk_telfixo;
         private System.Windows.Forms.Label label9;
-        private Msktextbox msktextbox2;
+        private Msktextbox mskt_telcel;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DataGridView dtgv_fornecedores;
         private System.Windows.Forms.Label label11;

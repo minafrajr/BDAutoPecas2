@@ -45,7 +45,7 @@ namespace Matriz
 
         private void ckb_Filtrar_CheckedChanged(object sender, EventArgs e)
         {
-            if(ckb_Filtrar.Checked)
+            if (ckb_Filtrar.Checked)
             {
                 tb_filtro.Visible = true;
                 bt_filtrar.Enabled = true;
@@ -66,7 +66,12 @@ namespace Matriz
                 fornecedor.RazaoSocial = tb_NomeFornecedor.Text;
                 fornecedor.CNPJ = msktb_CNPJ.Text;
                 fornecedor.CEP = msktb_CEP.Text;
-                fornecedor.Endereco = tb_endrua.Text;
+                fornecedor.Endereco = tb_endrua.Text + tb_numendereco.Text + tb_complemento.Text ;
+                fornecedor.Bairro = tb_bairro.Text;
+                fornecedor.DataContrato = dtp_Fornecedor.Value.ToString(); ;
+                fornecedor.Telefone = msk_telfixo.Text;
+                fornecedor.TelefoneCelular = mskt_telcel.Text;
+
 
                 Negociacao.GravarFornecedor(fornecedor);
 
@@ -83,7 +88,7 @@ namespace Matriz
         {
             try
             {
-                if (MessageBox.Show("Deseja alterar o cadastro do fornecedor "+tb_NomeFornecedor.Text+ " ?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question).Equals(DialogResult.Yes))
+                if (MessageBox.Show("Deseja alterar o cadastro do fornecedor " + tb_NomeFornecedor.Text + " ?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question).Equals(DialogResult.Yes))
                 {
                     fornecedor = new Fornecedor();
 
@@ -131,9 +136,9 @@ namespace Matriz
             tb_NomeFornecedor.Clear();
             tb_IDFornecedor.Clear();
             tb_endrua.Clear();
-            tb_end4.Clear();
-            tb_end3.Clear();
-            tb_end2.Clear();
+            tb_bairro.Clear();
+            tb_complemento.Clear();
+            tb_numendereco.Clear();
             msktb_CEP.Clear();
             msktb_CNPJ.Clear();
         }
@@ -147,7 +152,7 @@ namespace Matriz
             }
             catch (Exception erro)
             {
-                MessageBox.Show(erro.Message, "Sistema de Controle de AutoPeças"); 
+                MessageBox.Show(erro.Message, "Sistema de Controle de AutoPeças");
             }
         }
 
@@ -160,11 +165,11 @@ namespace Matriz
             }
             catch (Exception erro)
             {
-                MessageBox.Show(erro.Message,"Sistema de Controle de AutoPeças");
+                MessageBox.Show(erro.Message, "Sistema de Controle de AutoPeças");
             }
         }
 
-        
-        
+
+
     }
 }

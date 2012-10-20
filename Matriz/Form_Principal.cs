@@ -25,7 +25,7 @@ namespace Matriz
         {
             Tempo_Atual = DateTime.Now;
             lb_status_time.Text = Tempo_Atual.ToLongDateString() + "  -  " + Tempo_Atual.ToLongTimeString();
-            lb_status_numpeca.Text = Negociacao.contapeca().ToString();
+            //lb_status_numpeca.Text = Negociacao.contapeca().ToString();
         }
 
         private void clienteToolStripMenuItem_Click(object sender, EventArgs e)

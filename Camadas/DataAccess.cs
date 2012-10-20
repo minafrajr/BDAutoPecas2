@@ -48,13 +48,13 @@ namespace Camadas
                     {
                         SqlDataReader Leitor = ComandoTSQL.ExecuteReader();
                         
-                        dt.Load(Leitor);
+                        //dt.Load(Leitor);
+                        num =  Convert.ToInt32(Leitor[0]);
                         Leitor.Close();
                     }
                     Conectionsql.Close();
                 }
 
-                 num = Convert.ToInt16(dt.Rows[0]);
 
                  return num;
             }
@@ -749,7 +749,7 @@ namespace Camadas
         {
             try
             {
-                comandosql = "INSERT INTO Fornecedores VALUES(@NomeFornecedor, @CNPJFornecedor, @EnderecoFornecedor, @CEPFornecedor)";
+                comandosql = "INSERT INTO fornecedores VALUES (@NOMEFORNECEDOR, @CNPJFORNECEDOR, @ENDERECOFORNECEDOR, @BAIRROFORNECEDOR, @CEPFORNECEDOR, @TELEFONEFIXO, @TELEFONECELULAR,@datacontrato )";
                 using (Conectionsql = new SqlConnection(conexao))
                 {
                     Conectionsql.Open();
@@ -759,6 +759,10 @@ namespace Camadas
                         ComandoTSQL.Parameters.AddWithValue("@CNPJFornecedor", fornecedor.CNPJ);
                         ComandoTSQL.Parameters.AddWithValue("@EnderecoFornecedor", fornecedor.Endereco);
                         ComandoTSQL.Parameters.AddWithValue("@CEPFornecedor", fornecedor.CEP);
+                        ComandoTSQL.Parameters.AddWithValue("@BairroFornecedor", fornecedor.Bairro);
+                        ComandoTSQL.Parameters.AddWithValue("@Telefonefixo", fornecedor.Telefone);
+                        ComandoTSQL.Parameters.AddWithValue("@TELEFONECELULAR", fornecedor.TelefoneCelular);
+                        ComandoTSQL.Parameters.AddWithValue("@Datacontrato", fornecedor.DataContrato);
 
                         ComandoTSQL.ExecuteNonQuery();
                     }
