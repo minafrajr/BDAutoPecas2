@@ -14,7 +14,7 @@ namespace Camadas
         private string comandosql;
         private SqlCommand ComandoTSQL;
         private SqlConnection Conectionsql;
-        
+
         /*essa string conecta com o serviço local*/
         private string conexao = "Data Source = DELL; Initial Catalog = AUTOPECAS; Integrated Security = True; ";
 
@@ -30,6 +30,40 @@ namespace Camadas
          * 1433 porta padrão do sqlserver
         */
         //acesso aos dados
+
+
+        public int numpecas()
+        {
+            try
+            {
+                int num;
+                DataTable dt = new DataTable();
+                comandosql = "SELECT Count(IDPeca) FROM Pecas" ;
+
+                using (Conectionsql = new SqlConnection(conexao))
+                {
+                    Conectionsql.Open();
+
+                    using (ComandoTSQL = new SqlCommand(comandosql, Conectionsql))
+                    {
+                        SqlDataReader Leitor = ComandoTSQL.ExecuteReader();
+                        
+                        dt.Load(Leitor);
+                        Leitor.Close();
+                    }
+                    Conectionsql.Close();
+                }
+
+                 num = Convert.ToInt16(dt.Rows[0]);
+
+                 return num;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
 
         #region  Atualizar
 
@@ -210,7 +244,7 @@ namespace Camadas
                         ComandoTSQL.Parameters.AddWithValue("@Nomevendedor", vendedor.NomeVendedor);
                         ComandoTSQL.Parameters.AddWithValue("@TelCel", vendedor.TelefoneCelular);
                         ComandoTSQL.Parameters.AddWithValue("@TelFixo", vendedor.TelefoneFixo);
-                        ComandoTSQL.Parameters.AddWithValue("@EstadoCivil", vendedor.EstadoCivil);   
+                        ComandoTSQL.Parameters.AddWithValue("@EstadoCivil", vendedor.EstadoCivil);
 
                         ComandoTSQL.ExecuteNonQuery();
                     }
@@ -223,7 +257,7 @@ namespace Camadas
             }
         }
 
-# endregion
+        # endregion
 
         public DataTable CarregaTabela(string tabela)
         {
@@ -333,7 +367,7 @@ namespace Camadas
                 Conectionsql.Close();
             }
         }
-        
+
         public void DeletaFornecedor(Fornecedor fornecedor)
         {
             try
@@ -360,13 +394,74 @@ namespace Camadas
         {
             try
             {
-                comandosql = "DELETE FROM Clientes WHERE  NomeCliente = @NomeCliente";
+                comandosql = "DELETE FROM Clientes WHERE  IDCliente = @IDCliente";
                 using (Conectionsql = new SqlConnection(conexao))
                 {
                     Conectionsql.Open();
                     using (ComandoTSQL = new SqlCommand(comandosql, Conectionsql))
                     {
-                        ComandoTSQL.Parameters.AddWithValue("@NomeCliente", cliente.NomeCliente);
+                        ComandoTSQL.Parameters.AddWithValue("@NomeCliente", cliente.ID_Cliente);
+                        ComandoTSQL.ExecuteNonQuery();
+                    }
+                    Conectionsql.Close();
+                }
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+        }
+
+
+
+        public void DeletaCliente(Object obj)
+        {
+            try
+            {
+                comandosql = "DELETE FROM ";   //Clientes WHERE  IDCliente = @IDCliente";
+
+                using (Conectionsql = new SqlConnection(conexao))
+                {
+                    Conectionsql.Open();
+
+                    if (obj.GetType() == typeof(Cliente))
+                        comandosql += "Clientes";
+                    else if (obj.GetType() == typeof(Categoria))
+                        comandosql += "Categorias";
+                    else if (obj.GetType() == typeof(Fornecedor))
+                        comandosql += "Fornecedores";
+                    else if (obj.GetType() == typeof(ItensVenda))
+                        comandosql += "Itensvenda";
+                    else if (obj.GetType() == typeof(Peca))
+                        comandosql += "Pecas";
+                    else if (obj.GetType() == typeof(Veiculo))
+                        comandosql += "Veiculos";
+                    else if (obj.GetType() == typeof(Venda))
+                        comandosql += "Venda WHERE ";
+                    else if (obj.GetType() == typeof(Vendedor))
+                        comandosql += "Vendedores WHERE IDVendedor = @ID";
+
+
+
+                    using (ComandoTSQL = new SqlCommand(comandosql, Conectionsql))
+                    {
+                        if (obj.GetType() == typeof(Cliente))
+                            ComandoTSQL.Parameters.AddWithValue("@ID", ((Cliente)obj).ID_Cliente);
+                        else if (obj.GetType() == typeof(Categoria))
+                            ComandoTSQL.Parameters.AddWithValue("@ID", ((Categoria)obj).IDCategoria);
+                        else if (obj.GetType() == typeof(Fornecedor))
+                            ComandoTSQL.Parameters.AddWithValue("@ID", ((Fornecedor)obj).IDFornecedor);
+                        else if (obj.GetType() == typeof(ItensVenda))
+                            ComandoTSQL.Parameters.AddWithValue("@ID", ((ItensVenda)obj)._IDItensVemda);
+                        else if (obj.GetType() == typeof(Peca))
+                            ComandoTSQL.Parameters.AddWithValue("@ID", ((Peca)obj).IDPeca);
+                        else if (obj.GetType() == typeof(Veiculo))
+                            ComandoTSQL.Parameters.AddWithValue("@ID", ((Veiculo)obj).IDVeiculo);
+                        else if (obj.GetType() == typeof(Venda))
+                            ComandoTSQL.Parameters.AddWithValue("@ID", ((Venda)obj).IDVenda);
+                        else if (obj.GetType() == typeof(Vendedor))
+                            ComandoTSQL.Parameters.AddWithValue("@ID", ((Vendedor)obj).IDVendedor);
+
                         ComandoTSQL.ExecuteNonQuery();
                     }
                     Conectionsql.Close();
@@ -496,7 +591,7 @@ namespace Camadas
             try
             {
                 Categoria categoria = new Categoria();
-                comandosql = "SELECT * FROM Categorias WHERE NomeCategoria = '"+param+"'";
+                comandosql = "SELECT * FROM Categorias WHERE NomeCategoria = '" + param + "'";
 
                 using (Conectionsql = new SqlConnection(conexao))
                 {
@@ -515,7 +610,7 @@ namespace Camadas
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
@@ -525,7 +620,7 @@ namespace Camadas
             try
             {
                 comandosql = "INSERT INTO Pecas VALUES (@NomePeca, @IDFornecedor, @IDVeiculo, @AnoVeiculo,@Quant,@Preco, @IDCategoria)";
-                
+
                 using (Conectionsql = new SqlConnection(conexao))
                 {
                     Conectionsql.Open();
@@ -619,18 +714,18 @@ namespace Camadas
                     using (ComandoTSQL = new SqlCommand(comandosql, Conectionsql))
                     {
                         ComandoTSQL.Parameters.AddWithValue("@NomeCliente", cliente.NomeCliente);
-                        
-                        if(cliente.CNPJ != null)
+
+                        if (cliente.CNPJ != null)
                             ComandoTSQL.Parameters.AddWithValue("@CNPJ", Convert.ToDouble(cliente.CNPJ));
                         else
                             ComandoTSQL.Parameters.AddWithValue("@CNPJ", 0);
-                        
+
                         if (cliente.CPF != null)
                             ComandoTSQL.Parameters.AddWithValue("@CPF", Convert.ToDouble(cliente.CPF));
                         else
                             ComandoTSQL.Parameters.AddWithValue("@CPF", 0);
 
-                        
+
                         ComandoTSQL.Parameters.AddWithValue("@EnderecoCliente", cliente.Logradouro);
                         ComandoTSQL.Parameters.AddWithValue("@Bairro", cliente.Bairro);
                         ComandoTSQL.Parameters.AddWithValue("@TelefoneCliente", cliente.Telefone_Fixo);
@@ -679,7 +774,7 @@ namespace Camadas
                 Conectionsql.Close();
             }
         }
-        
+
         public void GravarVendedor(Vendedor vendedor)
         {
             try
@@ -796,7 +891,7 @@ namespace Camadas
             {
                 throw erro;
             }
- 
+
         }
 
         public DataTable PesquisaCategoria(string pesquisa)
@@ -820,7 +915,7 @@ namespace Camadas
                     Conectionsql.Close();
                     return dt;
                 }
-                
+
             }
             catch (SqlException erro)
             {
@@ -854,11 +949,11 @@ namespace Camadas
             }
             catch (Exception erro)
             {
-                
+
                 throw erro;
             }
         }
 
-        
+
     }
 }

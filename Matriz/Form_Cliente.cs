@@ -111,7 +111,13 @@ namespace Matriz
             lb_Cod.Visible = true;
             tb_CodigoCliente.Visible = true;
 
-            tb_CodigoCliente.Text = dtg_Cliente[0, dtg_Cliente.CurrentCellAddress.Y].Value.ToString();     
+            tb_CodigoCliente.Text = dtg_Cliente[0, dtg_Cliente.CurrentCellAddress.Y].Value.ToString();
+
+        }
+
+        private void bt_Deleta_Click(object sender, EventArgs e)
+        {
+            
         }
 
         

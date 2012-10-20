@@ -12,6 +12,11 @@ namespace Matriz
 {
     public partial class Form_Venda : Form
     {
+        //philipe
+        public static List<Camadas.Peca> listaPecasSelecionadas;
+        //Camadas.Peca pecaSelecionada;
+        //
+
         public Form_Venda()
         {
             InitializeComponent();

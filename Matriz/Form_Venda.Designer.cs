@@ -38,7 +38,6 @@
             this.bt_Deleta = new System.Windows.Forms.Button();
             this.bt_gravar = new System.Windows.Forms.Button();
             this.dtg_Venda = new System.Windows.Forms.DataGridView();
-            this.dtg_col_Item = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -48,6 +47,7 @@
             this.bt_PesquisarCliente = new System.Windows.Forms.Button();
             this.myTextBox2 = new AutoPeçasUI.MyTextBox();
             this.myTextBox1 = new AutoPeçasUI.MyTextBox();
+            this.dtg_col_Item = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtg_col_DescricaoPeca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtg_col_PrecoUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtg_col_Quant = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -179,12 +179,6 @@
             this.dtg_Venda.Size = new System.Drawing.Size(959, 211);
             this.dtg_Venda.TabIndex = 13;
             // 
-            // dtg_col_Item
-            // 
-            this.dtg_col_Item.HeaderText = "Item";
-            this.dtg_col_Item.Name = "dtg_col_Item";
-            this.dtg_col_Item.ReadOnly = true;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -267,6 +261,12 @@
             this.myTextBox1.Name = "myTextBox1";
             this.myTextBox1.Size = new System.Drawing.Size(384, 20);
             this.myTextBox1.TabIndex = 14;
+            // 
+            // dtg_col_Item
+            // 
+            this.dtg_col_Item.HeaderText = "Item";
+            this.dtg_col_Item.Name = "dtg_col_Item";
+            this.dtg_col_Item.ReadOnly = true;
             // 
             // dtg_col_DescricaoPeca
             // 

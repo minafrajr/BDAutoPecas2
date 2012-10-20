@@ -10,6 +10,20 @@ namespace Camadas
     {
         DataAccess Acessoadados = new DataAccess(); //objeto da camada de acesso a dados
 
+
+        public int contapeca()
+        {
+            try
+            {
+                return Acessoadados.numpecas();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
         #region Leitura
 
         public DataTable LerDados(string tabela)
@@ -222,8 +236,25 @@ namespace Camadas
         }
         #endregion
 
-        #region deletar
+        #region Deletar
 
+
+
+        public void DeletarCliente(Cliente cliente)
+        {
+            try
+            {               
+
+                Acessoadados.DeletaCliente(cliente);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        
+        
         public void DeletarPeca(Peca peca)
         {
             try

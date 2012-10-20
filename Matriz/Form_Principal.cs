@@ -7,13 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml;
+using Camadas;
 
 namespace Matriz
 {
     public partial class Form_Principal : Form
     {
         private DateTime Tempo_Atual;
-
+        private BussinessLayer Negociacao = new BussinessLayer();
         public Form_Principal()
         {
             InitializeComponent();
@@ -24,7 +25,7 @@ namespace Matriz
         {
             Tempo_Atual = DateTime.Now;
             lb_status_time.Text = Tempo_Atual.ToLongDateString() + "  -  " + Tempo_Atual.ToLongTimeString();
-
+            lb_status_numpeca.Text = Negociacao.contapeca().ToString();
         }
 
         private void clienteToolStripMenuItem_Click(object sender, EventArgs e)

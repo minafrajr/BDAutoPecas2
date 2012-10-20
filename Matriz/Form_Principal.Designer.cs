@@ -45,7 +45,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menudestatus = new System.Windows.Forms.StatusStrip();
             this.lb_status_time = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lb_status_numpeca = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
             this.menudestatus.SuspendLayout();
             this.SuspendLayout();
@@ -164,7 +164,7 @@
             this.menudestatus.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menudestatus.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lb_status_time,
-            this.toolStripStatusLabel1});
+            this.lb_status_numpeca});
             this.menudestatus.Location = new System.Drawing.Point(0, 376);
             this.menudestatus.Name = "menudestatus";
             this.menudestatus.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
@@ -178,11 +178,11 @@
             this.lb_status_time.Name = "lb_status_time";
             this.lb_status_time.Size = new System.Drawing.Size(0, 0);
             // 
-            // toolStripStatusLabel1
+            // lb_status_numpeca
             // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(137, 21);
-            this.toolStripStatusLabel1.Text = ":Peças em estoque";
+            this.lb_status_numpeca.Name = "lb_status_numpeca";
+            this.lb_status_numpeca.Size = new System.Drawing.Size(137, 21);
+            this.lb_status_numpeca.Text = ":Peças em estoque";
             // 
             // Form_Principal
             // 
@@ -220,7 +220,7 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.StatusStrip menudestatus;
         private System.Windows.Forms.ToolStripStatusLabel lb_status_time;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel lb_status_numpeca;
         private System.Windows.Forms.ToolStripMenuItem pessoasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gerenciarVendedoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gerenciarToolStripMenuItem;

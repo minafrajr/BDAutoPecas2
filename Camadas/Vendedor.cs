@@ -7,12 +7,12 @@ namespace Camadas
 {
     public class Vendedor
     {
-        private int numeroCadastro;
+        private int idvendedor;
 
-        public int NumCadastro
+        public int IDVendedor
         {
-            get { return numeroCadastro; }
-            set { numeroCadastro = value; }
+            get { return idvendedor; }
+            set { idvendedor = value; }
         }
 
         private string nomevendedor;
