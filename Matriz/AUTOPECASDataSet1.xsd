@@ -466,10 +466,4 @@ SELECT IDPECA, NOMEPECA, IDFORNECEDOR, IDVEICULO FROM PECAS WHERE (IDPECA = @IDP
       <xs:field xpath="mstns:IdVeiculo" />
     </xs:unique>
   </xs:element>
-  <xs:annotation>
-    <xs:appinfo>
-      <msdata:Relationship name="FK_Pecas_Veiculos" msdata:parent="Veiculos" msdata:child="Pecas" msdata:parentkey="IdVeiculo" msdata:childkey="IDVeiculo" msprop:Generator_UserChildTable="Pecas" msprop:Generator_ChildPropName="GetPecasRows" msprop:Generator_UserParentTable="Veiculos" msprop:Generator_UserRelationName="FK_Pecas_Veiculos" msprop:Generator_RelationVarName="relationFK_Pecas_Veiculos" msprop:Generator_ParentPropName="VeiculosRow" />
-      <msdata:Relationship name="FK_Pecas_Fornecedores" msdata:parent="Fornecedores" msdata:child="Pecas" msdata:parentkey="IDFornecedor" msdata:childkey="IDFornecedor" msprop:Generator_UserChildTable="Pecas" msprop:Generator_ChildPropName="GetPecasRows" msprop:Generator_ParentPropName="FornecedoresRow" msprop:Generator_UserRelationName="FK_Pecas_Fornecedores" msprop:Generator_RelationVarName="relationFK_Pecas_Fornecedores" msprop:Generator_UserParentTable="Fornecedores" />
-    </xs:appinfo>
-  </xs:annotation>
 </xs:schema>

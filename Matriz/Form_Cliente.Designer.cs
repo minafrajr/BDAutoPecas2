@@ -267,6 +267,7 @@
             this.bt_filtrar.Size = new System.Drawing.Size(45, 45);
             this.bt_filtrar.TabIndex = 4;
             this.bt_filtrar.UseVisualStyleBackColor = false;
+            this.bt_filtrar.Click += new System.EventHandler(this.bt_filtrar_Click);
             // 
             // Bt_busca1
             // 
@@ -279,6 +280,7 @@
             this.Bt_busca1.Size = new System.Drawing.Size(45, 46);
             this.Bt_busca1.TabIndex = 3;
             this.Bt_busca1.UseVisualStyleBackColor = false;
+            this.Bt_busca1.Click += new System.EventHandler(this.Bt_busca1_Click);
             // 
             // bt_Atualiza
             // 
@@ -291,6 +293,7 @@
             this.bt_Atualiza.Size = new System.Drawing.Size(46, 45);
             this.bt_Atualiza.TabIndex = 1;
             this.bt_Atualiza.UseVisualStyleBackColor = false;
+            this.bt_Atualiza.Click += new System.EventHandler(this.bt_Atualiza_Click);
             // 
             // bt_Deleta
             // 
@@ -366,6 +369,7 @@
             this.tb_CodigoCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_CodigoCliente.Location = new System.Drawing.Point(795, 54);
             this.tb_CodigoCliente.Name = "tb_CodigoCliente";
+            this.tb_CodigoCliente.ReadOnly = true;
             this.tb_CodigoCliente.Size = new System.Drawing.Size(63, 22);
             this.tb_CodigoCliente.TabIndex = 5;
             this.tb_CodigoCliente.Visible = false;
@@ -388,7 +392,7 @@
             this.mask_CPFCNPJ.Name = "mask_CPFCNPJ";
             this.mask_CPFCNPJ.Size = new System.Drawing.Size(141, 22);
             this.mask_CPFCNPJ.TabIndex = 4;
-            this.mask_CPFCNPJ.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.mask_CPFCNPJ.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
             // 
             // label9
             // 
@@ -475,7 +479,7 @@
             this.dtg_Cliente.AllowUserToDeleteRows = false;
             this.dtg_Cliente.AllowUserToResizeColumns = false;
             this.dtg_Cliente.AllowUserToResizeRows = false;
-            this.dtg_Cliente.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
+            this.dtg_Cliente.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dtg_Cliente.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtg_Cliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_Cliente.Dock = System.Windows.Forms.DockStyle.Bottom;

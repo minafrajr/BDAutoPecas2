@@ -43,7 +43,6 @@
             this.fORNECEDORESBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.aUTOPECASDataSet11 = new Matriz.AUTOPECASDataSet1();
             this.autopecasDataSet1 = new Matriz.AUTOPECASDataSet();
-            this.binsourcePecas = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.bt_gravar = new System.Windows.Forms.Button();
             this.bt_Deleta = new System.Windows.Forms.Button();
@@ -51,7 +50,6 @@
             this.bt_Sair = new System.Windows.Forms.Button();
             this.bt_filtrar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.pecasTableAdapter = new Matriz.AUTOPECASDataSetTableAdapters.PecasTableAdapter();
             this.cmb_IDVeiculo = new System.Windows.Forms.ComboBox();
             this.veiculosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoriasBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -73,7 +71,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.fORNECEDORESBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aUTOPECASDataSet11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.autopecasDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.binsourcePecas)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.veiculosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriasBindingSource)).BeginInit();
@@ -108,7 +105,11 @@
             // 
             // dtg_Produtos
             // 
+            this.dtg_Produtos.AllowUserToAddRows = false;
+            this.dtg_Produtos.AllowUserToDeleteRows = false;
             this.dtg_Produtos.AllowUserToOrderColumns = true;
+            this.dtg_Produtos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dtg_Produtos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtg_Produtos.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dtg_Produtos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -130,7 +131,9 @@
             this.dtg_Produtos.DefaultCellStyle = dataGridViewCellStyle2;
             resources.ApplyResources(this.dtg_Produtos, "dtg_Produtos");
             this.dtg_Produtos.GridColor = System.Drawing.SystemColors.ButtonFace;
+            this.dtg_Produtos.MultiSelect = false;
             this.dtg_Produtos.Name = "dtg_Produtos";
+            this.dtg_Produtos.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -173,11 +176,6 @@
             // 
             this.autopecasDataSet1.DataSetName = "AUTOPECASDataSet";
             this.autopecasDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // binsourcePecas
-            // 
-            this.binsourcePecas.DataMember = "Pecas";
-            this.binsourcePecas.DataSource = this.autopecasDataSet1;
             // 
             // label2
             // 
@@ -232,10 +230,6 @@
             resources.ApplyResources(this.label5, "label5");
             this.label5.Name = "label5";
             // 
-            // pecasTableAdapter
-            // 
-            this.pecasTableAdapter.ClearBeforeFill = true;
-            // 
             // cmb_IDVeiculo
             // 
             this.cmb_IDVeiculo.Cursor = System.Windows.Forms.Cursors.Default;
@@ -268,7 +262,7 @@
             this.tableAdapterManager.CategoriasTableAdapter = this.categoriasTableAdapter;
             this.tableAdapterManager.ClientesTableAdapter = null;
             this.tableAdapterManager.FornecedoresTableAdapter = null;
-            this.tableAdapterManager.PecasTableAdapter = this.pecasTableAdapter;
+            this.tableAdapterManager.PecasTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = Matriz.AUTOPECASDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.VeiculosTableAdapter = null;
             // 
@@ -331,8 +325,13 @@
             // 
             // mskt_preco
             // 
+            this.mskt_preco.BeepOnError = true;
+            this.mskt_preco.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.mskt_preco.HidePromptOnLeave = true;
+            this.mskt_preco.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Insert;
             resources.ApplyResources(this.mskt_preco, "mskt_preco");
             this.mskt_preco.Name = "mskt_preco";
+            this.mskt_preco.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // mskt_quantidade
             // 
@@ -372,7 +371,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.fORNECEDORESBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aUTOPECASDataSet11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.autopecasDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.binsourcePecas)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.veiculosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriasBindingSource)).EndInit();
@@ -398,8 +396,6 @@
         private System.Windows.Forms.Button bt_filtrar;
         private System.Windows.Forms.Button bt_Sair;
         private AUTOPECASDataSet autopecasDataSet1;
-        private System.Windows.Forms.BindingSource binsourcePecas;
-        private AUTOPECASDataSetTableAdapters.PecasTableAdapter pecasTableAdapter;
         private System.Windows.Forms.ComboBox cmb_IDVeiculo;
         private System.Windows.Forms.BindingSource categoriasBindingSource;
         private AUTOPECASDataSetTableAdapters.CategoriasTableAdapter categoriasTableAdapter;

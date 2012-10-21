@@ -38,7 +38,7 @@ namespace Camadas
             {
                 int num;
                 DataTable dt = new DataTable();
-                comandosql = "SELECT Count(IDPeca) FROM Pecas" ;
+                comandosql = "SELECT Count(IDPeca) FROM Pecas";
 
                 using (Conectionsql = new SqlConnection(conexao))
                 {
@@ -47,16 +47,16 @@ namespace Camadas
                     using (ComandoTSQL = new SqlCommand(comandosql, Conectionsql))
                     {
                         SqlDataReader Leitor = ComandoTSQL.ExecuteReader();
-                        
+
                         //dt.Load(Leitor);
-                        num =  Convert.ToInt32(Leitor[0]);
+                        num = Convert.ToInt32(Leitor[0]);
                         Leitor.Close();
                     }
                     Conectionsql.Close();
                 }
 
 
-                 return num;
+                return num;
             }
             catch (SqlException ex)
             {
@@ -95,6 +95,53 @@ namespace Camadas
             }
         }
 
+        public void AtualizaCliente(Cliente cliente)
+        {
+            try
+            {
+                comandosql = "UPDATE clientes SET NOMECLIENTE = @NOMECLIENTE, CNPJ = @CNPJ, CPF = @CPF, ENDERECOCLIENTE = @ENDERECOCLIENTE, BAIRRO = @BAIRRO, CEP = @CEP, TELEFONECLIENTE = @TELEFONECLIENTE, CELULARCLIENTE = @CELULARCLIENTE, CIDADE = @CIDADE, UF = @UF, NUMRESIDENCIA = @NUMRESIDENCIA Where IDCliente = @IDCliente";
+
+                using (Conectionsql = new SqlConnection(conexao))
+                {
+                    Conectionsql.Open();
+                    using (ComandoTSQL = new SqlCommand(comandosql, Conectionsql))
+                    {
+                        ComandoTSQL.Parameters.AddWithValue("@IDCliente", cliente.ID_Cliente);
+                        ComandoTSQL.Parameters.AddWithValue("@NomeCliente", cliente.NomeCliente);
+
+                        if (cliente.CNPJ != null)
+                            ComandoTSQL.Parameters.AddWithValue("@CNPJ", cliente.CNPJ);
+                        else
+                            ComandoTSQL.Parameters.AddWithValue("@CNPJ", '-');
+
+                        if (cliente.CPF != null)
+                            ComandoTSQL.Parameters.AddWithValue("@CPF", cliente.CPF);
+                        else
+                            ComandoTSQL.Parameters.AddWithValue("@CPF", '-');
+
+
+                        ComandoTSQL.Parameters.AddWithValue("@EnderecoCliente", cliente.Logradouro);
+                        ComandoTSQL.Parameters.AddWithValue("@Bairro", cliente.Bairro);
+                        ComandoTSQL.Parameters.AddWithValue("@TelefoneCliente", cliente.Telefone_Fixo);
+                        ComandoTSQL.Parameters.AddWithValue("@CelularCliente", cliente.Telefone_Celular);
+                        ComandoTSQL.Parameters.AddWithValue("@Cidade", cliente.Cidade);
+                        ComandoTSQL.Parameters.AddWithValue("@CEP", cliente.CEP);
+                        ComandoTSQL.Parameters.AddWithValue("@UF", cliente.UF);
+                        ComandoTSQL.Parameters.AddWithValue("@Numresidencia", cliente.N_Residencia);
+
+                        ComandoTSQL.ExecuteNonQuery();
+                    }
+                    Conectionsql.Close();
+                }
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            
+        }
+
         public void AtualizaCategoria(Categoria categoria)
         {
             try
@@ -107,6 +154,7 @@ namespace Camadas
                     {
                         ComandoTSQL.Parameters.AddWithValue("@IDCategoria", categoria.IDCategoria);
                         ComandoTSQL.Parameters.AddWithValue("@NomeCategoria", categoria.NomeCategoria);
+                        ComandoTSQL.Parameters.AddWithValue("@Descricao", categoria.Descricao);
 
                         ComandoTSQL.ExecuteNonQuery();
                     }
@@ -116,10 +164,6 @@ namespace Camadas
             catch (SqlException erro)
             {
                 throw erro;
-            }
-            finally
-            {
-                Conectionsql.Close();
             }
         }
 
@@ -400,7 +444,7 @@ namespace Camadas
                     Conectionsql.Open();
                     using (ComandoTSQL = new SqlCommand(comandosql, Conectionsql))
                     {
-                        ComandoTSQL.Parameters.AddWithValue("@NomeCliente", cliente.ID_Cliente);
+                        ComandoTSQL.Parameters.AddWithValue("@IDCliente", cliente.ID_Cliente);
                         ComandoTSQL.ExecuteNonQuery();
                     }
                     Conectionsql.Close();
@@ -427,7 +471,7 @@ namespace Camadas
 
                 comandosql = "DELETE FROM ";
 
-                
+
 
                 switch (objetoASerDeletado.GetType().ToString())
                 {
@@ -467,7 +511,7 @@ namespace Camadas
 
                 comandosql += " = @ID";
                 ComandoTSQL.CommandText = comandosql;
-                
+
                 ComandoTSQL.ExecuteNonQuery();
 
             }
@@ -653,11 +697,38 @@ namespace Camadas
             }
         }
 
+        public DataTable FiltraCliente(string param)
+        {
+            try
+            {
+                comandosql = "SELECT * FROM Clientes WHERE Nomecliente = '" + param + "'";
+
+                using (Conectionsql = new SqlConnection(conexao))
+                {
+                    Conectionsql.Open();
+                    DataTable dt = new DataTable();
+
+                    using (ComandoTSQL = new SqlCommand(comandosql, Conectionsql))
+                    {
+                        SqlDataReader Leitor = ComandoTSQL.ExecuteReader();
+                        dt.Load(Leitor);
+                        Leitor.Close();
+                    }
+                    Conectionsql.Close();
+                    return dt;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public DataTable FiltraCategoria(string param)
         {
             try
             {
-                Categoria categoria = new Categoria();
                 comandosql = "SELECT * FROM Categorias WHERE NomeCategoria = '" + param + "'";
 
                 using (Conectionsql = new SqlConnection(conexao))
@@ -686,7 +757,7 @@ namespace Camadas
         {
             try
             {
-                comandosql = "INSERT INTO Pecas VALUES (@NomePeca, @IDFornecedor, @IDVeiculo, @AnoVeiculo,@Quant,@Preco, @IDCategoria)";
+                comandosql = "INSERT INTO Pecas VALUES (@NomePeca, @IDFornecedor, @IDVeiculo, @Quant,@Preco, @IDCategoria)";
 
                 using (Conectionsql = new SqlConnection(conexao))
                 {
@@ -708,10 +779,6 @@ namespace Camadas
             catch (SqlException erro)
             {
                 throw erro;
-            }
-            finally
-            {
-                Conectionsql.Close();
             }
         }
 
@@ -772,7 +839,7 @@ namespace Camadas
         {
             try
             {
-                comandosql = "INSERT INTO Clientes VALUES (@NomeCliente,@CNPJ,@CPF,@EnderecoCliente,@Bairro,@CEP,@TelefoneCliente, @CelularCliente,@Cidade,@UF)";
+                comandosql = "INSERT INTO Clientes VALUES (@NomeCliente,@CNPJ,@CPF,@EnderecoCliente,@Bairro,@CEP,@TelefoneCliente, @CelularCliente,@Cidade,@UF, @Numresidencia)";
 
                 using (Conectionsql = new SqlConnection(conexao))
                 {
@@ -782,14 +849,14 @@ namespace Camadas
                         ComandoTSQL.Parameters.AddWithValue("@NomeCliente", cliente.NomeCliente);
 
                         if (cliente.CNPJ != null)
-                            ComandoTSQL.Parameters.AddWithValue("@CNPJ", Convert.ToDouble(cliente.CNPJ));
+                            ComandoTSQL.Parameters.AddWithValue("@CNPJ", cliente.CNPJ);
                         else
-                            ComandoTSQL.Parameters.AddWithValue("@CNPJ", 0);
+                            ComandoTSQL.Parameters.AddWithValue("@CNPJ", '-');
 
                         if (cliente.CPF != null)
-                            ComandoTSQL.Parameters.AddWithValue("@CPF", Convert.ToDouble(cliente.CPF));
+                            ComandoTSQL.Parameters.AddWithValue("@CPF", cliente.CPF);
                         else
-                            ComandoTSQL.Parameters.AddWithValue("@CPF", 0);
+                            ComandoTSQL.Parameters.AddWithValue("@CPF", '-');
 
 
                         ComandoTSQL.Parameters.AddWithValue("@EnderecoCliente", cliente.Logradouro);
@@ -799,6 +866,7 @@ namespace Camadas
                         ComandoTSQL.Parameters.AddWithValue("@Cidade", cliente.Cidade);
                         ComandoTSQL.Parameters.AddWithValue("@CEP", cliente.CEP);
                         ComandoTSQL.Parameters.AddWithValue("@UF", cliente.UF);
+                        ComandoTSQL.Parameters.AddWithValue("@Numresidencia", cliente.N_Residencia);
 
                         ComandoTSQL.ExecuteNonQuery();
                     }
@@ -900,6 +968,36 @@ namespace Camadas
             catch (SqlException)
             {
                 throw;
+            }
+            finally
+            {
+                Conectionsql.Close();
+            }
+        }
+
+        public DataTable PesquisaCliente(string pesquisa)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                comandosql = "SELECT * FROM Clientes WHERE NomeCliente LIKE '%" + pesquisa + "%'";
+
+                using (Conectionsql = new SqlConnection(conexao))
+                {
+                    Conectionsql.Open();
+
+                    using (ComandoTSQL = new SqlCommand(comandosql, Conectionsql))
+                    {
+                        SqlDataReader Leitor = ComandoTSQL.ExecuteReader(CommandBehavior.CloseConnection);
+                        dt.Load(Leitor);
+                        Leitor.Close();
+                    }
+                    return dt;
+                }
+            }
+            catch (Exception erro)
+            {
+                throw erro;
             }
             finally
             {

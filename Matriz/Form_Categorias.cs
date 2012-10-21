@@ -79,8 +79,10 @@ namespace Matriz
         {
             try
             {
+                categoria.IDCategoria = Convert.ToInt16(tb_IDCategoria.Text);
                 categoria.NomeCategoria = tb_NomeCategoria.Text;
                 categoria.Descricao = tb_DescriCatg.Text;
+                
 
                 Negociacao.AtualizarCategoria(categoria);
                 CarregaTabela();
@@ -103,7 +105,7 @@ namespace Matriz
             {
                 categoria.IDCategoria = Convert.ToInt16(tb_IDCategoria.Text);
 
-                if (MessageBox.Show("Deseja excluir a categoria" + tb_NomeCategoria.Text + " de código ???", "Test", MessageBoxButtons.YesNo).Equals(DialogResult.Yes))
+                if (MessageBox.Show("Deseja excluir a categoria  " + tb_NomeCategoria.Text.ToUpper() +" ?", "Test", MessageBoxButtons.YesNo).Equals(DialogResult.Yes))
                 {
                     //Negociacao.DeletarCategoria(categoria);
                     Negociacao.DeletarPhilipe(categoria);
@@ -198,7 +200,12 @@ namespace Matriz
             lb_Codigo.Visible = true;
             tb_IDCategoria.Visible = true;
 
+
             tb_IDCategoria.Text = dtg_Categorias[0, dtg_Categorias.CurrentCellAddress.Y].Value.ToString();
+            tb_NomeCategoria.Text = dtg_Categorias[1, dtg_Categorias.CurrentCellAddress.Y].Value.ToString();
+            tb_DescriCatg.Text = dtg_Categorias[2, dtg_Categorias.CurrentCellAddress.Y].Value.ToString();
+            
+
         }
 
 

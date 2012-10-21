@@ -236,14 +236,22 @@
             // 
             // cb_fabricante
             // 
+            this.cb_fabricante.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cb_fabricante.FormattingEnabled = true;
             this.cb_fabricante.Items.AddRange(new object[] {
+            "",
             "Agrale",
             "Fiat",
             "Ford",
+            "Honda",
+            "Hyundai",
             "Chevrolet",
             "Volkswagen",
-            "Dodge"});
+            "Dodge",
+            "Citroen",
+            "Jac",
+            "Ferrari",
+            "BMW"});
             this.cb_fabricante.Location = new System.Drawing.Point(447, 42);
             this.cb_fabricante.Name = "cb_fabricante";
             this.cb_fabricante.Size = new System.Drawing.Size(121, 21);

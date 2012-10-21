@@ -28,7 +28,6 @@ namespace Camadas
         }
 
         private string cpf;
-        
         public string CPF
         {
             get { return cpf; }
@@ -97,7 +96,8 @@ namespace Camadas
             get { return telefone_celular; }
             set { telefone_celular = value; }
         }
-                
+
+          
         
 
         #endregion

@@ -55,9 +55,9 @@ namespace Camadas
             set { telefonecelular = value; }
         }
 
-        private double cpf;
+        private string cpf;
 
-        public double CPF
+        public string CPF
         {
             get { return cpf; }
             set { cpf = value; }

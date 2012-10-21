@@ -42,6 +42,18 @@ namespace Camadas
 
         #region Atualizar
 
+        public void AtualizarCliente(Cliente cliente)
+        {
+            try
+            {
+                Acessoadados.AtualizaCliente(cliente);
+            }
+            catch (Exception erro)
+            {
+                throw erro;
+            }
+        }
+
         public void Atualizar(Peca peca)
         {
             try
@@ -55,7 +67,7 @@ namespace Camadas
                 throw erro;
             }
         }
-        
+
         public void AtualizarVeiculo(Veiculo veiculo)
         {
             try
@@ -103,13 +115,28 @@ namespace Camadas
             {
                 throw erro;
             }
-        
+
         }
 
         #endregion
 
         #region Pesquisar
 
+        public DataTable PocurarCliente(string pesquisa)
+        {
+            try
+            {
+                return Acessoadados.PesquisaCliente(pesquisa);
+
+            }
+            catch (Exception erro)
+            {
+                
+                throw erro;
+            }
+        }
+        
+        
         public DataTable Procurar(string pesquisa)
         {
             try
@@ -243,8 +270,7 @@ namespace Camadas
         public void DeletarCliente(Cliente cliente)
         {
             try
-            {               
-
+            {
                 Acessoadados.DeletaCliente(cliente);
             }
             catch (Exception ex)
@@ -253,8 +279,8 @@ namespace Camadas
                 throw ex;
             }
         }
-        
-        
+
+
         public void DeletarPeca(Peca peca)
         {
             try
@@ -316,7 +342,7 @@ namespace Camadas
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
@@ -330,6 +356,19 @@ namespace Camadas
             try
             {
                 return Acessoadados.Filtrapeca(pesquisa);
+            }
+            catch (Exception erro)
+            {
+
+                throw erro;
+            }
+        }
+
+        public DataTable FiltrarCliente(string pesquisa)
+        {
+            try
+            {
+                return Acessoadados.PesquisaCliente(pesquisa);
             }
             catch (Exception erro)
             {
@@ -376,5 +415,5 @@ namespace Camadas
         #endregion
     }
 
-        
+
 }

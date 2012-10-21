@@ -34,10 +34,6 @@ namespace Matriz {
         
         private VeiculosDataTable tableVeiculos;
         
-        private global::System.Data.DataRelation relationFK_Pecas_Veiculos;
-        
-        private global::System.Data.DataRelation relationFK_Pecas_Fornecedores;
-        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -294,8 +290,6 @@ namespace Matriz {
                     this.tableVeiculos.InitVars();
                 }
             }
-            this.relationFK_Pecas_Veiculos = this.Relations["FK_Pecas_Veiculos"];
-            this.relationFK_Pecas_Fornecedores = this.Relations["FK_Pecas_Fornecedores"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -316,14 +310,6 @@ namespace Matriz {
             base.Tables.Add(this.tablePecas);
             this.tableVeiculos = new VeiculosDataTable();
             base.Tables.Add(this.tableVeiculos);
-            this.relationFK_Pecas_Veiculos = new global::System.Data.DataRelation("FK_Pecas_Veiculos", new global::System.Data.DataColumn[] {
-                        this.tableVeiculos.IdVeiculoColumn}, new global::System.Data.DataColumn[] {
-                        this.tablePecas.IDVeiculoColumn}, false);
-            this.Relations.Add(this.relationFK_Pecas_Veiculos);
-            this.relationFK_Pecas_Fornecedores = new global::System.Data.DataRelation("FK_Pecas_Fornecedores", new global::System.Data.DataColumn[] {
-                        this.tableFornecedores.IDFornecedorColumn}, new global::System.Data.DataColumn[] {
-                        this.tablePecas.IDFornecedorColumn}, false);
-            this.Relations.Add(this.relationFK_Pecas_Fornecedores);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1506,19 +1492,13 @@ namespace Matriz {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public PecasRow AddPecasRow(int IDPeca, string NomePeca, FornecedoresRow parentFornecedoresRowByFK_Pecas_Fornecedores, VeiculosRow parentVeiculosRowByFK_Pecas_Veiculos) {
+            public PecasRow AddPecasRow(int IDPeca, string NomePeca, int IDFornecedor, int IDVeiculo) {
                 PecasRow rowPecasRow = ((PecasRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         IDPeca,
                         NomePeca,
-                        null,
-                        null};
-                if ((parentFornecedoresRowByFK_Pecas_Fornecedores != null)) {
-                    columnValuesArray[2] = parentFornecedoresRowByFK_Pecas_Fornecedores[0];
-                }
-                if ((parentVeiculosRowByFK_Pecas_Veiculos != null)) {
-                    columnValuesArray[3] = parentVeiculosRowByFK_Pecas_Veiculos[0];
-                }
+                        IDFornecedor,
+                        IDVeiculo};
                 rowPecasRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPecasRow);
                 return rowPecasRow;
@@ -2338,17 +2318,6 @@ namespace Matriz {
             public void SetCEPFornecedorNull() {
                 this[this.tableFornecedores.CEPFornecedorColumn] = global::System.Convert.DBNull;
             }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public PecasRow[] GetPecasRows() {
-                if ((this.Table.ChildRelations["FK_Pecas_Fornecedores"] == null)) {
-                    return new PecasRow[0];
-                }
-                else {
-                    return ((PecasRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Pecas_Fornecedores"])));
-                }
-            }
         }
         
         /// <summary>
@@ -2411,28 +2380,6 @@ namespace Matriz {
                 }
                 set {
                     this[this.tablePecas.IDVeiculoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public VeiculosRow VeiculosRow {
-                get {
-                    return ((VeiculosRow)(this.GetParentRow(this.Table.ParentRelations["FK_Pecas_Veiculos"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Pecas_Veiculos"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public FornecedoresRow FornecedoresRow {
-                get {
-                    return ((FornecedoresRow)(this.GetParentRow(this.Table.ParentRelations["FK_Pecas_Fornecedores"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Pecas_Fornecedores"]);
                 }
             }
             
@@ -2533,17 +2480,6 @@ namespace Matriz {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetAnoFinalNull() {
                 this[this.tableVeiculos.AnoFinalColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public PecasRow[] GetPecasRows() {
-                if ((this.Table.ChildRelations["FK_Pecas_Veiculos"] == null)) {
-                    return new PecasRow[0];
-                }
-                else {
-                    return ((PecasRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Pecas_Veiculos"])));
-                }
             }
         }
         
@@ -4761,6 +4697,15 @@ SELECT IDPECA, NOMEPECA, IDFORNECEDOR, IDVEICULO FROM PECAS WHERE (IDPECA = @IDP
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateUpdatedRows(AUTOPECASDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
+            if ((this._pecasTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Pecas.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._pecasTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._veiculosTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Veiculos.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -4788,15 +4733,6 @@ SELECT IDPECA, NOMEPECA, IDFORNECEDOR, IDVEICULO FROM PECAS WHERE (IDPECA = @IDP
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._pecasTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Pecas.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._pecasTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._clientesTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Clientes.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -4816,6 +4752,14 @@ SELECT IDPECA, NOMEPECA, IDFORNECEDOR, IDVEICULO FROM PECAS WHERE (IDPECA = @IDP
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateInsertedRows(AUTOPECASDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
+            if ((this._pecasTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Pecas.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._pecasTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._veiculosTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Veiculos.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -4837,14 +4781,6 @@ SELECT IDPECA, NOMEPECA, IDFORNECEDOR, IDVEICULO FROM PECAS WHERE (IDPECA = @IDP
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._categoriasTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._pecasTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Pecas.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._pecasTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -4874,14 +4810,6 @@ SELECT IDPECA, NOMEPECA, IDFORNECEDOR, IDVEICULO FROM PECAS WHERE (IDPECA = @IDP
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._pecasTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Pecas.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._pecasTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._categoriasTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Categorias.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -4903,6 +4831,14 @@ SELECT IDPECA, NOMEPECA, IDFORNECEDOR, IDVEICULO FROM PECAS WHERE (IDPECA = @IDP
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._veiculosTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._pecasTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Pecas.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._pecasTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }

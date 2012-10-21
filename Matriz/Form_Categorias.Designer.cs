@@ -146,6 +146,8 @@
             // 
             // dtg_Categorias
             // 
+            this.dtg_Categorias.AllowUserToAddRows = false;
+            this.dtg_Categorias.AllowUserToDeleteRows = false;
             this.dtg_Categorias.AllowUserToOrderColumns = true;
             this.dtg_Categorias.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.dtg_Categorias.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -193,6 +195,7 @@
             // 
             this.tb_IDCategoria.Location = new System.Drawing.Point(354, 55);
             this.tb_IDCategoria.Name = "tb_IDCategoria";
+            this.tb_IDCategoria.ReadOnly = true;
             this.tb_IDCategoria.Size = new System.Drawing.Size(44, 20);
             this.tb_IDCategoria.TabIndex = 20;
             this.tb_IDCategoria.Visible = false;

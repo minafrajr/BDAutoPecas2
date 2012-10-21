@@ -905,9 +905,6 @@
   <metadata name="autopecasDataSet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="binsourcePecas.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>173, 17</value>
-  </metadata>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -1590,9 +1587,6 @@
   <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
     <value>16</value>
   </data>
-  <metadata name="pecasTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>308, 17</value>
-  </metadata>
   <metadata name="veiculosBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>449, 56</value>
   </metadata>
@@ -1861,10 +1855,10 @@
     <value>294, 94</value>
   </data>
   <data name="mskt_preco.Mask" xml:space="preserve">
-    <value>$ ,00</value>
+    <value>$ ##.###,##</value>
   </data>
   <data name="mskt_preco.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
+    <value>82, 20</value>
   </data>
   <data name="mskt_preco.TabIndex" type="System.Int32, mscorlib">
     <value>27</value>
@@ -1885,7 +1879,7 @@
     <value>98, 94</value>
   </data>
   <data name="mskt_quantidade.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
+    <value>55, 20</value>
   </data>
   <data name="mskt_quantidade.TabIndex" type="System.Int32, mscorlib">
     <value>28</value>
@@ -1940,18 +1934,6 @@
   </data>
   <data name="&gt;&gt;autopecasDataSet1.Type" xml:space="preserve">
     <value>Matriz.AUTOPECASDataSet, AUTOPECASDataSet1.Designer.cs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;binsourcePecas.Name" xml:space="preserve">
-    <value>binsourcePecas</value>
-  </data>
-  <data name="&gt;&gt;binsourcePecas.Type" xml:space="preserve">
-    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pecasTableAdapter.Name" xml:space="preserve">
-    <value>pecasTableAdapter</value>
-  </data>
-  <data name="&gt;&gt;pecasTableAdapter.Type" xml:space="preserve">
-    <value>Matriz.AUTOPECASDataSetTableAdapters.PecasTableAdapter, AUTOPECASDataSet1.Designer.cs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;veiculosBindingSource.Name" xml:space="preserve">
     <value>veiculosBindingSource</value>

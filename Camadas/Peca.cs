@@ -28,17 +28,17 @@ namespace Camadas
             set { idcategoria = value; }
         }
 
-        private uint precounitario;
+        private double precounitario;
 
-        public uint PrecoUnitario
+        public double PrecoUnitario
         {
             get { return precounitario; }
             set { precounitario = value; }
         }
 
-        private uint quantidadeestoque;
+        private int quantidadeestoque;
 
-        public uint  QuatidadeEstoque
+        public int  QuatidadeEstoque
         {
             get { return quantidadeestoque; }
             set { quantidadeestoque = value; }

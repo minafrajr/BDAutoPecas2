@@ -18,10 +18,7 @@ namespace Matriz
 
         private void Report_Load(object sender, EventArgs e)
         {
-            // TODO: esta linha de código carrega dados na tabela 'AUTOPECASDataSet.Pecas'. Você pode movê-la ou removê-la conforme necessário.
-            this.PecasTableAdapter.Fill(this.AUTOPECASDataSet.Pecas);
-
-            this.reportViewer1.RefreshReport();
+           this.reportViewer1.RefreshReport();
         }
     }
 }

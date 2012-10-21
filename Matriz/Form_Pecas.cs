@@ -34,8 +34,7 @@ namespace Matriz
             this.veiculosTableAdapter.Fill(this.autopecasDataSet1.Veiculos);
             // TODO: esta linha de código carrega dados na tabela 'autopecasDataSet1.Categorias'. Você pode movê-la ou removê-la conforme necessário.
             this.categoriasTableAdapter.Fill(this.autopecasDataSet1.Categorias);
-            // TODO: esta linha de código carrega dados na tabela 'autopecasDataSet1.Veiculos'. Você pode movê-la ou removê-la conforme necessário.
-            this.pecasTableAdapter.Fill(this.autopecasDataSet1.Pecas);
+            
             dtg_Produtos.DataSource = Negociacao.LerDados("Pecas");
             //cmb_fornecedor_peças.DataSource = função que repassa um datatable com as chaves dos fornecedores;
             Dicas_Botões();
@@ -117,6 +116,9 @@ namespace Matriz
                 peca.IDVeiculo = Convert.ToInt32(cmb_IDVeiculo.SelectedValue);
                 peca.IDFornecedor = Convert.ToInt32(cmb_codigofornecedor_peças.SelectedValue);
                 peca.IDCategoria = Convert.ToInt32(idCategoriaComboBox.SelectedValue);
+                peca.QuatidadeEstoque = Convert.ToInt32( mskt_quantidade.Text);
+                peca.PrecoUnitario = Convert.ToDouble(mskt_preco.Text);
+
                 
                 Negociacao.GravarPeca(peca);
                 
@@ -183,7 +185,7 @@ namespace Matriz
             tb_IDpeca.Visible = true;
             label5.Visible = true;
 
-            tb_IDpeca.Text = dtg_Produtos.Rows[dtg_Produtos.CurrentCellAddress.X].Cells[1].Value.ToString();
+            tb_IDpeca.Text = dtg_Produtos[0,dtg_Produtos.CurrentCellAddress.Y].Value.ToString();
 
         }
 

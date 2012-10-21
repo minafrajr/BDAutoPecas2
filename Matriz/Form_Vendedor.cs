@@ -49,9 +49,9 @@ namespace Matriz
             {
                 vendedor.NomeVendedor = tb_NomeVendedor.Text;
                 vendedor.Endereco = tb_endrua.Text + " nº " + tb_numerocasa.Text + " compl. " + tb_complemento.Text+" bairro"+tb_bairrro.Text;
-                vendedor.CPF = Convert.ToDouble(msktb_CPF.Text);
-                vendedor.DataAdmissao = dtp_Admissão.Value;
-                vendedor.EstadoCivil = cmb_estadocivil.SelectedText;
+                vendedor.CPF = msktb_CPF.Text;
+                vendedor.DataAdmissao = dtp_Admissão.Value.Date;
+                vendedor.EstadoCivil = cmb_estadocivil.SelectedItem.ToString();
                 vendedor.TelefoneCelular = msktb_TelCelular.Text;
                 vendedor.TelefoneFixo = msktb_Telfixo.Text;
 

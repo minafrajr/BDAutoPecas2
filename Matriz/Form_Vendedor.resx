@@ -2007,6 +2007,9 @@
   <data name="msktb_TelCelular.Location" type="System.Drawing.Point, System.Drawing">
     <value>369, 153</value>
   </data>
+  <data name="msktb_TelCelular.Mask" xml:space="preserve">
+    <value>(99) 0000-0000</value>
+  </data>
   <data name="msktb_TelCelular.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 20</value>
   </data>
@@ -2027,6 +2030,9 @@
   </data>
   <data name="msktb_Telfixo.Location" type="System.Drawing.Point, System.Drawing">
     <value>113, 151</value>
+  </data>
+  <data name="msktb_Telfixo.Mask" xml:space="preserve">
+    <value>(99) 0000-0000</value>
   </data>
   <data name="msktb_Telfixo.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 20</value>
