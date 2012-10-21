@@ -10,9 +10,9 @@ namespace Camadas
 
         #region Propriedades e Atributos
 
-        private uint idveiculo;
+        private int idveiculo;
 
-        public uint IDVeiculo
+        public int IDVeiculo
         {
             get { return idveiculo; }
             set { idveiculo = value; }
@@ -93,7 +93,7 @@ namespace Camadas
         /// <param name="_anoinicial">ano inicial do veiculo que a peca serve</param>
         /// <param name="_anofinal">ano témino do veiculo que a perça serve</param>
         /// <param name="_cilindrada">a potencia em cilindrada do veiculo</param>
-        public Veiculo(uint _idveiculo,string _nomeveiculo,string _fabricante,string _marca,string _modelo,DateTime _anoinicial, DateTime _anofinal,double _cilindrada )
+        public Veiculo(int _idveiculo,string _nomeveiculo,string _fabricante,string _marca,string _modelo,DateTime _anoinicial, DateTime _anofinal,double _cilindrada )
         {
             this.idveiculo = _idveiculo;
             this.nomeveiculo = _nomeveiculo;

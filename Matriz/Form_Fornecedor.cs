@@ -169,6 +169,14 @@ namespace Matriz
             }
         }
 
+        private void dtgv_fornecedores_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            tb_IDFornecedor.Visible = true;
+            lb_codigofornecedor.Visible = true;
+
+            tb_IDFornecedor.Text = dtgv_fornecedores[0, dtgv_fornecedores.CurrentCellAddress.Y].Value.ToString();
+        }
+
 
 
     }

@@ -26,12 +26,12 @@ namespace Matriz
        
         private void Form_Pecas_Load(object sender, EventArgs e)
         {
+            // TODO: esta linha de código carrega dados na tabela 'aUTOPECASDataSet11.FORNECEDORES'. Você pode movê-la ou removê-la conforme necessário.
+            this.fORNECEDORESTableAdapter.Fill(this.aUTOPECASDataSet11.FORNECEDORES);
             // TODO: esta linha de código carrega dados na tabela 'autopecasDataSet1.Veiculos'. Você pode movê-la ou removê-la conforme necessário.
             this.veiculosTableAdapter.Fill(this.autopecasDataSet1.Veiculos);
             // TODO: esta linha de código carrega dados na tabela 'autopecasDataSet1.Veiculos'. Você pode movê-la ou removê-la conforme necessário.
             this.veiculosTableAdapter.Fill(this.autopecasDataSet1.Veiculos);
-            // TODO: esta linha de código carrega dados na tabela 'autopecasDataSet1.Fornecedores'. Você pode movê-la ou removê-la conforme necessário.
-            this.fornecedoresTableAdapter.Fill(this.autopecasDataSet1.Fornecedores);
             // TODO: esta linha de código carrega dados na tabela 'autopecasDataSet1.Categorias'. Você pode movê-la ou removê-la conforme necessário.
             this.categoriasTableAdapter.Fill(this.autopecasDataSet1.Categorias);
             // TODO: esta linha de código carrega dados na tabela 'autopecasDataSet1.Veiculos'. Você pode movê-la ou removê-la conforme necessário.
@@ -113,12 +113,13 @@ namespace Matriz
             {
                 Peca pecas = new Peca();
 
-                peca.IDPeca = Convert.ToInt32(tb_IDpeca.Text);
                 peca.NomePeca = tb_nomepeca.Text;
                 peca.IDVeiculo = Convert.ToInt32(cmb_IDVeiculo.SelectedValue);
                 peca.IDFornecedor = Convert.ToInt32(cmb_codigofornecedor_peças.SelectedValue);
                 peca.IDCategoria = Convert.ToInt32(idCategoriaComboBox.SelectedValue);
+                
                 Negociacao.GravarPeca(peca);
+                
                 limpatb();
             }
             catch (Exception erro)
@@ -185,6 +186,8 @@ namespace Matriz
             tb_IDpeca.Text = dtg_Produtos.Rows[dtg_Produtos.CurrentCellAddress.X].Cells[1].Value.ToString();
 
         }
+
+        
         
     }
 }

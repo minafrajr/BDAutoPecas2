@@ -417,6 +417,7 @@ namespace Camadas
         {
             try
             {
+
                 Conectionsql = new SqlConnection();
                 Conectionsql.ConnectionString = conexao;
                 Conectionsql.Open();
@@ -426,37 +427,39 @@ namespace Camadas
 
                 comandosql = "DELETE FROM ";
 
+                
+
                 switch (objetoASerDeletado.GetType().ToString())
                 {
-                    case "Vendedor":
+                    case "Camadas.Vendedor":
                         comandosql += "VENDEDORES WHERE IDVENDEDOR";
                         ComandoTSQL.Parameters.AddWithValue("@ID", ((Vendedor)objetoASerDeletado).IDVendedor);
                         break;
-                    case "Venda":
+                    case "Camadas.Venda":
                         comandosql += "VENDA WHERE IDVENDA";
                         ComandoTSQL.Parameters.AddWithValue("@ID", ((Venda)objetoASerDeletado).IDVenda);
                         break;
-                    case "Veiculo":
+                    case "Camadas.Veiculo":
                         comandosql += "VEICULOS WHERE IDVEICULO";
                         ComandoTSQL.Parameters.AddWithValue("@ID", ((Veiculo)objetoASerDeletado).IDVeiculo);
                         break;
-                    case "Peca":
+                    case "Camadas.Peca":
                         comandosql += "PECAS WHERE IDPECA";
                         ComandoTSQL.Parameters.AddWithValue("@ID", ((Peca)objetoASerDeletado).IDPeca);
                         break;
-                    case "ItensVenda":
+                    case "Camadas.ItensVenda":
                         comandosql += "ITENSVENDA WHERE IDITENSVENDA";
                         ComandoTSQL.Parameters.AddWithValue("@ID", ((ItensVenda)objetoASerDeletado)._IDItensVemda);
                         break;
-                    case "Fornecedor":
+                    case "Camadas.Fornecedor":
                         comandosql += "FORNECEDORES WHERE IDFORNECEDOR";
                         ComandoTSQL.Parameters.AddWithValue("@ID", ((Fornecedor)objetoASerDeletado).IDFornecedor);
                         break;
-                    case "Cliente":
+                    case "Camadas.Cliente":
                         comandosql += "CLIENTES WHERE IDCLIENTE";
                         ComandoTSQL.Parameters.AddWithValue("@ID", ((Cliente)objetoASerDeletado).ID_Cliente);
                         break;
-                    case "Categoria":
+                    case "Camadas.Categoria":
                         comandosql += "CATEGORIAS WHERE IDCATEGORIA";
                         ComandoTSQL.Parameters.AddWithValue("@ID", ((Categoria)objetoASerDeletado).IDCategoria);
                         break;
@@ -464,7 +467,7 @@ namespace Camadas
 
                 comandosql += " = @ID";
                 ComandoTSQL.CommandText = comandosql;
-
+                
                 ComandoTSQL.ExecuteNonQuery();
 
             }
@@ -751,7 +754,7 @@ namespace Camadas
                     {
                         ComandoTSQL.Parameters.AddWithValue("@NomeVeiculo", veiculo.NomeVeiculo);
                         ComandoTSQL.Parameters.AddWithValue("@Fabricante", veiculo.Fabricante);
-                        ComandoTSQL.Parameters.AddWithValue("@AnoIncial", veiculo.AnoInicial);
+                        ComandoTSQL.Parameters.AddWithValue("@AnoInicial", veiculo.AnoInicial);
                         ComandoTSQL.Parameters.AddWithValue("@AnoFinal", veiculo.AnoFinal);
 
                         ComandoTSQL.ExecuteNonQuery();

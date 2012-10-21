@@ -39,10 +39,11 @@
             this.dtg_Veiculos = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lb_codigoveiculo = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.ckb_FiltrarVeiculo = new System.Windows.Forms.CheckBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cb_fabricante = new Matriz.MyComboBox();
             this.dtp_Inicial = new System.Windows.Forms.DateTimePicker();
             this.dtp_Final = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
@@ -50,7 +51,6 @@
             this.tb_IDVeiculo = new AutoPeçasUI.MyTextBox();
             this.tb_NomeVeiculo = new AutoPeçasUI.MyTextBox();
             this.Titulo_Form_pecas = new System.Windows.Forms.Label();
-            this.cb_fabricante = new Matriz.MyComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Veiculos)).BeginInit();
             this.panel2.SuspendLayout();
@@ -155,11 +155,12 @@
             this.dtg_Veiculos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtg_Veiculos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_Veiculos.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dtg_Veiculos.Location = new System.Drawing.Point(0, 173);
+            this.dtg_Veiculos.Location = new System.Drawing.Point(0, 185);
             this.dtg_Veiculos.Name = "dtg_Veiculos";
             this.dtg_Veiculos.ReadOnly = true;
-            this.dtg_Veiculos.Size = new System.Drawing.Size(1076, 398);
+            this.dtg_Veiculos.Size = new System.Drawing.Size(1076, 386);
             this.dtg_Veiculos.TabIndex = 13;
+            this.dtg_Veiculos.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dtg_Veiculos_CellMouseClick);
             // 
             // label1
             // 
@@ -181,16 +182,16 @@
             this.label2.TabIndex = 17;
             this.label2.Text = "Ano Inicial:";
             // 
-            // label3
+            // lb_codigoveiculo
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(257, 7);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 20);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "Código:";
-            this.label3.Visible = false;
+            this.lb_codigoveiculo.AutoSize = true;
+            this.lb_codigoveiculo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_codigoveiculo.Location = new System.Drawing.Point(257, 7);
+            this.lb_codigoveiculo.Name = "lb_codigoveiculo";
+            this.lb_codigoveiculo.Size = new System.Drawing.Size(63, 20);
+            this.lb_codigoveiculo.TabIndex = 18;
+            this.lb_codigoveiculo.Text = "Código:";
+            this.lb_codigoveiculo.Visible = false;
             // 
             // label4
             // 
@@ -224,7 +225,7 @@
             this.panel2.Controls.Add(this.ckb_FiltrarVeiculo);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.tb_IDVeiculo);
-            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.lb_codigoveiculo);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.tb_NomeVeiculo);
             this.panel2.Controls.Add(this.label1);
@@ -232,6 +233,21 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(643, 84);
             this.panel2.TabIndex = 24;
+            // 
+            // cb_fabricante
+            // 
+            this.cb_fabricante.FormattingEnabled = true;
+            this.cb_fabricante.Items.AddRange(new object[] {
+            "Agrale",
+            "Fiat",
+            "Ford",
+            "Chevrolet",
+            "Volkswagen",
+            "Dodge"});
+            this.cb_fabricante.Location = new System.Drawing.Point(447, 42);
+            this.cb_fabricante.Name = "cb_fabricante";
+            this.cb_fabricante.Size = new System.Drawing.Size(121, 21);
+            this.cb_fabricante.TabIndex = 27;
             // 
             // dtp_Inicial
             // 
@@ -293,21 +309,6 @@
             this.Titulo_Form_pecas.TabIndex = 25;
             this.Titulo_Form_pecas.Text = "Cadastrar Veículos";
             // 
-            // cb_fabricante
-            // 
-            this.cb_fabricante.FormattingEnabled = true;
-            this.cb_fabricante.Items.AddRange(new object[] {
-            "Agrale",
-            "Fiat",
-            "Ford",
-            "Chevrolet",
-            "Volkswagen",
-            "Dodge"});
-            this.cb_fabricante.Location = new System.Drawing.Point(447, 42);
-            this.cb_fabricante.Name = "cb_fabricante";
-            this.cb_fabricante.Size = new System.Drawing.Size(121, 21);
-            this.cb_fabricante.TabIndex = 27;
-            // 
             // Form_Veiculos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -346,7 +347,7 @@
         private System.Windows.Forms.Label label1;
         private AutoPeçasUI.MyTextBox tb_NomeVeiculo;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lb_codigoveiculo;
         private AutoPeçasUI.MyTextBox tb_IDVeiculo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox ckb_FiltrarVeiculo;

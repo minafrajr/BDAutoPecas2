@@ -40,9 +40,10 @@
             this.dtg_Produtos = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.cmb_codigofornecedor_peças = new System.Windows.Forms.ComboBox();
-            this.binsourcePecas = new System.Windows.Forms.BindingSource(this.components);
+            this.fORNECEDORESBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.aUTOPECASDataSet11 = new Matriz.AUTOPECASDataSet1();
             this.autopecasDataSet1 = new Matriz.AUTOPECASDataSet();
-            this.fornecedoresBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.binsourcePecas = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.bt_gravar = new System.Windows.Forms.Button();
             this.bt_Deleta = new System.Windows.Forms.Button();
@@ -62,12 +63,17 @@
             this.textBox1 = new AutoPeçasUI.MyTextBox();
             this.tb_IDpeca = new AutoPeçasUI.MyTextBox();
             this.tb_nomepeca = new AutoPeçasUI.MyTextBox();
-            this.fornecedoresTableAdapter = new Matriz.AUTOPECASDataSetTableAdapters.FornecedoresTableAdapter();
             this.veiculosTableAdapter = new Matriz.AUTOPECASDataSetTableAdapters.VeiculosTableAdapter();
+            this.fORNECEDORESTableAdapter = new Matriz.AUTOPECASDataSet1TableAdapters.FORNECEDORESTableAdapter();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.mskt_preco = new Matriz.Msktextbox();
+            this.mskt_quantidade = new Matriz.Msktextbox();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Produtos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.binsourcePecas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fORNECEDORESBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aUTOPECASDataSet11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.autopecasDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fornecedoresBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.binsourcePecas)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.veiculosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriasBindingSource)).BeginInit();
@@ -144,30 +150,34 @@
             // 
             this.cmb_codigofornecedor_peças.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.cmb_codigofornecedor_peças.BackColor = System.Drawing.SystemColors.Window;
-            this.cmb_codigofornecedor_peças.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.binsourcePecas, "IDFornecedor", true));
-            this.cmb_codigofornecedor_peças.DataSource = this.fornecedoresBindingSource;
-            this.cmb_codigofornecedor_peças.DisplayMember = "NomeFornecedor";
+            this.cmb_codigofornecedor_peças.DataSource = this.fORNECEDORESBindingSource;
+            this.cmb_codigofornecedor_peças.DisplayMember = "NOMEFORNECEDOR";
             this.cmb_codigofornecedor_peças.DropDownHeight = 136;
             this.cmb_codigofornecedor_peças.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_codigofornecedor_peças.FormattingEnabled = true;
             resources.ApplyResources(this.cmb_codigofornecedor_peças, "cmb_codigofornecedor_peças");
             this.cmb_codigofornecedor_peças.Name = "cmb_codigofornecedor_peças";
-            this.cmb_codigofornecedor_peças.ValueMember = "IDFornecedor";
+            this.cmb_codigofornecedor_peças.ValueMember = "IDFORNECEDOR";
             // 
-            // binsourcePecas
+            // fORNECEDORESBindingSource
             // 
-            this.binsourcePecas.DataMember = "Pecas";
-            this.binsourcePecas.DataSource = this.autopecasDataSet1;
+            this.fORNECEDORESBindingSource.DataMember = "FORNECEDORES";
+            this.fORNECEDORESBindingSource.DataSource = this.aUTOPECASDataSet11;
+            // 
+            // aUTOPECASDataSet11
+            // 
+            this.aUTOPECASDataSet11.DataSetName = "AUTOPECASDataSet1";
+            this.aUTOPECASDataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // autopecasDataSet1
             // 
             this.autopecasDataSet1.DataSetName = "AUTOPECASDataSet";
             this.autopecasDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // fornecedoresBindingSource
+            // binsourcePecas
             // 
-            this.fornecedoresBindingSource.DataMember = "Fornecedores";
-            this.fornecedoresBindingSource.DataSource = this.autopecasDataSet1;
+            this.binsourcePecas.DataMember = "Pecas";
+            this.binsourcePecas.DataSource = this.autopecasDataSet1;
             // 
             // label2
             // 
@@ -265,7 +275,6 @@
             // idCategoriaComboBox
             // 
             this.idCategoriaComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.categoriasBindingSource, "IdCategoria", true));
-            this.idCategoriaComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.categoriasBindingSource, "IdCategoria", true));
             this.idCategoriaComboBox.DataSource = this.categoriasBindingSource;
             this.idCategoriaComboBox.DisplayMember = "NomeCategoria";
             this.idCategoriaComboBox.DropDownHeight = 136;
@@ -302,19 +311,43 @@
             resources.ApplyResources(this.tb_nomepeca, "tb_nomepeca");
             this.tb_nomepeca.Name = "tb_nomepeca";
             // 
-            // fornecedoresTableAdapter
-            // 
-            this.fornecedoresTableAdapter.ClearBeforeFill = true;
-            // 
             // veiculosTableAdapter
             // 
             this.veiculosTableAdapter.ClearBeforeFill = true;
+            // 
+            // fORNECEDORESTableAdapter
+            // 
+            this.fORNECEDORESTableAdapter.ClearBeforeFill = true;
+            // 
+            // label4
+            // 
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.Name = "label4";
+            // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.Name = "label3";
+            // 
+            // mskt_preco
+            // 
+            resources.ApplyResources(this.mskt_preco, "mskt_preco");
+            this.mskt_preco.Name = "mskt_preco";
+            // 
+            // mskt_quantidade
+            // 
+            resources.ApplyResources(this.mskt_quantidade, "mskt_quantidade");
+            this.mskt_quantidade.Name = "mskt_quantidade";
             // 
             // Form_Pecas
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Controls.Add(this.mskt_quantidade);
+            this.Controls.Add(this.mskt_preco);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.ckb_Filtrar);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.tb_IDpeca);
@@ -336,9 +369,10 @@
             this.ShowInTaskbar = false;
             this.Load += new System.EventHandler(this.Form_Pecas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Produtos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.binsourcePecas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fORNECEDORESBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aUTOPECASDataSet11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.autopecasDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fornecedoresBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.binsourcePecas)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.veiculosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriasBindingSource)).EndInit();
@@ -376,9 +410,14 @@
         private AutoPeçasUI.MyTextBox tb_IDpeca;
         private AutoPeçasUI.MyTextBox textBox1;
         private System.Windows.Forms.CheckBox ckb_Filtrar;
-        private System.Windows.Forms.BindingSource fornecedoresBindingSource;
-        private AUTOPECASDataSetTableAdapters.FornecedoresTableAdapter fornecedoresTableAdapter;
         private AUTOPECASDataSetTableAdapters.VeiculosTableAdapter veiculosTableAdapter;
         private System.Windows.Forms.BindingSource veiculosBindingSource;
+        private AUTOPECASDataSet1 aUTOPECASDataSet11;
+        private System.Windows.Forms.BindingSource fORNECEDORESBindingSource;
+        private AUTOPECASDataSet1TableAdapters.FORNECEDORESTableAdapter fORNECEDORESTableAdapter;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private Msktextbox mskt_preco;
+        private Msktextbox mskt_quantidade;
     }
 }

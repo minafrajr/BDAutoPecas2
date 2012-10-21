@@ -5,9 +5,3 @@
     }
 }
 
-namespace Matriz.AUTOPECASDataSetTableAdapters {
-    
-    
-    public partial class VeiculosTableAdapter {
-    }
-}

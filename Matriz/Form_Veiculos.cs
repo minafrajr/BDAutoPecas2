@@ -27,9 +27,8 @@ namespace Matriz
 
             try
             {
-                veiculo.IDVeiculo = Convert.ToUInt32(tb_IDVeiculo.Text);
                 veiculo.NomeVeiculo = tb_NomeVeiculo.Text;
-                veiculo.Fabricante = cb_fabricante.SelectedText;
+                veiculo.Fabricante = cb_fabricante.SelectedItem.ToString();
                 veiculo.AnoInicial = dtp_Inicial.Value;
                 veiculo.AnoFinal = dtp_Final.Value;
 
@@ -48,17 +47,19 @@ namespace Matriz
 
         private void bt_Deleta_Click(object sender, EventArgs e)
         {
-            veiculo = new Veiculo();
 
             try
             {
-                veiculo.IDVeiculo = Convert.ToUInt32(tb_IDVeiculo.Text);
+                veiculo = new Veiculo();
 
-                if (MessageBox.Show("Deseja excluir o veículo " + tb_NomeVeiculo.Text + "?", "Sistema de Controle de AutoPecas", MessageBoxButtons.YesNo, MessageBoxIcon.Question).Equals(DialogResult.Yes))
+                veiculo.IDVeiculo = Convert.ToInt16(tb_IDVeiculo.Text);
+
+                if (MessageBox.Show("Deseja excluir o veículo " + dtg_Veiculos[1,dtg_Veiculos.CurrentCellAddress.Y].Value.ToString() + "?", "Sistema de Controle de AutoPecas", MessageBoxButtons.YesNo, MessageBoxIcon.Question).Equals(DialogResult.Yes))
                 {
                     Negociacao.DeletarVeiculo(veiculo);
 
                     Form_Veiculos_Load(null, null);
+                    Limpatextbox();
                 }
 
                 veiculo = null;
@@ -78,7 +79,7 @@ namespace Matriz
                 veiculo.AnoInicial = dtp_Inicial.Value.Date;
                 veiculo.AnoFinal= dtp_Final.Value.Date;
                 veiculo.NomeVeiculo = tb_NomeVeiculo.Text;
-                veiculo.Fabricante = cb_fabricante.SelectedText;
+                veiculo.Fabricante = cb_fabricante.SelectedItem.ToString();
 
                 Negociacao.GravarVeiculos(veiculo);
             }
@@ -123,6 +124,14 @@ namespace Matriz
             tb_filtrarveiculo.Clear();
             tb_IDVeiculo.Clear();
             tb_NomeVeiculo.Clear();
+        }
+
+        private void dtg_Veiculos_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            lb_codigoveiculo.Visible = true;
+            tb_IDVeiculo.Visible = true;
+
+            tb_IDVeiculo.Text = dtg_Veiculos[0, dtg_Veiculos.CurrentCellAddress.Y].Value.ToString();
         }
     }
 }

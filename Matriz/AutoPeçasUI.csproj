@@ -87,6 +87,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AUTOPECASDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="AUTOPECASDataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AUTOPECASDataSet11.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Form_Categorias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -223,6 +228,17 @@
     </None>
     <None Include="AUTOPECASDataSet1.xss">
       <DependentUpon>AUTOPECASDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="AUTOPECASDataSet11.xsc">
+      <DependentUpon>AUTOPECASDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="AUTOPECASDataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AUTOPECASDataSet11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AUTOPECASDataSet11.xss">
+      <DependentUpon>AUTOPECASDataSet11.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

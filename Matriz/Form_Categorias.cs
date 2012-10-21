@@ -30,12 +30,12 @@ namespace Matriz
         {
             try
             {
-                Tips.Dicas_Botões(bt_gravar,bt_Atualiza, bt_Deleta,bt_Sair); //repassa as dicas para os botões
+                Tips.Dicas_Botões(bt_gravar, bt_Atualiza, bt_Deleta, bt_Sair); //repassa as dicas para os botões
                 CarregaTabela();                                             //faz a leitura dos dados da tabela categorias do banco de dados
             }
             catch (Exception erro)
             {
-                MessageBox.Show(erro.Message,"Erro"); ;
+                MessageBox.Show(erro.Message, "Erro"); ;
             }
         }
 
@@ -60,13 +60,13 @@ namespace Matriz
                 categoria.Descricao = tb_DescriCatg.Text;
 
                 Negociacao.GravarCategorias(categoria);
-                
+
                 CarregaTabela();
                 limpatb();
             }
             catch (Exception erro)
             {
-                MessageBox.Show(erro.Message,"Sistema de Controle de AutoPeças");
+                MessageBox.Show(erro.Message, "Sistema de Controle de AutoPeças");
             }
         }
 
@@ -101,7 +101,8 @@ namespace Matriz
         {
             try
             {
-                categoria.NomeCategoria = tb_NomeCategoria.Text;
+                categoria.IDCategoria = Convert.ToInt16(tb_IDCategoria.Text);
+
                 if (MessageBox.Show("Deseja excluir a categoria" + tb_NomeCategoria.Text + " de código ???", "Test", MessageBoxButtons.YesNo).Equals(DialogResult.Yes))
                 {
                     //Negociacao.DeletarCategoria(categoria);
@@ -113,7 +114,7 @@ namespace Matriz
             }
             catch (Exception erro)
             {
-                MessageBox.Show(erro.Message, "Sistema de Controle de AutoPeças"); 
+                MessageBox.Show(erro.Message, "Sistema de Controle de AutoPeças");
             }
         }
 
@@ -126,7 +127,7 @@ namespace Matriz
         {
             this.Close();
         }
-       
+
         /// <summary>
         /// faz a limpeza dos textbox do formulário
         /// </summary>
@@ -148,14 +149,14 @@ namespace Matriz
                 tb_filtrar.Visible = true;
                 bt_filtrar.Enabled = true;
             }
-            else 
+            else
             {
                 tb_filtrar.Visible = false;
                 bt_filtrar.Enabled = false;
             }
         }
 
-        
+
         /// <summary>
         /// Faz a busca de categorias entre os dados da tabela
         /// </summary>
@@ -170,7 +171,7 @@ namespace Matriz
             }
             catch (Exception erro)
             {
-                MessageBox.Show(erro.Message, "Sistema de Controle de AutoPeças"); 
+                MessageBox.Show(erro.Message, "Sistema de Controle de AutoPeças");
             }
         }
 
@@ -188,7 +189,7 @@ namespace Matriz
             }
             catch (Exception erro)
             {
-                MessageBox.Show(erro.Message, "Sistema de Controle de AutoPeças"); 
+                MessageBox.Show(erro.Message, "Sistema de Controle de AutoPeças");
             }
         }
 
@@ -200,6 +201,6 @@ namespace Matriz
             tb_IDCategoria.Text = dtg_Categorias[0, dtg_Categorias.CurrentCellAddress.Y].Value.ToString();
         }
 
-    
+
     }
 }

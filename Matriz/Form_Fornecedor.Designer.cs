@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Fornecedor));
-            this.label5 = new System.Windows.Forms.Label();
+            this.lb_codigofornecedor = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.bt_Sair = new System.Windows.Forms.Button();
             this.bt_filtrar = new System.Windows.Forms.Button();
@@ -68,16 +68,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_fornecedores)).BeginInit();
             this.SuspendLayout();
             // 
-            // label5
+            // lb_codigofornecedor
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(183, 97);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(132, 20);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Cód. Fornecedor:";
-            this.label5.Visible = false;
+            this.lb_codigofornecedor.AutoSize = true;
+            this.lb_codigofornecedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_codigofornecedor.Location = new System.Drawing.Point(183, 97);
+            this.lb_codigofornecedor.Name = "lb_codigofornecedor";
+            this.lb_codigofornecedor.Size = new System.Drawing.Size(132, 20);
+            this.lb_codigofornecedor.TabIndex = 0;
+            this.lb_codigofornecedor.Text = "Cód. Fornecedor:";
+            this.lb_codigofornecedor.Visible = false;
             // 
             // panel1
             // 
@@ -411,6 +411,7 @@
             this.dtgv_fornecedores.Name = "dtgv_fornecedores";
             this.dtgv_fornecedores.Size = new System.Drawing.Size(1146, 267);
             this.dtgv_fornecedores.TabIndex = 30;
+            this.dtgv_fornecedores.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dtgv_fornecedores_CellMouseClick);
             // 
             // label11
             // 
@@ -454,7 +455,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Titulo_Form_pecas);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lb_codigofornecedor);
             this.Controls.Add(this.tb_IDFornecedor);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form_Fornecedor";
@@ -473,7 +474,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lb_codigofornecedor;
         private AutoPeçasUI.MyTextBox tb_IDFornecedor;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button bt_Sair;
