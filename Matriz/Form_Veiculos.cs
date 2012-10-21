@@ -29,7 +29,7 @@ namespace Matriz
             {
                 veiculo.IDVeiculo = Convert.ToUInt32(tb_IDVeiculo.Text);
                 veiculo.NomeVeiculo = tb_NomeVeiculo.Text;
-                veiculo.Fabricante = tb_Fabricante.Text;
+                veiculo.Fabricante = cb_fabricante.SelectedText;
                 veiculo.AnoInicial = dtp_Inicial.Value;
                 veiculo.AnoFinal = dtp_Final.Value;
 
@@ -71,15 +71,14 @@ namespace Matriz
 
         private void bt_gravar_Click(object sender, EventArgs e)
         {
-            veiculo = new Veiculo();
-
             try
             {
-                veiculo.AnoInicial = dtp_Inicial.Value;
-                veiculo.AnoFinal= dtp_Final.Value;
+                veiculo = new Veiculo();
+
+                veiculo.AnoInicial = dtp_Inicial.Value.Date;
+                veiculo.AnoFinal= dtp_Final.Value.Date;
                 veiculo.NomeVeiculo = tb_NomeVeiculo.Text;
-                veiculo.IDVeiculo = Convert.ToUInt32(tb_IDVeiculo.Text);
-                veiculo.Fabricante = tb_Fabricante.Text;
+                veiculo.Fabricante = cb_fabricante.SelectedText;
 
                 Negociacao.GravarVeiculos(veiculo);
             }
@@ -121,7 +120,6 @@ namespace Matriz
 
         private void Limpatextbox()
         {
-            tb_Fabricante.Clear();
             tb_filtrarveiculo.Clear();
             tb_IDVeiculo.Clear();
             tb_NomeVeiculo.Clear();

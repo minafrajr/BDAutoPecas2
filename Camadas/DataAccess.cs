@@ -413,65 +413,129 @@ namespace Camadas
         }
 
 
-
-        public void DeletaCliente(Object obj)
+        public void Deleta(object objetoASerDeletado)
         {
             try
             {
-                comandosql = "DELETE FROM ";   //Clientes WHERE  IDCliente = @IDCliente";
+                Conectionsql = new SqlConnection();
+                Conectionsql.ConnectionString = conexao;
+                Conectionsql.Open();
 
-                using (Conectionsql = new SqlConnection(conexao))
+                ComandoTSQL = new SqlCommand();
+                ComandoTSQL.Connection = Conectionsql;
+
+                comandosql = "DELETE FROM ";
+
+                switch (objetoASerDeletado.GetType().ToString())
                 {
-                    Conectionsql.Open();
-
-                    if (obj.GetType() == typeof(Cliente))
-                        comandosql += "Clientes";
-                    else if (obj.GetType() == typeof(Categoria))
-                        comandosql += "Categorias";
-                    else if (obj.GetType() == typeof(Fornecedor))
-                        comandosql += "Fornecedores";
-                    else if (obj.GetType() == typeof(ItensVenda))
-                        comandosql += "Itensvenda";
-                    else if (obj.GetType() == typeof(Peca))
-                        comandosql += "Pecas";
-                    else if (obj.GetType() == typeof(Veiculo))
-                        comandosql += "Veiculos";
-                    else if (obj.GetType() == typeof(Venda))
-                        comandosql += "Venda WHERE ";
-                    else if (obj.GetType() == typeof(Vendedor))
-                        comandosql += "Vendedores WHERE IDVendedor = @ID";
-
-
-
-                    using (ComandoTSQL = new SqlCommand(comandosql, Conectionsql))
-                    {
-                        if (obj.GetType() == typeof(Cliente))
-                            ComandoTSQL.Parameters.AddWithValue("@ID", ((Cliente)obj).ID_Cliente);
-                        else if (obj.GetType() == typeof(Categoria))
-                            ComandoTSQL.Parameters.AddWithValue("@ID", ((Categoria)obj).IDCategoria);
-                        else if (obj.GetType() == typeof(Fornecedor))
-                            ComandoTSQL.Parameters.AddWithValue("@ID", ((Fornecedor)obj).IDFornecedor);
-                        else if (obj.GetType() == typeof(ItensVenda))
-                            ComandoTSQL.Parameters.AddWithValue("@ID", ((ItensVenda)obj)._IDItensVemda);
-                        else if (obj.GetType() == typeof(Peca))
-                            ComandoTSQL.Parameters.AddWithValue("@ID", ((Peca)obj).IDPeca);
-                        else if (obj.GetType() == typeof(Veiculo))
-                            ComandoTSQL.Parameters.AddWithValue("@ID", ((Veiculo)obj).IDVeiculo);
-                        else if (obj.GetType() == typeof(Venda))
-                            ComandoTSQL.Parameters.AddWithValue("@ID", ((Venda)obj).IDVenda);
-                        else if (obj.GetType() == typeof(Vendedor))
-                            ComandoTSQL.Parameters.AddWithValue("@ID", ((Vendedor)obj).IDVendedor);
-
-                        ComandoTSQL.ExecuteNonQuery();
-                    }
-                    Conectionsql.Close();
+                    case "Vendedor":
+                        comandosql += "VENDEDORES WHERE IDVENDEDOR";
+                        ComandoTSQL.Parameters.AddWithValue("@ID", ((Vendedor)objetoASerDeletado).IDVendedor);
+                        break;
+                    case "Venda":
+                        comandosql += "VENDA WHERE IDVENDA";
+                        ComandoTSQL.Parameters.AddWithValue("@ID", ((Venda)objetoASerDeletado).IDVenda);
+                        break;
+                    case "Veiculo":
+                        comandosql += "VEICULOS WHERE IDVEICULO";
+                        ComandoTSQL.Parameters.AddWithValue("@ID", ((Veiculo)objetoASerDeletado).IDVeiculo);
+                        break;
+                    case "Peca":
+                        comandosql += "PECAS WHERE IDPECA";
+                        ComandoTSQL.Parameters.AddWithValue("@ID", ((Peca)objetoASerDeletado).IDPeca);
+                        break;
+                    case "ItensVenda":
+                        comandosql += "ITENSVENDA WHERE IDITENSVENDA";
+                        ComandoTSQL.Parameters.AddWithValue("@ID", ((ItensVenda)objetoASerDeletado)._IDItensVemda);
+                        break;
+                    case "Fornecedor":
+                        comandosql += "FORNECEDORES WHERE IDFORNECEDOR";
+                        ComandoTSQL.Parameters.AddWithValue("@ID", ((Fornecedor)objetoASerDeletado).IDFornecedor);
+                        break;
+                    case "Cliente":
+                        comandosql += "CLIENTES WHERE IDCLIENTE";
+                        ComandoTSQL.Parameters.AddWithValue("@ID", ((Cliente)objetoASerDeletado).ID_Cliente);
+                        break;
+                    case "Categoria":
+                        comandosql += "CATEGORIAS WHERE IDCATEGORIA";
+                        ComandoTSQL.Parameters.AddWithValue("@ID", ((Categoria)objetoASerDeletado).IDCategoria);
+                        break;
                 }
+
+                comandosql += " = @ID";
+                ComandoTSQL.CommandText = comandosql;
+
+                ComandoTSQL.ExecuteNonQuery();
+
             }
             catch (Exception erro)
             {
                 throw erro;
             }
+            finally
+            {
+                Conectionsql.Close();
+            }
         }
+
+        //public void DeletaCliente(Object obj)
+        //{
+        //    try
+        //    {
+        //        comandosql = "DELETE FROM ";   //Clientes WHERE  IDCliente = @IDCliente";
+
+        //        using (Conectionsql = new SqlConnection(conexao))
+        //        {
+        //            Conectionsql.Open();
+
+        //            if (obj.GetType() == typeof(Cliente))
+        //                comandosql += "Clientes";
+        //            else if (obj.GetType() == typeof(Categoria))
+        //                comandosql += "Categorias";
+        //            else if (obj.GetType() == typeof(Fornecedor))
+        //                comandosql += "Fornecedores";
+        //            else if (obj.GetType() == typeof(ItensVenda))
+        //                comandosql += "Itensvenda";
+        //            else if (obj.GetType() == typeof(Peca))
+        //                comandosql += "Pecas";
+        //            else if (obj.GetType() == typeof(Veiculo))
+        //                comandosql += "Veiculos";
+        //            else if (obj.GetType() == typeof(Venda))
+        //                comandosql += "Venda WHERE ";
+        //            else if (obj.GetType() == typeof(Vendedor))
+        //                comandosql += "Vendedores WHERE IDVendedor = @ID";
+
+
+
+        //            using (ComandoTSQL = new SqlCommand(comandosql, Conectionsql))
+        //            {
+        //                if (obj.GetType() == typeof(Cliente))
+        //                    ComandoTSQL.Parameters.AddWithValue("@ID", ((Cliente)obj).ID_Cliente);
+        //                else if (obj.GetType() == typeof(Categoria))
+        //                    ComandoTSQL.Parameters.AddWithValue("@ID", ((Categoria)obj).IDCategoria);
+        //                else if (obj.GetType() == typeof(Fornecedor))
+        //                    ComandoTSQL.Parameters.AddWithValue("@ID", ((Fornecedor)obj).IDFornecedor);
+        //                else if (obj.GetType() == typeof(ItensVenda))
+        //                    ComandoTSQL.Parameters.AddWithValue("@ID", ((ItensVenda)obj)._IDItensVemda);
+        //                else if (obj.GetType() == typeof(Peca))
+        //                    ComandoTSQL.Parameters.AddWithValue("@ID", ((Peca)obj).IDPeca);
+        //                else if (obj.GetType() == typeof(Veiculo))
+        //                    ComandoTSQL.Parameters.AddWithValue("@ID", ((Veiculo)obj).IDVeiculo);
+        //                else if (obj.GetType() == typeof(Venda))
+        //                    ComandoTSQL.Parameters.AddWithValue("@ID", ((Venda)obj).IDVenda);
+        //                else if (obj.GetType() == typeof(Vendedor))
+        //                    ComandoTSQL.Parameters.AddWithValue("@ID", ((Vendedor)obj).IDVendedor);
+
+        //                ComandoTSQL.ExecuteNonQuery();
+        //            }
+        //            Conectionsql.Close();
+        //        }
+        //    }
+        //    catch (Exception erro)
+        //    {
+        //        throw erro;
+        //    }
+        //}
 
         public void DeletaVendedor(Vendedor vendedor)
         {
@@ -679,17 +743,16 @@ namespace Camadas
         {
             try
             {
-                comandosql = "INSERT INTO Veiculos VALUES (@IDVeiculo, @NomeVeiculo, @Fabricante, @AnoInicial, @AnoFinal)";
+                comandosql = "INSERT INTO Veiculos VALUES (@NomeVeiculo, @Fabricante, @AnoInicial, @AnoFinal)";
                 using (Conectionsql = new SqlConnection(conexao))
                 {
                     Conectionsql.Open();
                     using (ComandoTSQL = new SqlCommand(comandosql, Conectionsql))
                     {
-                        ComandoTSQL.Parameters.AddWithValue("@IDVeiculo", veiculo.IDVeiculo);
                         ComandoTSQL.Parameters.AddWithValue("@NomeVeiculo", veiculo.NomeVeiculo);
                         ComandoTSQL.Parameters.AddWithValue("@Fabricante", veiculo.Fabricante);
-                        ComandoTSQL.Parameters.AddWithValue("@AnoVeiculo", veiculo.AnoInicial);
-                        ComandoTSQL.Parameters.AddWithValue("@AnoVeiculo", veiculo.AnoFinal);
+                        ComandoTSQL.Parameters.AddWithValue("@AnoIncial", veiculo.AnoInicial);
+                        ComandoTSQL.Parameters.AddWithValue("@AnoFinal", veiculo.AnoFinal);
 
                         ComandoTSQL.ExecuteNonQuery();
                     }

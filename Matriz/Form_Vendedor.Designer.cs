@@ -250,7 +250,8 @@
             resources.GetString("cmb_estadocivil.Items"),
             resources.GetString("cmb_estadocivil.Items1"),
             resources.GetString("cmb_estadocivil.Items2"),
-            resources.GetString("cmb_estadocivil.Items3")});
+            resources.GetString("cmb_estadocivil.Items3"),
+            resources.GetString("cmb_estadocivil.Items4")});
             resources.ApplyResources(this.cmb_estadocivil, "cmb_estadocivil");
             this.cmb_estadocivil.Name = "cmb_estadocivil";
             // 

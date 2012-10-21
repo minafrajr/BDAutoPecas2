@@ -156,6 +156,7 @@
             this.dtg_Categorias.Name = "dtg_Categorias";
             this.dtg_Categorias.Size = new System.Drawing.Size(907, 352);
             this.dtg_Categorias.TabIndex = 4;
+            this.dtg_Categorias.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dtg_Categorias_CellMouseClick);
             // 
             // Titulo_Form_pecas
             // 

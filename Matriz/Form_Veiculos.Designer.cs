@@ -43,14 +43,14 @@
             this.label4 = new System.Windows.Forms.Label();
             this.ckb_FiltrarVeiculo = new System.Windows.Forms.CheckBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.dtp_Inicial = new System.Windows.Forms.DateTimePicker();
+            this.dtp_Final = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
             this.tb_filtrarveiculo = new AutoPeçasUI.MyTextBox();
-            this.tb_Fabricante = new AutoPeçasUI.MyTextBox();
             this.tb_IDVeiculo = new AutoPeçasUI.MyTextBox();
             this.tb_NomeVeiculo = new AutoPeçasUI.MyTextBox();
             this.Titulo_Form_pecas = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.dtp_Final = new System.Windows.Forms.DateTimePicker();
-            this.dtp_Inicial = new System.Windows.Forms.DateTimePicker();
+            this.cb_fabricante = new Matriz.MyComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Veiculos)).BeginInit();
             this.panel2.SuspendLayout();
@@ -216,12 +216,12 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.cb_fabricante);
             this.panel2.Controls.Add(this.dtp_Inicial);
             this.panel2.Controls.Add(this.dtp_Final);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.tb_filtrarveiculo);
             this.panel2.Controls.Add(this.ckb_FiltrarVeiculo);
-            this.panel2.Controls.Add(this.tb_Fabricante);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.tb_IDVeiculo);
             this.panel2.Controls.Add(this.label3);
@@ -233,6 +233,32 @@
             this.panel2.Size = new System.Drawing.Size(643, 84);
             this.panel2.TabIndex = 24;
             // 
+            // dtp_Inicial
+            // 
+            this.dtp_Inicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp_Inicial.Location = new System.Drawing.Point(93, 41);
+            this.dtp_Inicial.Name = "dtp_Inicial";
+            this.dtp_Inicial.Size = new System.Drawing.Size(82, 20);
+            this.dtp_Inicial.TabIndex = 26;
+            // 
+            // dtp_Final
+            // 
+            this.dtp_Final.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp_Final.Location = new System.Drawing.Point(261, 41);
+            this.dtp_Final.Name = "dtp_Final";
+            this.dtp_Final.Size = new System.Drawing.Size(82, 20);
+            this.dtp_Final.TabIndex = 25;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(181, 41);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(80, 20);
+            this.label5.TabIndex = 24;
+            this.label5.Text = "Ano Final:";
+            // 
             // tb_filtrarveiculo
             // 
             this.tb_filtrarveiculo.Location = new System.Drawing.Point(458, 7);
@@ -240,13 +266,6 @@
             this.tb_filtrarveiculo.Size = new System.Drawing.Size(162, 20);
             this.tb_filtrarveiculo.TabIndex = 23;
             this.tb_filtrarveiculo.Visible = false;
-            // 
-            // tb_Fabricante
-            // 
-            this.tb_Fabricante.Location = new System.Drawing.Point(449, 41);
-            this.tb_Fabricante.Name = "tb_Fabricante";
-            this.tb_Fabricante.Size = new System.Drawing.Size(170, 20);
-            this.tb_Fabricante.TabIndex = 21;
             // 
             // tb_IDVeiculo
             // 
@@ -274,31 +293,20 @@
             this.Titulo_Form_pecas.TabIndex = 25;
             this.Titulo_Form_pecas.Text = "Cadastrar Veículos";
             // 
-            // label5
+            // cb_fabricante
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(181, 41);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 20);
-            this.label5.TabIndex = 24;
-            this.label5.Text = "Ano Final:";
-            // 
-            // dtp_Final
-            // 
-            this.dtp_Final.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_Final.Location = new System.Drawing.Point(261, 41);
-            this.dtp_Final.Name = "dtp_Final";
-            this.dtp_Final.Size = new System.Drawing.Size(82, 20);
-            this.dtp_Final.TabIndex = 25;
-            // 
-            // dtp_Inicial
-            // 
-            this.dtp_Inicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_Inicial.Location = new System.Drawing.Point(93, 41);
-            this.dtp_Inicial.Name = "dtp_Inicial";
-            this.dtp_Inicial.Size = new System.Drawing.Size(82, 20);
-            this.dtp_Inicial.TabIndex = 26;
+            this.cb_fabricante.FormattingEnabled = true;
+            this.cb_fabricante.Items.AddRange(new object[] {
+            "Agrale",
+            "Fiat",
+            "Ford",
+            "Chevrolet",
+            "Volkswagen",
+            "Dodge"});
+            this.cb_fabricante.Location = new System.Drawing.Point(447, 42);
+            this.cb_fabricante.Name = "cb_fabricante";
+            this.cb_fabricante.Size = new System.Drawing.Size(121, 21);
+            this.cb_fabricante.TabIndex = 27;
             // 
             // Form_Veiculos
             // 
@@ -341,7 +349,6 @@
         private System.Windows.Forms.Label label3;
         private AutoPeçasUI.MyTextBox tb_IDVeiculo;
         private System.Windows.Forms.Label label4;
-        private AutoPeçasUI.MyTextBox tb_Fabricante;
         private System.Windows.Forms.CheckBox ckb_FiltrarVeiculo;
         private AutoPeçasUI.MyTextBox tb_filtrarveiculo;
         private System.Windows.Forms.Panel panel2;
@@ -349,5 +356,6 @@
         private System.Windows.Forms.DateTimePicker dtp_Inicial;
         private System.Windows.Forms.DateTimePicker dtp_Final;
         private System.Windows.Forms.Label label5;
+        private MyComboBox cb_fabricante;
     }
 }

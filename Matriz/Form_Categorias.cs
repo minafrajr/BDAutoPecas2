@@ -104,7 +104,8 @@ namespace Matriz
                 categoria.NomeCategoria = tb_NomeCategoria.Text;
                 if (MessageBox.Show("Deseja excluir a categoria" + tb_NomeCategoria.Text + " de código ???", "Test", MessageBoxButtons.YesNo).Equals(DialogResult.Yes))
                 {
-                    Negociacao.DeletarCategoria(categoria);
+                    //Negociacao.DeletarCategoria(categoria);
+                    Negociacao.DeletarPhilipe(categoria);
 
                     CarregaTabela();
                     limpatb();
@@ -189,6 +190,14 @@ namespace Matriz
             {
                 MessageBox.Show(erro.Message, "Sistema de Controle de AutoPeças"); 
             }
+        }
+
+        private void dtg_Categorias_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            lb_Codigo.Visible = true;
+            tb_IDCategoria.Visible = true;
+
+            tb_IDCategoria.Text = dtg_Categorias[0, dtg_Categorias.CurrentCellAddress.Y].Value.ToString();
         }
 
     

@@ -290,6 +290,12 @@ namespace Camadas
                 throw erro;
             }
         }
+
+        public void DeletarPhilipe(Object obj)
+        {
+            Acessoadados.Deleta(obj);
+        }
+
         public void DeletarFornecedor(Fornecedor Modelo)
         {
             try
