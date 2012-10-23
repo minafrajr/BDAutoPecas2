@@ -15,10 +15,8 @@ namespace Matriz
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form_Principal());
-            //Application.Run(new Report());
-            //Application.Run(new Form_Load());
-
+            //Application.Run(new Form_Principal());
+            Application.Run(new Form_Venda());
         }
     }
 }

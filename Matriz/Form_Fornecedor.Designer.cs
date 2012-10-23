@@ -72,7 +72,7 @@
             // 
             this.lb_codigofornecedor.AutoSize = true;
             this.lb_codigofornecedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_codigofornecedor.Location = new System.Drawing.Point(183, 97);
+            this.lb_codigofornecedor.Location = new System.Drawing.Point(300, 97);
             this.lb_codigofornecedor.Name = "lb_codigofornecedor";
             this.lb_codigofornecedor.Size = new System.Drawing.Size(132, 20);
             this.lb_codigofornecedor.TabIndex = 0;
@@ -341,7 +341,7 @@
             this.msktb_CNPJ.RejectInputOnFirstFailure = true;
             this.msktb_CNPJ.ResetOnPrompt = false;
             this.msktb_CNPJ.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.msktb_CNPJ.Size = new System.Drawing.Size(82, 20);
+            this.msktb_CNPJ.Size = new System.Drawing.Size(132, 20);
             this.msktb_CNPJ.TabIndex = 2;
             // 
             // tb_NomeFornecedor
@@ -353,7 +353,7 @@
             // 
             // tb_IDFornecedor
             // 
-            this.tb_IDFornecedor.Location = new System.Drawing.Point(311, 97);
+            this.tb_IDFornecedor.Location = new System.Drawing.Point(428, 97);
             this.tb_IDFornecedor.Name = "tb_IDFornecedor";
             this.tb_IDFornecedor.Size = new System.Drawing.Size(42, 20);
             this.tb_IDFornecedor.TabIndex = 1;

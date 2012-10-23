@@ -16,7 +16,9 @@ namespace Camadas
         private SqlConnection Conectionsql;
 
         /*essa string conecta com o serviço local*/
-        private string conexao = "Data Source = DELL; Initial Catalog = AUTOPECAS; Integrated Security = True; ";
+        //private string conexao = "Data Source = DELL; Initial Catalog = AUTOPECAS; Integrated Security = True; ";
+        private string conexao = "Data Source = CASA; Initial Catalog = AUTOPECAS; Integrated Security = True; ";
+
 
         //essa conexão deu certo no servidor GENESIS via IP
         //private string conexao = "Data Source=192.168.0.100,1433; Initial Catalog=AUTOPECAS; User ID=sa; Password=1234";

@@ -149,6 +149,7 @@ namespace Matriz
             {
                 dtgv_fornecedores.DataSource = Negociacao.PesquisarFornecedor(tb_NomeFornecedor.Text);
                 tb_IDFornecedor.Visible = true;
+                lb_codigofornecedor.Visible = true;
             }
             catch (Exception erro)
             {
@@ -175,6 +176,25 @@ namespace Matriz
             lb_codigofornecedor.Visible = true;
 
             tb_IDFornecedor.Text = dtgv_fornecedores[0, dtgv_fornecedores.CurrentCellAddress.Y].Value.ToString();
+            tb_NomeFornecedor.Text = dtgv_fornecedores[1, dtgv_fornecedores.CurrentCellAddress.Y].Value.ToString();
+            //msktb_CNPJ.Mask = "00,000,000/0000-00";
+            msktb_CNPJ.Text = dtgv_fornecedores[2, dtgv_fornecedores.CurrentCellAddress.Y].Value.ToString();
+            tb_endrua.Text = dtgv_fornecedores[3, dtgv_fornecedores.CurrentCellAddress.Y].Value.ToString();
+            tb_bairro.Text = dtgv_fornecedores[4, dtgv_fornecedores.CurrentCellAddress.Y].Value.ToString();
+            msktb_CEP.Mask = "00000-000";
+            msktb_CEP.Text = dtgv_fornecedores[5, dtgv_fornecedores.CurrentCellAddress.Y].Value.ToString();
+            msk_telfixo.Text = dtgv_fornecedores[6, dtgv_fornecedores.CurrentCellAddress.Y].Value.ToString();
+            mskt_telcel.Text = dtgv_fornecedores[7, dtgv_fornecedores.CurrentCellAddress.Y].Value.ToString();            
+            
+            ///ainda nao há coluna na tabela
+            //tb_numendereco.Text = dtgv_fornecedores[x, dtgv_fornecedores.CurrentCellAddress.Y].Value.ToString();
+            //tb_complemento.Text = dtgv_fornecedores[x, dtgv_fornecedores.CurrentCellAddress.Y].Value.ToString();
+            
+            
+            
+    
+
+
         }
 
 

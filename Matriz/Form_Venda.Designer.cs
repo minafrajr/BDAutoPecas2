@@ -38,6 +38,11 @@
             this.bt_Deleta = new System.Windows.Forms.Button();
             this.bt_gravar = new System.Windows.Forms.Button();
             this.dtg_Venda = new System.Windows.Forms.DataGridView();
+            this.dtg_col_Item = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtg_col_DescricaoPeca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtg_col_PrecoUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtg_col_Quant = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtg_col_subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -46,12 +51,7 @@
             this.bt_ConsultaPeca = new System.Windows.Forms.Button();
             this.bt_PesquisarCliente = new System.Windows.Forms.Button();
             this.myTextBox2 = new AutoPeçasUI.MyTextBox();
-            this.myTextBox1 = new AutoPeçasUI.MyTextBox();
-            this.dtg_col_Item = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtg_col_DescricaoPeca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtg_col_PrecoUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtg_col_Quant = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtg_col_subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tb_Cliente = new AutoPeçasUI.MyTextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Venda)).BeginInit();
             this.SuspendLayout();
@@ -179,6 +179,36 @@
             this.dtg_Venda.Size = new System.Drawing.Size(959, 211);
             this.dtg_Venda.TabIndex = 13;
             // 
+            // dtg_col_Item
+            // 
+            this.dtg_col_Item.HeaderText = "Item";
+            this.dtg_col_Item.Name = "dtg_col_Item";
+            this.dtg_col_Item.ReadOnly = true;
+            // 
+            // dtg_col_DescricaoPeca
+            // 
+            this.dtg_col_DescricaoPeca.HeaderText = "Peca";
+            this.dtg_col_DescricaoPeca.Name = "dtg_col_DescricaoPeca";
+            this.dtg_col_DescricaoPeca.ReadOnly = true;
+            // 
+            // dtg_col_PrecoUnit
+            // 
+            this.dtg_col_PrecoUnit.HeaderText = "Preço Unitario";
+            this.dtg_col_PrecoUnit.Name = "dtg_col_PrecoUnit";
+            this.dtg_col_PrecoUnit.ReadOnly = true;
+            // 
+            // dtg_col_Quant
+            // 
+            this.dtg_col_Quant.HeaderText = "Quant";
+            this.dtg_col_Quant.Name = "dtg_col_Quant";
+            this.dtg_col_Quant.ReadOnly = true;
+            // 
+            // dtg_col_subtotal
+            // 
+            this.dtg_col_subtotal.HeaderText = "Subtotal";
+            this.dtg_col_subtotal.Name = "dtg_col_subtotal";
+            this.dtg_col_subtotal.ReadOnly = true;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -211,7 +241,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(13, 79);
+            this.label3.Location = new System.Drawing.Point(100, 79);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 20);
             this.label3.TabIndex = 20;
@@ -240,7 +270,7 @@
             // 
             // bt_PesquisarCliente
             // 
-            this.bt_PesquisarCliente.Location = new System.Drawing.Point(470, 78);
+            this.bt_PesquisarCliente.Location = new System.Drawing.Point(566, 79);
             this.bt_PesquisarCliente.Name = "bt_PesquisarCliente";
             this.bt_PesquisarCliente.Size = new System.Drawing.Size(28, 23);
             this.bt_PesquisarCliente.TabIndex = 23;
@@ -255,42 +285,13 @@
             this.myTextBox2.Size = new System.Drawing.Size(46, 20);
             this.myTextBox2.TabIndex = 16;
             // 
-            // myTextBox1
+            // tb_Cliente
             // 
-            this.myTextBox1.Location = new System.Drawing.Point(80, 79);
-            this.myTextBox1.Name = "myTextBox1";
-            this.myTextBox1.Size = new System.Drawing.Size(384, 20);
-            this.myTextBox1.TabIndex = 14;
-            // 
-            // dtg_col_Item
-            // 
-            this.dtg_col_Item.HeaderText = "Item";
-            this.dtg_col_Item.Name = "dtg_col_Item";
-            this.dtg_col_Item.ReadOnly = true;
-            // 
-            // dtg_col_DescricaoPeca
-            // 
-            this.dtg_col_DescricaoPeca.HeaderText = "Peca";
-            this.dtg_col_DescricaoPeca.Name = "dtg_col_DescricaoPeca";
-            this.dtg_col_DescricaoPeca.ReadOnly = true;
-            // 
-            // dtg_col_PrecoUnit
-            // 
-            this.dtg_col_PrecoUnit.HeaderText = "Preço Unitario";
-            this.dtg_col_PrecoUnit.Name = "dtg_col_PrecoUnit";
-            this.dtg_col_PrecoUnit.ReadOnly = true;
-            // 
-            // dtg_col_Quant
-            // 
-            this.dtg_col_Quant.HeaderText = "Quant";
-            this.dtg_col_Quant.Name = "dtg_col_Quant";
-            this.dtg_col_Quant.ReadOnly = true;
-            // 
-            // dtg_col_subtotal
-            // 
-            this.dtg_col_subtotal.HeaderText = "Subtotal";
-            this.dtg_col_subtotal.Name = "dtg_col_subtotal";
-            this.dtg_col_subtotal.ReadOnly = true;
+            this.tb_Cliente.Location = new System.Drawing.Point(168, 79);
+            this.tb_Cliente.Name = "tb_Cliente";
+            this.tb_Cliente.Size = new System.Drawing.Size(384, 20);
+            this.tb_Cliente.TabIndex = 14;
+            this.tb_Cliente.TextChanged += new System.EventHandler(this.tb_Cliente_TextChanged);
             // 
             // Form_Venda
             // 
@@ -307,7 +308,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.myTextBox2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.myTextBox1);
+            this.Controls.Add(this.tb_Cliente);
             this.Controls.Add(this.dtg_Venda);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Titulo_Form_pecas);
@@ -336,7 +337,7 @@
         private System.Windows.Forms.Button bt_Deleta;
         private System.Windows.Forms.Button bt_gravar;
         private System.Windows.Forms.DataGridView dtg_Venda;
-        private AutoPeçasUI.MyTextBox myTextBox1;
+        private AutoPeçasUI.MyTextBox tb_Cliente;
         private System.Windows.Forms.Label label1;
         private AutoPeçasUI.MyTextBox myTextBox2;
         private System.Windows.Forms.Label label2;

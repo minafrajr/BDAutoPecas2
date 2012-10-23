@@ -26,18 +26,28 @@ namespace Matriz
        
         private void Form_Pecas_Load(object sender, EventArgs e)
         {
-            // TODO: esta linha de código carrega dados na tabela 'aUTOPECASDataSet11.FORNECEDORES'. Você pode movê-la ou removê-la conforme necessário.
-            this.fORNECEDORESTableAdapter.Fill(this.aUTOPECASDataSet11.FORNECEDORES);
-            // TODO: esta linha de código carrega dados na tabela 'autopecasDataSet1.Veiculos'. Você pode movê-la ou removê-la conforme necessário.
-            this.veiculosTableAdapter.Fill(this.autopecasDataSet1.Veiculos);
-            // TODO: esta linha de código carrega dados na tabela 'autopecasDataSet1.Veiculos'. Você pode movê-la ou removê-la conforme necessário.
-            this.veiculosTableAdapter.Fill(this.autopecasDataSet1.Veiculos);
-            // TODO: esta linha de código carrega dados na tabela 'autopecasDataSet1.Categorias'. Você pode movê-la ou removê-la conforme necessário.
-            this.categoriasTableAdapter.Fill(this.autopecasDataSet1.Categorias);
+            try
+            {
+                // TODO: esta linha de código carrega dados na tabela 'aUTOPECASDataSet11.FORNECEDORES'. Você pode movê-la ou removê-la conforme necessário.
+                this.fORNECEDORESTableAdapter.Fill(this.aUTOPECASDataSet11.FORNECEDORES);
+                // TODO: esta linha de código carrega dados na tabela 'autopecasDataSet1.Veiculos'. Você pode movê-la ou removê-la conforme necessário.
+                this.veiculosTableAdapter.Fill(this.autopecasDataSet1.Veiculos);
+                // TODO: esta linha de código carrega dados na tabela 'autopecasDataSet1.Veiculos'. Você pode movê-la ou removê-la conforme necessário.
+                this.veiculosTableAdapter.Fill(this.autopecasDataSet1.Veiculos);
+                // TODO: esta linha de código carrega dados na tabela 'autopecasDataSet1.Categorias'. Você pode movê-la ou removê-la conforme necessário.
+                this.categoriasTableAdapter.Fill(this.autopecasDataSet1.Categorias);
+
+                dtg_Produtos.DataSource = Negociacao.LerDados("Pecas");
+                //cmb_fornecedor_peças.DataSource = função que repassa um datatable com as chaves dos fornecedores;
+                Dicas_Botões();
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show(erro.ToString());
+            }
             
-            dtg_Produtos.DataSource = Negociacao.LerDados("Pecas");
-            //cmb_fornecedor_peças.DataSource = função que repassa um datatable com as chaves dos fornecedores;
-            Dicas_Botões();
         }
 
         private void bt_Atualiza_Click(object sender, EventArgs e)
