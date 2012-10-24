@@ -40,7 +40,7 @@ namespace Matriz
         private void Form_Venda_Load(object sender, EventArgs e)
         {
             Tips.Dicas_Botões(bt_gravar, bt_Atualiza, bt_Deleta, Bt_busca1, bt_filtrar, bt_Sair);
-            consultaTabelaCliente();
+            //consultaTabelaCliente();
 
 
         }
