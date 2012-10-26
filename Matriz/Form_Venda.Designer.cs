@@ -50,12 +50,14 @@
             this.bt_Concluir = new System.Windows.Forms.Button();
             this.bt_ConsultaPeca = new System.Windows.Forms.Button();
             this.bt_PesquisarCliente = new System.Windows.Forms.Button();
-            this.tb_codCliente = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.dtgw_auxiliar = new System.Windows.Forms.DataGridView();
+            this.tb_codCliente = new AutoPeçasUI.MyTextBox();
             this.tb_codPeca = new AutoPeçasUI.MyTextBox();
             this.tb_Cliente = new AutoPeçasUI.MyTextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Venda)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgw_auxiliar)).BeginInit();
             this.SuspendLayout();
             // 
             // Titulo_Form_pecas
@@ -165,7 +167,7 @@
             // 
             // dtg_Venda
             // 
-            this.dtg_Venda.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dtg_Venda.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
             this.dtg_Venda.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtg_Venda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_Venda.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -175,9 +177,9 @@
             this.dtg_col_Quant,
             this.dtg_col_subtotal});
             this.dtg_Venda.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dtg_Venda.Location = new System.Drawing.Point(0, 239);
+            this.dtg_Venda.Location = new System.Drawing.Point(0, 240);
             this.dtg_Venda.Name = "dtg_Venda";
-            this.dtg_Venda.Size = new System.Drawing.Size(959, 211);
+            this.dtg_Venda.Size = new System.Drawing.Size(959, 210);
             this.dtg_Venda.TabIndex = 13;
             // 
             // dtg_col_Item
@@ -253,9 +255,9 @@
             this.bt_Concluir.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.bt_Concluir.BackgroundImage = global::Matriz.Properties.Resources._7689_64x64;
             this.bt_Concluir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bt_Concluir.Location = new System.Drawing.Point(897, 180);
+            this.bt_Concluir.Location = new System.Drawing.Point(624, 122);
             this.bt_Concluir.Name = "bt_Concluir";
-            this.bt_Concluir.Size = new System.Drawing.Size(47, 44);
+            this.bt_Concluir.Size = new System.Drawing.Size(50, 44);
             this.bt_Concluir.TabIndex = 21;
             this.bt_Concluir.UseVisualStyleBackColor = false;
             // 
@@ -279,13 +281,6 @@
             this.bt_PesquisarCliente.UseVisualStyleBackColor = true;
             this.bt_PesquisarCliente.Click += new System.EventHandler(this.bt_PesquisarCliente_Click);
             // 
-            // tb_codCliente
-            // 
-            this.tb_codCliente.Location = new System.Drawing.Point(122, 83);
-            this.tb_codCliente.Name = "tb_codCliente";
-            this.tb_codCliente.Size = new System.Drawing.Size(51, 20);
-            this.tb_codCliente.TabIndex = 24;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -295,6 +290,23 @@
             this.label4.Size = new System.Drawing.Size(99, 20);
             this.label4.TabIndex = 25;
             this.label4.Text = "Cód. Cliente:";
+            // 
+            // dtgw_auxiliar
+            // 
+            this.dtgw_auxiliar.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtgw_auxiliar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgw_auxiliar.Location = new System.Drawing.Point(897, 240);
+            this.dtgw_auxiliar.Name = "dtgw_auxiliar";
+            this.dtgw_auxiliar.Size = new System.Drawing.Size(10, 210);
+            this.dtgw_auxiliar.TabIndex = 26;
+            // 
+            // tb_codCliente
+            // 
+            this.tb_codCliente.Location = new System.Drawing.Point(122, 82);
+            this.tb_codCliente.Name = "tb_codCliente";
+            this.tb_codCliente.Size = new System.Drawing.Size(56, 20);
+            this.tb_codCliente.TabIndex = 27;
+            this.tb_codCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_codCliente_KeyPress_1);
             // 
             // tb_codPeca
             // 
@@ -307,6 +319,7 @@
             // 
             this.tb_Cliente.Location = new System.Drawing.Point(207, 83);
             this.tb_Cliente.Name = "tb_Cliente";
+            this.tb_Cliente.ReadOnly = true;
             this.tb_Cliente.Size = new System.Drawing.Size(353, 20);
             this.tb_Cliente.TabIndex = 14;
             // 
@@ -314,11 +327,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(959, 450);
             this.ControlBox = false;
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.tb_codCliente);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.bt_PesquisarCliente);
             this.Controls.Add(this.bt_ConsultaPeca);
             this.Controls.Add(this.bt_Concluir);
@@ -331,6 +344,7 @@
             this.Controls.Add(this.dtg_Venda);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Titulo_Form_pecas);
+            this.Controls.Add(this.dtgw_auxiliar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form_Venda";
             this.ShowIcon = false;
@@ -340,6 +354,7 @@
             this.Load += new System.EventHandler(this.Form_Venda_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Venda)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgw_auxiliar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -370,7 +385,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dtg_col_PrecoUnit;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtg_col_Quant;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtg_col_subtotal;
-        private System.Windows.Forms.TextBox tb_codCliente;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridView dtgw_auxiliar;
+        private AutoPeçasUI.MyTextBox tb_codCliente;
     }
 }

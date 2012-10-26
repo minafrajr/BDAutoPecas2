@@ -178,7 +178,7 @@
             this.Titulo_Form_pecas.Font = new System.Drawing.Font("Microsoft Sans Serif", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Titulo_Form_pecas.Location = new System.Drawing.Point(0, 0);
             this.Titulo_Form_pecas.Name = "Titulo_Form_pecas";
-            this.Titulo_Form_pecas.Size = new System.Drawing.Size(1146, 51);
+            this.Titulo_Form_pecas.Size = new System.Drawing.Size(1036, 51);
             this.Titulo_Form_pecas.TabIndex = 13;
             this.Titulo_Form_pecas.Text = "Cadastrar Fornecedor";
             // 
@@ -409,7 +409,7 @@
             this.dtgv_fornecedores.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dtgv_fornecedores.Location = new System.Drawing.Point(0, 288);
             this.dtgv_fornecedores.Name = "dtgv_fornecedores";
-            this.dtgv_fornecedores.Size = new System.Drawing.Size(1146, 267);
+            this.dtgv_fornecedores.Size = new System.Drawing.Size(1036, 267);
             this.dtgv_fornecedores.TabIndex = 30;
             this.dtgv_fornecedores.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dtgv_fornecedores_CellMouseClick);
             // 
@@ -437,7 +437,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1146, 555);
+            this.ClientSize = new System.Drawing.Size(1036, 555);
             this.ControlBox = false;
             this.Controls.Add(this.dtp_Fornecedor);
             this.Controls.Add(this.label11);

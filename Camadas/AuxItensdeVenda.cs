@@ -13,7 +13,7 @@ namespace Camadas
         
         public AuxItensdeVenda()
         {
-            SqlConnection conexao = new SqlConnection(conexao);
+            //SqlConnection conexao = new SqlConnection(conexao);
         }
 
     }

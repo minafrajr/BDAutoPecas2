@@ -9,20 +9,22 @@ using System.Windows.Forms;
 using AutoPeçasUI;
 using System.Data.SqlClient;
 using System.Data.Sql;
+using Camadas;
 
 namespace Matriz
 {
     public partial class Form_Venda : Form
     {
+
+        BussinessLayer negocio = new BussinessLayer();
+        
         //philipe
         public static List<Camadas.Peca> listaPecasSelecionadas;
         //Camadas.Peca pecaSelecionada;
         //
-
         public Form_Venda()
         {
             InitializeComponent();
-            
         }
 
         private void bt_Sair_Click(object sender, EventArgs e)
@@ -52,6 +54,26 @@ namespace Matriz
         {
             Form_Cliente cliente = new Form_Cliente();
             cliente.ShowDialog();
+        }
+
+        /// <summary>
+        /// Médoto para pesquisar o codigo do cliente, uma gridview é utilizada como auxiliar
+        /// para receber a datatable. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"> se pressionado enter ele procura</param>
+        private void tb_codCliente_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+
+                DataTable _clienteEncontrado = negocio.pesquisaCliente(tb_codCliente.Text);
+                dtgw_auxiliar.DataSource = _clienteEncontrado;
+                if (dtgw_auxiliar.CurrentRow != null)
+                    tb_Cliente.Text = dtgw_auxiliar.CurrentRow.Cells[1].Value.ToString();
+                else
+                    MessageBox.Show("Cliente não localizado");
+            }
         }
     }
 }
