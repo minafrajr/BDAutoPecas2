@@ -38,32 +38,32 @@
             this.bt_gravar = new System.Windows.Forms.Button();
             this.Titulo_Form_pecas = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lb_codigovendedor = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dtp_Admissão = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.msktb_CEP = new Matriz.Msktextbox();
             this.label8 = new System.Windows.Forms.Label();
-            this.tb_bairrro = new AutoPeçasUI.MyTextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.tb_complemento = new AutoPeçasUI.MyTextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.tb_numerocasa = new AutoPeçasUI.MyTextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.tb_endrua = new AutoPeçasUI.MyTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.dtg_Vendedor = new System.Windows.Forms.DataGridView();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.cmb_estadocivil = new Matriz.MyComboBox();
+            this.msktb_CEP = new Matriz.Msktextbox();
+            this.tb_bairrro = new AutoPeçasUI.MyTextBox();
+            this.tb_complemento = new AutoPeçasUI.MyTextBox();
+            this.tb_numerocasa = new AutoPeçasUI.MyTextBox();
+            this.tb_endrua = new AutoPeçasUI.MyTextBox();
             this.msktb_TelCelular = new Matriz.Msktextbox();
             this.msktb_Telfixo = new Matriz.Msktextbox();
             this.msktb_CPF = new Matriz.Msktextbox();
             this.tb_CodigoVendedor = new AutoPeçasUI.MyTextBox();
             this.tb_NomeVendedor = new AutoPeçasUI.MyTextBox();
-            this.dtg_Vendedor = new System.Windows.Forms.DataGridView();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Vendedor)).BeginInit();
@@ -139,10 +139,10 @@
             resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
             // 
-            // label2
+            // lb_codigovendedor
             // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.Name = "label2";
+            resources.ApplyResources(this.lb_codigovendedor, "lb_codigovendedor");
+            this.lb_codigovendedor.Name = "lb_codigovendedor";
             // 
             // label3
             // 
@@ -173,50 +173,25 @@
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
-            // msktb_CEP
-            // 
-            resources.ApplyResources(this.msktb_CEP, "msktb_CEP");
-            this.msktb_CEP.Name = "msktb_CEP";
-            // 
             // label8
             // 
             resources.ApplyResources(this.label8, "label8");
             this.label8.Name = "label8";
-            // 
-            // tb_bairrro
-            // 
-            resources.ApplyResources(this.tb_bairrro, "tb_bairrro");
-            this.tb_bairrro.Name = "tb_bairrro";
             // 
             // label7
             // 
             resources.ApplyResources(this.label7, "label7");
             this.label7.Name = "label7";
             // 
-            // tb_complemento
-            // 
-            resources.ApplyResources(this.tb_complemento, "tb_complemento");
-            this.tb_complemento.Name = "tb_complemento";
-            // 
             // label6
             // 
             resources.ApplyResources(this.label6, "label6");
             this.label6.Name = "label6";
             // 
-            // tb_numerocasa
-            // 
-            resources.ApplyResources(this.tb_numerocasa, "tb_numerocasa");
-            this.tb_numerocasa.Name = "tb_numerocasa";
-            // 
             // label4
             // 
             resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
-            // 
-            // tb_endrua
-            // 
-            resources.ApplyResources(this.tb_endrua, "tb_endrua");
-            this.tb_endrua.Name = "tb_endrua";
             // 
             // label5
             // 
@@ -243,6 +218,22 @@
             resources.ApplyResources(this.label12, "label12");
             this.label12.Name = "label12";
             // 
+            // dtg_Vendedor
+            // 
+            this.dtg_Vendedor.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dtg_Vendedor.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtg_Vendedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            resources.ApplyResources(this.dtg_Vendedor, "dtg_Vendedor");
+            this.dtg_Vendedor.Name = "dtg_Vendedor";
+            this.dtg_Vendedor.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dtg_Vendedor_CellMouseClick);
+            // 
+            // checkBox1
+            // 
+            resources.ApplyResources(this.checkBox1, "checkBox1");
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // cmb_estadocivil
             // 
             this.cmb_estadocivil.FormattingEnabled = true;
@@ -254,6 +245,31 @@
             resources.GetString("cmb_estadocivil.Items4")});
             resources.ApplyResources(this.cmb_estadocivil, "cmb_estadocivil");
             this.cmb_estadocivil.Name = "cmb_estadocivil";
+            // 
+            // msktb_CEP
+            // 
+            resources.ApplyResources(this.msktb_CEP, "msktb_CEP");
+            this.msktb_CEP.Name = "msktb_CEP";
+            // 
+            // tb_bairrro
+            // 
+            resources.ApplyResources(this.tb_bairrro, "tb_bairrro");
+            this.tb_bairrro.Name = "tb_bairrro";
+            // 
+            // tb_complemento
+            // 
+            resources.ApplyResources(this.tb_complemento, "tb_complemento");
+            this.tb_complemento.Name = "tb_complemento";
+            // 
+            // tb_numerocasa
+            // 
+            resources.ApplyResources(this.tb_numerocasa, "tb_numerocasa");
+            this.tb_numerocasa.Name = "tb_numerocasa";
+            // 
+            // tb_endrua
+            // 
+            resources.ApplyResources(this.tb_endrua, "tb_endrua");
+            this.tb_endrua.Name = "tb_endrua";
             // 
             // msktb_TelCelular
             // 
@@ -280,21 +296,6 @@
             resources.ApplyResources(this.tb_NomeVendedor, "tb_NomeVendedor");
             this.tb_NomeVendedor.Name = "tb_NomeVendedor";
             // 
-            // dtg_Vendedor
-            // 
-            this.dtg_Vendedor.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dtg_Vendedor.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dtg_Vendedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            resources.ApplyResources(this.dtg_Vendedor, "dtg_Vendedor");
-            this.dtg_Vendedor.Name = "dtg_Vendedor";
-            // 
-            // checkBox1
-            // 
-            resources.ApplyResources(this.checkBox1, "checkBox1");
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
             // Form_Vendedor
             // 
             resources.ApplyResources(this, "$this");
@@ -315,7 +316,7 @@
             this.Controls.Add(this.dtp_Admissão);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tb_CodigoVendedor);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lb_codigovendedor);
             this.Controls.Add(this.tb_NomeVendedor);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
@@ -346,7 +347,7 @@
         private System.Windows.Forms.Label label1;
         private AutoPeçasUI.MyTextBox tb_NomeVendedor;
         private AutoPeçasUI.MyTextBox tb_CodigoVendedor;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lb_codigovendedor;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dtp_Admissão;
         private System.Windows.Forms.GroupBox groupBox1;

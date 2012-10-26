@@ -134,8 +134,7 @@ namespace Matriz
 
 
             tb_IDVeiculo.Text = dtg_Veiculos[0, dtg_Veiculos.CurrentCellAddress.Y].Value.ToString();
-            tb_NomeVeiculo.Text = dtg_Veiculos[1, dtg_Veiculos.CurrentCellAddress.Y].Value.ToString();
-            //cb_fabricante.
+            tb_NomeVeiculo.Text = dtg_Veiculos[1, dtg_Veiculos.CurrentCellAddress.Y].Value.ToString();            
             cb_fabricante.SelectedText = dtg_Veiculos[2, dtg_Veiculos.CurrentCellAddress.Y].Value.ToString();
         }
     }

@@ -41,6 +41,11 @@ namespace Matriz
         private void Form_Vendedor_Load(object sender, EventArgs e)
         {
             Tips.Dicas_Botões(bt_gravar, bt_Atualiza, bt_Deleta, Bt_busca1, bt_filtrar, bt_Sair);
+            
+            //ocutando o label e o textbox 
+            tb_CodigoVendedor.Visible = false;
+            lb_codigovendedor.Visible = false;
+            dtg_Vendedor.Visible = true;
         }
 
         private void bt_gravar_Click(object sender, EventArgs e)
@@ -110,6 +115,23 @@ namespace Matriz
             {
                 MessageBox.Show(erro.Message, "Sistema de Controle de AutoPeças");
             }
+        }
+
+        private void dtg_Vendedor_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            lb_codigovendedor.Visible = true;
+            tb_CodigoVendedor.Visible = true;            
+            
+            tb_CodigoVendedor.Text = dtg_Vendedor[0, dtg_Vendedor.CurrentCellAddress.Y].Value.ToString();
+            tb_NomeVendedor.Text = dtg_Vendedor[1, dtg_Vendedor.CurrentCellAddress.Y].Value.ToString();
+            DateTime data = (DateTime)dtg_Vendedor[2, dtg_Vendedor.CurrentCellAddress.Y].Value;
+            dtp_Admissão.Value = data;
+            tb_endrua.Text = dtg_Vendedor[3, dtg_Vendedor.CurrentCellAddress.Y].Value.ToString();
+            msktb_TelCelular.Text = dtg_Vendedor[5, dtg_Vendedor.CurrentCellAddress.Y].Value.ToString();
+            msktb_Telfixo.Text = dtg_Vendedor[4, dtg_Vendedor.CurrentCellAddress.Y].Value.ToString();
+            msktb_CPF.Text = dtg_Vendedor[6, dtg_Vendedor.CurrentCellAddress.Y].Value.ToString();
+            cmb_estadocivil.SelectedText = dtg_Vendedor[7, dtg_Vendedor.CurrentCellAddress.Y].Value.ToString();
+
         }
 
     }
