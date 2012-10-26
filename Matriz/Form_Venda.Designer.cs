@@ -305,7 +305,7 @@
             this.tb_codCliente.Location = new System.Drawing.Point(122, 82);
             this.tb_codCliente.Name = "tb_codCliente";
             this.tb_codCliente.Size = new System.Drawing.Size(56, 20);
-            this.tb_codCliente.TabIndex = 27;
+            this.tb_codCliente.TabIndex = 1;
             this.tb_codCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_codCliente_KeyPress_1);
             // 
             // tb_codPeca
@@ -313,7 +313,7 @@
             this.tb_codPeca.Location = new System.Drawing.Point(122, 146);
             this.tb_codPeca.Name = "tb_codPeca";
             this.tb_codPeca.Size = new System.Drawing.Size(56, 20);
-            this.tb_codPeca.TabIndex = 16;
+            this.tb_codPeca.TabIndex = 2;
             // 
             // tb_Cliente
             // 

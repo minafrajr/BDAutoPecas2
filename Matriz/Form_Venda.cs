@@ -70,7 +70,10 @@ namespace Matriz
                 DataTable _clienteEncontrado = negocio.pesquisaCliente(tb_codCliente.Text);
                 dtgw_auxiliar.DataSource = _clienteEncontrado;
                 if (dtgw_auxiliar.CurrentRow != null)
+                {
                     tb_Cliente.Text = dtgw_auxiliar.CurrentRow.Cells[1].Value.ToString();
+                    this.SelectNextControl(this.ActiveControl, true, true, true, true);
+                }
                 else
                     MessageBox.Show("Cliente não localizado");
             }
