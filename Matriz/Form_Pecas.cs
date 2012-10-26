@@ -150,13 +150,11 @@ namespace Matriz
         private void ckb_Filtrar_CheckedChanged(object sender, EventArgs e)
         {
             if (ckb_Filtrar.Checked)
-            {
-                textBox1.Visible = true;
+            {   
                 bt_filtrar.Enabled = true;
             }
             else
-            {
-                textBox1.Visible = false;
+            {   
                 bt_filtrar.Enabled = false;
             }
         }
@@ -196,6 +194,10 @@ namespace Matriz
             label5.Visible = true;
 
             tb_IDpeca.Text = dtg_Produtos[0,dtg_Produtos.CurrentCellAddress.Y].Value.ToString();
+            tb_nomepeca.Text = dtg_Produtos[1, dtg_Produtos.CurrentCellAddress.Y].Value.ToString();
+            mskt_quantidade.Text = dtg_Produtos[5, dtg_Produtos.CurrentCellAddress.Y].Value.ToString();
+            mskt_preco.Text = dtg_Produtos[6, dtg_Produtos.CurrentCellAddress.Y].Value.ToString();
+
 
         }
 
