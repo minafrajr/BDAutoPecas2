@@ -16,7 +16,7 @@ namespace Matriz
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Form_Principal());
-            Application.Run(new Form_Veiculos());
+            Application.Run(new Form_Venda());
         }
     }
 }

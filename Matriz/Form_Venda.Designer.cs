@@ -45,12 +45,14 @@
             this.dtg_col_subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tb_descricao = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.bt_Concluir = new System.Windows.Forms.Button();
             this.bt_ConsultaPeca = new System.Windows.Forms.Button();
             this.bt_PesquisarCliente = new System.Windows.Forms.Button();
-            this.myTextBox2 = new AutoPeçasUI.MyTextBox();
+            this.tb_codCliente = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tb_codPeca = new AutoPeçasUI.MyTextBox();
             this.tb_Cliente = new AutoPeçasUI.MyTextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Venda)).BeginInit();
@@ -160,7 +162,6 @@
             this.bt_gravar.Size = new System.Drawing.Size(47, 44);
             this.bt_gravar.TabIndex = 9;
             this.bt_gravar.UseVisualStyleBackColor = false;
-            this.bt_gravar.Click += new System.EventHandler(this.bt_gravar_Click);
             // 
             // dtg_Venda
             // 
@@ -213,7 +214,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 127);
+            this.label1.Location = new System.Drawing.Point(17, 146);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(103, 20);
             this.label1.TabIndex = 15;
@@ -223,25 +224,25 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(322, 130);
+            this.label2.Location = new System.Drawing.Point(203, 120);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(84, 20);
             this.label2.TabIndex = 17;
             this.label2.Text = "Descrição:";
             // 
-            // textBox1
+            // tb_descricao
             // 
-            this.textBox1.Location = new System.Drawing.Point(409, 120);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(204, 46);
-            this.textBox1.TabIndex = 18;
+            this.tb_descricao.Location = new System.Drawing.Point(207, 143);
+            this.tb_descricao.Multiline = true;
+            this.tb_descricao.Name = "tb_descricao";
+            this.tb_descricao.Size = new System.Drawing.Size(353, 46);
+            this.tb_descricao.TabIndex = 18;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(100, 79);
+            this.label3.Location = new System.Drawing.Point(203, 60);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 20);
             this.label3.TabIndex = 20;
@@ -260,9 +261,9 @@
             // 
             // bt_ConsultaPeca
             // 
-            this.bt_ConsultaPeca.Location = new System.Drawing.Point(168, 127);
+            this.bt_ConsultaPeca.Location = new System.Drawing.Point(566, 143);
             this.bt_ConsultaPeca.Name = "bt_ConsultaPeca";
-            this.bt_ConsultaPeca.Size = new System.Drawing.Size(28, 23);
+            this.bt_ConsultaPeca.Size = new System.Drawing.Size(33, 23);
             this.bt_ConsultaPeca.TabIndex = 22;
             this.bt_ConsultaPeca.Text = "...";
             this.bt_ConsultaPeca.UseVisualStyleBackColor = true;
@@ -270,7 +271,7 @@
             // 
             // bt_PesquisarCliente
             // 
-            this.bt_PesquisarCliente.Location = new System.Drawing.Point(566, 79);
+            this.bt_PesquisarCliente.Location = new System.Drawing.Point(566, 80);
             this.bt_PesquisarCliente.Name = "bt_PesquisarCliente";
             this.bt_PesquisarCliente.Size = new System.Drawing.Size(28, 23);
             this.bt_PesquisarCliente.TabIndex = 23;
@@ -278,20 +279,36 @@
             this.bt_PesquisarCliente.UseVisualStyleBackColor = true;
             this.bt_PesquisarCliente.Click += new System.EventHandler(this.bt_PesquisarCliente_Click);
             // 
-            // myTextBox2
+            // tb_codCliente
             // 
-            this.myTextBox2.Location = new System.Drawing.Point(116, 127);
-            this.myTextBox2.Name = "myTextBox2";
-            this.myTextBox2.Size = new System.Drawing.Size(46, 20);
-            this.myTextBox2.TabIndex = 16;
+            this.tb_codCliente.Location = new System.Drawing.Point(122, 83);
+            this.tb_codCliente.Name = "tb_codCliente";
+            this.tb_codCliente.Size = new System.Drawing.Size(51, 20);
+            this.tb_codCliente.TabIndex = 24;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(17, 83);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(99, 20);
+            this.label4.TabIndex = 25;
+            this.label4.Text = "Cód. Cliente:";
+            // 
+            // tb_codPeca
+            // 
+            this.tb_codPeca.Location = new System.Drawing.Point(122, 146);
+            this.tb_codPeca.Name = "tb_codPeca";
+            this.tb_codPeca.Size = new System.Drawing.Size(56, 20);
+            this.tb_codPeca.TabIndex = 16;
             // 
             // tb_Cliente
             // 
-            this.tb_Cliente.Location = new System.Drawing.Point(168, 79);
+            this.tb_Cliente.Location = new System.Drawing.Point(207, 83);
             this.tb_Cliente.Name = "tb_Cliente";
-            this.tb_Cliente.Size = new System.Drawing.Size(384, 20);
+            this.tb_Cliente.Size = new System.Drawing.Size(353, 20);
             this.tb_Cliente.TabIndex = 14;
-            this.tb_Cliente.TextChanged += new System.EventHandler(this.tb_Cliente_TextChanged);
             // 
             // Form_Venda
             // 
@@ -300,13 +317,15 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(959, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.tb_codCliente);
             this.Controls.Add(this.bt_PesquisarCliente);
             this.Controls.Add(this.bt_ConsultaPeca);
             this.Controls.Add(this.bt_Concluir);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tb_descricao);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.myTextBox2);
+            this.Controls.Add(this.tb_codPeca);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tb_Cliente);
             this.Controls.Add(this.dtg_Venda);
@@ -339,9 +358,9 @@
         private System.Windows.Forms.DataGridView dtg_Venda;
         private AutoPeçasUI.MyTextBox tb_Cliente;
         private System.Windows.Forms.Label label1;
-        private AutoPeçasUI.MyTextBox myTextBox2;
+        private AutoPeçasUI.MyTextBox tb_codPeca;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tb_descricao;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button bt_Concluir;
         private System.Windows.Forms.Button bt_ConsultaPeca;
@@ -351,5 +370,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dtg_col_PrecoUnit;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtg_col_Quant;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtg_col_subtotal;
+        private System.Windows.Forms.TextBox tb_codCliente;
+        private System.Windows.Forms.Label label4;
     }
 }
