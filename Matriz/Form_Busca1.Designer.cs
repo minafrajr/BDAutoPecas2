@@ -55,7 +55,7 @@
             this.categoriasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoriasTableAdapter = new Matriz.AUTOPECASDataSetTableAdapters.CategoriasTableAdapter();
             this.tableAdapterManager = new Matriz.AUTOPECASDataSetTableAdapters.TableAdapterManager();
-            this.idCategoriaComboBox = new System.Windows.Forms.ComboBox();
+            this.cmb_idCategoria = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.ckb_Filtrar = new System.Windows.Forms.CheckBox();
             this.tb_IDpeca = new AutoPeçasUI.MyTextBox();
@@ -265,17 +265,17 @@
             this.tableAdapterManager.UpdateOrder = Matriz.AUTOPECASDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.VeiculosTableAdapter = null;
             // 
-            // idCategoriaComboBox
+            // cmb_idCategoria
             // 
-            this.idCategoriaComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.categoriasBindingSource, "IdCategoria", true));
-            this.idCategoriaComboBox.DataSource = this.categoriasBindingSource;
-            this.idCategoriaComboBox.DisplayMember = "NomeCategoria";
-            this.idCategoriaComboBox.DropDownHeight = 136;
-            this.idCategoriaComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            resources.ApplyResources(this.idCategoriaComboBox, "idCategoriaComboBox");
-            this.idCategoriaComboBox.FormattingEnabled = true;
-            this.idCategoriaComboBox.Name = "idCategoriaComboBox";
-            this.idCategoriaComboBox.ValueMember = "IdCategoria";
+            this.cmb_idCategoria.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.categoriasBindingSource, "IdCategoria", true));
+            this.cmb_idCategoria.DataSource = this.categoriasBindingSource;
+            this.cmb_idCategoria.DisplayMember = "NomeCategoria";
+            this.cmb_idCategoria.DropDownHeight = 136;
+            this.cmb_idCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this.cmb_idCategoria, "cmb_idCategoria");
+            this.cmb_idCategoria.FormattingEnabled = true;
+            this.cmb_idCategoria.Name = "cmb_idCategoria";
+            this.cmb_idCategoria.ValueMember = "IdCategoria";
             // 
             // label6
             // 
@@ -344,7 +344,7 @@
             this.Controls.Add(this.ckb_Filtrar);
             this.Controls.Add(this.tb_IDpeca);
             this.Controls.Add(this.tb_nomepeca);
-            this.Controls.Add(this.idCategoriaComboBox);
+            this.Controls.Add(this.cmb_idCategoria);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cmb_IDVeiculo);
             this.Controls.Add(this.panel1);
@@ -393,7 +393,7 @@
         private System.Windows.Forms.BindingSource categoriasBindingSource;
         private AUTOPECASDataSetTableAdapters.CategoriasTableAdapter categoriasTableAdapter;
         private AUTOPECASDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.ComboBox idCategoriaComboBox;
+        private System.Windows.Forms.ComboBox cmb_idCategoria;
         private System.Windows.Forms.Label label6;
         private AutoPeçasUI.MyTextBox tb_nomepeca;
         private AutoPeçasUI.MyTextBox tb_IDpeca;

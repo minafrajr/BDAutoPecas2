@@ -1657,31 +1657,31 @@
   <metadata name="tableAdapterManager.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>831, 17</value>
   </metadata>
-  <data name="idCategoriaComboBox.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="cmb_idCategoria.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
   </data>
-  <data name="idCategoriaComboBox.IntegralHeight" type="System.Boolean, mscorlib">
+  <data name="cmb_idCategoria.IntegralHeight" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="idCategoriaComboBox.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="cmb_idCategoria.Location" type="System.Drawing.Point, System.Drawing">
     <value>478, 132</value>
   </data>
-  <data name="idCategoriaComboBox.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="cmb_idCategoria.Size" type="System.Drawing.Size, System.Drawing">
     <value>154, 21</value>
   </data>
-  <data name="idCategoriaComboBox.TabIndex" type="System.Int32, mscorlib">
+  <data name="cmb_idCategoria.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
   </data>
-  <data name="&gt;&gt;idCategoriaComboBox.Name" xml:space="preserve">
-    <value>idCategoriaComboBox</value>
+  <data name="&gt;&gt;cmb_idCategoria.Name" xml:space="preserve">
+    <value>cmb_idCategoria</value>
   </data>
-  <data name="&gt;&gt;idCategoriaComboBox.Type" xml:space="preserve">
+  <data name="&gt;&gt;cmb_idCategoria.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;idCategoriaComboBox.Parent" xml:space="preserve">
+  <data name="&gt;&gt;cmb_idCategoria.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;idCategoriaComboBox.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;cmb_idCategoria.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
   <data name="label6.AutoSize" type="System.Boolean, mscorlib">

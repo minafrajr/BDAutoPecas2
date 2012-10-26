@@ -125,7 +125,7 @@ namespace Matriz
                 peca.NomePeca = tb_nomepeca.Text;
                 peca.IDVeiculo = Convert.ToInt32(cmb_IDVeiculo.SelectedValue);
                 peca.IDFornecedor = Convert.ToInt32(cmb_codigofornecedor_peças.SelectedValue);
-                peca.IDCategoria = Convert.ToInt32(idCategoriaComboBox.SelectedValue);
+                peca.IDCategoria = Convert.ToInt32(cmb_idCategoria.SelectedValue);
                 peca.QuatidadeEstoque = Convert.ToInt32( mskt_quantidade.Text);
                 peca.PrecoUnitario = Convert.ToDouble(mskt_preco.Text);
 
@@ -195,10 +195,11 @@ namespace Matriz
 
             tb_IDpeca.Text = dtg_Produtos[0,dtg_Produtos.CurrentCellAddress.Y].Value.ToString();
             tb_nomepeca.Text = dtg_Produtos[1, dtg_Produtos.CurrentCellAddress.Y].Value.ToString();
-            mskt_quantidade.Text = dtg_Produtos[5, dtg_Produtos.CurrentCellAddress.Y].Value.ToString();
-            mskt_preco.Text = dtg_Produtos[6, dtg_Produtos.CurrentCellAddress.Y].Value.ToString();
-
-
+            cmb_codigofornecedor_peças.SelectedText = dtg_Produtos[2, dtg_Produtos.CurrentCellAddress.Y].Value.ToString();
+            cmb_IDVeiculo.SelectedText = dtg_Produtos[3, dtg_Produtos.CurrentCellAddress.Y].Value.ToString();            
+            mskt_quantidade.Text = dtg_Produtos[4, dtg_Produtos.CurrentCellAddress.Y].Value.ToString();
+            mskt_preco.Text = dtg_Produtos[5, dtg_Produtos.CurrentCellAddress.Y].Value.ToString();
+            cmb_idCategoria.SelectedText = dtg_Produtos[6, dtg_Produtos.CurrentCellAddress.Y].Value.ToString();
         }
 
         
