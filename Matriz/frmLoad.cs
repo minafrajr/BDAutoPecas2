@@ -9,11 +9,11 @@ using System.Windows.Forms;
 
 namespace Matriz
 {
-    public partial class Form_Load : Form
+    public partial class frmLoad : Form
     {
         int valor = 0;
         
-        public Form_Load()
+        public frmLoad()
         {
             InitializeComponent();
         }

@@ -13,88 +13,81 @@ namespace Camadas
     {
         #region PROPRIEDADES
 
-        private int id_cliente;
-        public int ID_Cliente
+        private int _idCliente;
+        public int IDCliente
         {
-            get { return id_cliente; }
-            set { id_cliente = value; }
+            get { return _idCliente; }
+            set { _idCliente = value; }
         }
         
-        private string nomecliente;
+        private string _nomeCliente;
         public string NomeCliente
         {
-            get { return nomecliente; }
-            set { nomecliente = value; }
+            get { return _nomeCliente; }
+            set { _nomeCliente = value; }
         }
 
-        private string cpf;
+        private string _cpf;
         public string CPF
         {
-            get { return cpf; }
-            set { cpf = value; }
+            get { return _cpf; }
+            set { _cpf = value; }
         }
 
-        private string cnpj;
+        private string _cnpj;
         public string CNPJ
         {
-            get { return cnpj; }
-            set { cnpj = value; }
+            get { return _cnpj; }
+            set { _cnpj = value; }
         }
 
-        private string logradouro;
-        public string Logradouro
+        private string _enderecoCliente;
+        public string EnderecoCliente
         {
-            get { return logradouro; }
-            set { logradouro = value; }
+            get { return _enderecoCliente; }
+            set { _enderecoCliente = value; }
         }
 
-        private string  numero_residencia;
-        public string  N_Residencia
-        {
-            get { return numero_residencia; }
-            set { numero_residencia = value; }
-        }
-
-        private string bairro;
+        private string _bairro;
         public string Bairro
         {
-            get { return bairro; }
-            set { bairro = value; }
+            get { return _bairro; }
+            set { _bairro = value; }
         }
         
-        private string cidade;
+        private string _cidade;
         public string Cidade
         {
-            get { return cidade; }
-            set { cidade = value; }
+            get { return _cidade; }
+            set { _cidade = value; }
         }
 
-        private string uf;
+        private string _uf;
         public string UF
         {
-            get { return uf; }
-            set { uf = value; }
+            get { return _uf; }
+            set { _uf = value; }
         }
 
-        private string cep;
+        private string _cep;
         public string CEP
         {
-            get { return cep; }
-            set { cep = value; }
+            get { return _cep; }
+            set { _cep = value; }
         }
 
-        private string telefone_fixo;
-        public string Telefone_Fixo
+        private string _telefoneCliente;
+        public string TelefoneCliente
         {
-            get { return telefone_fixo; }
-            set { telefone_fixo = value; }
+            get { return _telefoneCliente; }
+            set { _telefoneCliente = value; }
         }
 
-        private string telefone_celular;
-        public string Telefone_Celular
+        private string _celularCliente;
+        public string CelularCliente
         {
-            get { return telefone_celular; }
-            set { telefone_celular = value; }
+            get { return _celularCliente; }
+            set { _celularCliente = value; }
         }
 
           

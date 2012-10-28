@@ -11,11 +11,11 @@ using Camadas;
 
 namespace Matriz
 {
-    public partial class Form_Principal : Form
+    public partial class frmPrincipal : Form
     {
         private DateTime Tempo_Atual;
         private BussinessLayer Negociacao = new BussinessLayer();
-        public Form_Principal()
+        public frmPrincipal()
         {
             InitializeComponent();
         }
@@ -30,37 +30,37 @@ namespace Matriz
 
         private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form_Cliente frm = new Form_Cliente();
+            frmCliente frm = new frmCliente();
             frm.ShowDialog();
         }
 
         private void vENDAToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form_Venda frm = new Form_Venda();
+            frmVenda frm = new frmVenda();
             frm.ShowDialog();
         }
 
         private void peçasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form_Pecas frm = new Form_Pecas();
+            frmPeca frm = new frmPeca();
             frm.Show();
         }
 
         private void veiculosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form_Veiculos fmr = new Form_Veiculos();
+            frmVeiculo fmr = new frmVeiculo();
             fmr.ShowDialog();
         }
 
         private void categoriasToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Form_Categorias frm = new Form_Categorias();
+            frmCategoria frm = new frmCategoria();
             frm.ShowDialog();
         }
 
         private void fornecedoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form_Fornecedor frm = new Form_Fornecedor();
+            frmFornecedor frm = new frmFornecedor();
             frm.ShowDialog();
         }
         
@@ -71,22 +71,22 @@ namespace Matriz
 
         private void clientesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Form_Cliente frm = new Form_Cliente();
+            frmCliente frm = new frmCliente();
             frm.ShowDialog();
         }
 
         private void gerenciarVendedoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form_Vendedor frm = new Form_Vendedor();
+            frmVendedor frm = new frmVendedor();
             frm.ShowDialog();
         }
 
         private void Form_Principal_Load(object sender, EventArgs e)
         {
-            menuStrip1.Visible = false;
-            Form_Load frm = new Form_Load();
-            frm.ShowDialog();
-            menuStrip1.Visible = true;
+            //menuStrip1.Visible = false;
+            //frmLoad frm = new frmLoad();
+            //frm.ShowDialog();
+            //menuStrip1.Visible = true;
         }
 
         private void gRAVARToolStripMenuItem_Click(object sender, EventArgs e)

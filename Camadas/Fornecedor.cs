@@ -10,15 +10,15 @@ namespace Camadas
         #region Atributos
 
         //Atributos
-        int idfornecedor;
-        string cnpj;
-        string razaosocial; //nomecliente do fornecedor
-        string endereco;
-        string bairro;
-        string telefonefixo;
-        string telefonecelular;
-        string cep;
-        DateTime datacontrato;
+        int _idFornecedor;
+        string _cnpjFornecedor;
+        string _nomeFornecedor; //nomecliente do fornecedor
+        string _enderecoFornecedor;
+        string _bairroFornecedor;
+        string _telefoneFixo;
+        string _telefoneCelular;
+        string _cepFornecedor;
+        DateTime _dataContrato;
 
         #endregion Atributos
 
@@ -27,53 +27,53 @@ namespace Camadas
         
         public int IDFornecedor
         {
-            get { return idfornecedor; }
-            set { idfornecedor = value; }
+            get { return _idFornecedor; }
+            set { _idFornecedor = value; }
         }
 
-        public string CNPJ
+        public string CNPJFornecedor
         {
-            get { return cnpj; }
-            set { cnpj = value; }
+            get { return _cnpjFornecedor; }
+            set { _cnpjFornecedor = value; }
         }
-        public string RazaoSocial
+        public string NomeFornecedor
         {
-            get { return razaosocial; }
-            set { razaosocial = value; }
+            get { return _nomeFornecedor; }
+            set { _nomeFornecedor = value; }
         }
-        public string Endereco
+        public string EnderecoFornecedor
         {
-            get { return endereco; }
-            set { endereco = value; }
-        }
-
-        public string Bairro
-        {
-            get { return bairro; }
-            set { bairro = value; }
-        }
-        public string Telefone
-        {
-            get { return telefonefixo; }
-            set { telefonefixo = value; }
+            get { return _enderecoFornecedor; }
+            set { _enderecoFornecedor = value; }
         }
 
-        public string CEP 
+        public string BairroFornecedor
+        {
+            get { return _bairroFornecedor; }
+            set { _bairroFornecedor = value; }
+        }
+        public string TelefoneFixo
+        {
+            get { return _telefoneFixo; }
+            set { _telefoneFixo = value; }
+        }
+
+        public string CEPFornecedor 
         { 
-            get { return cep; } 
-            set { cep = value; } 
+            get { return _cepFornecedor; } 
+            set { _cepFornecedor = value; } 
         }
 
         public string TelefoneCelular 
         { 
-            get {return telefonecelular;}
-            set { telefonecelular = value; } 
+            get {return _telefoneCelular;}
+            set { _telefoneCelular = value; } 
         }
 
         public DateTime DataContrato
         {
-            get { return datacontrato; }
-            set { datacontrato = value; }
+            get { return _dataContrato; }
+            set { _dataContrato = value; }
         }
         #endregion
 

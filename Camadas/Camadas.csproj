@@ -44,9 +44,11 @@
     <Compile Include="BussinessLayer.cs" />
     <Compile Include="Categoria.cs" />
     <Compile Include="Cliente.cs" />
+    <Compile Include="Controle.cs" />
     <Compile Include="DataAccess.cs" />
     <Compile Include="Fornecedor.cs" />
     <Compile Include="ItensVenda.cs" />
+    <Compile Include="Modelo.cs" />
     <Compile Include="Operacoes.cs" />
     <Compile Include="Peca.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

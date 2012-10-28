@@ -1,6 +1,6 @@
 ﻿namespace Matriz
 {
-    partial class Form_Load
+    partial class frmLoad
     {
         /// <summary>
         /// Required designer variable.

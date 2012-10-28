@@ -11,12 +11,12 @@ using Camadas;
 
 namespace Matriz
 {
-    public partial class Form_Veiculos : Form
+    public partial class frmVeiculo : Form
     {
         private Veiculo veiculo;
         private BussinessLayer Negociacao = new BussinessLayer();
 
-        public Form_Veiculos()
+        public frmVeiculo()
         {
             InitializeComponent();
         }

@@ -10,11 +10,13 @@ using Camadas;
 
 namespace Matriz
 {
-    public partial class Form_Cliente : Form
+    public partial class frmCliente : Form
     {
+        Controle controle = new Controle();
         BussinessLayer Negociacao = new BussinessLayer();
         Cliente cliente;
-        public Form_Cliente()
+
+        public frmCliente()
         {
             InitializeComponent();
         }
@@ -72,16 +74,20 @@ namespace Matriz
                     cliente.CPF = null;
                 }
 
-                cliente.Telefone_Celular = mask_TelefoneCelular.Text;
-                cliente.Telefone_Fixo = mask_TelefoneFixo.Text;
+                cliente.CelularCliente = mask_TelefoneCelular.Text;
+                cliente.TelefoneCliente = mask_TelefoneFixo.Text;
                 cliente.UF = cmb_estado.SelectedItem.ToString();
-                cliente.Logradouro = tb_Logradouro.Text;
-                cliente.N_Residencia = tb_NumeroComplemento.Text;
+
+                cliente.EnderecoCliente = string.Format("{0}, {1}",tb_Logradouro.Text,tb_NumeroComplemento.Text);
+                //cliente.Logradouro = tb_Logradouro.Text;
+                //cliente.N_Residencia = tb_NumeroComplemento.Text;
                 cliente.Bairro = tb_Bairro.Text;
                 cliente.Cidade = tb_Cidade.Text;
                 cliente.CEP = mask_CEP.Text;
 
-                Negociacao.GravarCliente(cliente);
+
+                controle.ControleInserir(cliente);
+                //Negociacao.GravarCliente(cliente);
                 Form_Cliente_Load(null, null); //força a releitura do datagridview.
             }
             catch (Exception erro)
@@ -109,13 +115,29 @@ namespace Matriz
         /// <param name="e"></param>
         private void dtg_Cliente_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            string EnderecoCliente = dtg_Cliente[4, dtg_Cliente.CurrentCellAddress.Y].Value.ToString().Trim();
+            string[] arrayEnderecoCliente = EnderecoCliente.Split(',');
+
+
+
+
+
             lb_Cod.Visible = true;
             tb_CodigoCliente.Visible = true;
             cmb_estado.ResetText();
 
             tb_Bairro.Text = dtg_Cliente[5, dtg_Cliente.CurrentCellAddress.Y].Value.ToString();
             tb_Cidade.Text = dtg_Cliente[9, dtg_Cliente.CurrentCellAddress.Y].Value.ToString();
-            tb_Logradouro.Text = dtg_Cliente[4, dtg_Cliente.CurrentCellAddress.Y].Value.ToString();
+
+
+
+            tb_Logradouro.Text = arrayEnderecoCliente[0].ToString();
+            //tb_Logradouro.Text = dtg_Cliente[4, dtg_Cliente.CurrentCellAddress.Y].Value.ToString();
+
+
+
+
+
             tb_NomeCliente.Text = dtg_Cliente[1, dtg_Cliente.CurrentCellAddress.Y].Value.ToString();
             tb_NumeroComplemento.Text = dtg_Cliente[0, dtg_Cliente.CurrentCellAddress.Y].Value.ToString();
             mask_TelefoneCelular.Text = dtg_Cliente[8, dtg_Cliente.CurrentCellAddress.Y].Value.ToString();
@@ -123,7 +145,18 @@ namespace Matriz
             mask_CEP.Text = dtg_Cliente[6, dtg_Cliente.CurrentCellAddress.Y].Value.ToString();
             cmb_estado.SelectedText = dtg_Cliente[10, dtg_Cliente.CurrentCellAddress.Y].Value.ToString();
             tb_CodigoCliente.Text = dtg_Cliente[0, dtg_Cliente.CurrentCellAddress.Y].Value.ToString();
-            tb_NumeroComplemento.Text = dtg_Cliente[11, dtg_Cliente.CurrentCellAddress.Y].Value.ToString();
+
+
+
+
+            tb_NumeroComplemento.Text = arrayEnderecoCliente[1].ToString().Trim();
+            //tb_NumeroComplemento.Text = dtg_Cliente[11, dtg_Cliente.CurrentCellAddress.Y].Value.ToString();
+
+
+
+
+
+
 
             if (dtg_Cliente[2, dtg_Cliente.CurrentCellAddress.Y].Value.ToString() == "-")
                 mask_CPFCNPJ.Text = dtg_Cliente[3, dtg_Cliente.CurrentCellAddress.Y].Value.ToString();
@@ -139,10 +172,10 @@ namespace Matriz
 
                 if (MessageBox.Show("Deseja deletar o cliente" + tb_NomeCliente.Text + " ?", "Confirmação", MessageBoxButtons.YesNo).Equals(DialogResult.Yes))
                 {
-                    cliente.ID_Cliente = Convert.ToInt16(tb_CodigoCliente.Text);
+                    cliente.IDCliente = Convert.ToInt16(tb_CodigoCliente.Text);
 
-
-                    Negociacao.DeletarCliente(cliente);
+                    controle.ControleDeletar(cliente);
+                    //Negociacao.DeletarCliente(cliente);
                 }
 
                 Form_Cliente_Load(null, null);
@@ -160,7 +193,7 @@ namespace Matriz
             {
                 cliente = new Cliente();
 
-                cliente.ID_Cliente = Convert.ToInt16( dtg_Cliente[0, dtg_Cliente.CurrentCellAddress.Y].Value.ToString());
+                cliente.IDCliente = Convert.ToInt16( dtg_Cliente[0, dtg_Cliente.CurrentCellAddress.Y].Value.ToString());
                 cliente.NomeCliente = tb_NomeCliente.Text;
 
 
@@ -175,16 +208,19 @@ namespace Matriz
                     cliente.CPF = null;
                 }
 
-                cliente.Telefone_Celular = mask_TelefoneCelular.Text;
-                cliente.Telefone_Fixo = mask_TelefoneFixo.Text;
+                cliente.CelularCliente = mask_TelefoneCelular.Text;
+                cliente.TelefoneCliente = mask_TelefoneFixo.Text;
                 cliente.UF = cmb_estado.Text;
-                cliente.Logradouro = tb_Logradouro.Text;
-                cliente.N_Residencia = tb_NumeroComplemento.Text;
+
+                cliente.EnderecoCliente = string.Format("{0}, {1}",tb_Logradouro.Text,tb_NumeroComplemento.Text);
+                //cliente.Logradouro = tb_Logradouro.Text;
+                //cliente.N_Residencia = tb_NumeroComplemento.Text;
                 cliente.Bairro = tb_Bairro.Text;
                 cliente.Cidade = tb_Cidade.Text;
                 cliente.CEP = mask_CEP.Text;
 
-                Negociacao.AtualizarCliente(cliente);
+                controle.ControleAtualizar(cliente);
+                //Negociacao.AtualizarCliente(cliente);
                 Form_Cliente_Load(null, null);
             }
             catch (Exception erro)

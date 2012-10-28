@@ -13,35 +13,35 @@ namespace Camadas
     {
         #region PROPRIEDADES
 
-        private string nomepeca;
+        private string _nomePeca;
 
         public string NomePeca
         {
-            get { return nomepeca; }
-            set { nomepeca = value; }
+            get { return _nomePeca; }
+            set { _nomePeca = value; }
         }
-        private int idcategoria;
+        private int _idCategoria;
 
         public int IDCategoria
         {
-            get { return idcategoria; }
-            set { idcategoria = value; }
+            get { return _idCategoria; }
+            set { _idCategoria = value; }
         }
 
-        private double precounitario;
+        private double _precoPeca;
 
-        public double PrecoUnitario
+        public double PrecoPeca
         {
-            get { return precounitario; }
-            set { precounitario = value; }
+            get { return _precoPeca; }
+            set { _precoPeca = value; }
         }
 
-        private int quantidadeestoque;
+        private int _quantidade;
 
-        public int  QuatidadeEstoque
+        public int  Quantidade
         {
-            get { return quantidadeestoque; }
-            set { quantidadeestoque = value; }
+            get { return _quantidade; }
+            set { _quantidade = value; }
         }
         
         private string fabricante;
@@ -61,12 +61,12 @@ namespace Camadas
         }
 
         
-        private int idveiculo;
+        private int _idVeiculo;
 
         public int IDVeiculo
         {
-            get { return idveiculo; }
-            set { idveiculo = value; }
+            get { return _idVeiculo; }
+            set { _idVeiculo = value; }
         }
 
         private int idpeca;
@@ -76,13 +76,22 @@ namespace Camadas
             get { return idpeca; }
             set { idpeca = value; }
         }
-        private int idfornecedor;
 
+        private int _idFornecedor;
         public int IDFornecedor
         {
-            get { return idfornecedor; }
-            set { idfornecedor = value; }
+            get { return _idFornecedor; }
+            set { _idFornecedor = value; }
         }
+
+        private double _precoEstocado;
+
+        public double PrecoEstocado
+        {
+            get { return _precoEstocado; }
+            set { _precoEstocado = value; }
+        }
+
 
         #endregion
 

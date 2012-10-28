@@ -16,7 +16,7 @@ namespace Camadas
         private SqlConnection Conectionsql;
 
         /*essa string conecta com o serviço local*/
-        private string conexao = "Data Source = DELL; Initial Catalog = AUTOPECAS; Integrated Security = True; ";
+        private string conexao = "Data Source = PHLP; Initial Catalog = AUTOPECAS; Integrated Security = True; ";
 
         //servidor trablaho luis
         //private string conexao = "Data Source = SESA-10267; Initial Catalog = AUTOPECAS; User ID = sa; Integrated Security = True; ";
@@ -111,7 +111,7 @@ namespace Camadas
                     Conectionsql.Open();
                     using (ComandoTSQL = new SqlCommand(comandosql, Conectionsql))
                     {
-                        ComandoTSQL.Parameters.AddWithValue("@IDCliente", cliente.ID_Cliente);
+                        ComandoTSQL.Parameters.AddWithValue("@IDCliente", cliente.IDCliente);
                         ComandoTSQL.Parameters.AddWithValue("@NomeCliente", cliente.NomeCliente);
 
                         if (cliente.CNPJ != null)
@@ -125,14 +125,14 @@ namespace Camadas
                             ComandoTSQL.Parameters.AddWithValue("@CPF", '-');
 
 
-                        ComandoTSQL.Parameters.AddWithValue("@EnderecoCliente", cliente.Logradouro);
+                        //ComandoTSQL.Parameters.AddWithValue("@EnderecoCliente", cliente.Logradouro);
                         ComandoTSQL.Parameters.AddWithValue("@Bairro", cliente.Bairro);
-                        ComandoTSQL.Parameters.AddWithValue("@TelefoneCliente", cliente.Telefone_Fixo);
-                        ComandoTSQL.Parameters.AddWithValue("@CelularCliente", cliente.Telefone_Celular);
+                        ComandoTSQL.Parameters.AddWithValue("@TelefoneCliente", cliente.TelefoneCliente);
+                        ComandoTSQL.Parameters.AddWithValue("@CelularCliente", cliente.CelularCliente);
                         ComandoTSQL.Parameters.AddWithValue("@Cidade", cliente.Cidade);
                         ComandoTSQL.Parameters.AddWithValue("@CEP", cliente.CEP);
                         ComandoTSQL.Parameters.AddWithValue("@UF", cliente.UF);
-                        ComandoTSQL.Parameters.AddWithValue("@Numresidencia", cliente.N_Residencia);
+                        //ComandoTSQL.Parameters.AddWithValue("@Numresidencia", cliente.N_Residencia);
 
                         ComandoTSQL.ExecuteNonQuery();
                     }
@@ -214,7 +214,7 @@ namespace Camadas
                     Conectionsql.Open();
                     using (ComandoTSQL = new SqlCommand(comandosql, Conectionsql))
                     {
-                        ComandoTSQL.Parameters.AddWithValue("@IDCliente", cliente.ID_Cliente);
+                        ComandoTSQL.Parameters.AddWithValue("@IDCliente", cliente.IDCliente);
                         ComandoTSQL.Parameters.AddWithValue("@NomeCliente", cliente.NomeCliente);
 
                         if (cliente.CNPJ != null)
@@ -228,10 +228,10 @@ namespace Camadas
                             ComandoTSQL.Parameters.AddWithValue("@CPF", 0);
 
 
-                        ComandoTSQL.Parameters.AddWithValue("@EnderecoCliente", cliente.Logradouro);
+                        //ComandoTSQL.Parameters.AddWithValue("@EnderecoCliente", cliente.Logradouro);
                         ComandoTSQL.Parameters.AddWithValue("@Bairro", cliente.Bairro);
-                        ComandoTSQL.Parameters.AddWithValue("@TelefoneCliente", cliente.Telefone_Fixo);
-                        ComandoTSQL.Parameters.AddWithValue("@CelularCliente", cliente.Telefone_Celular);
+                        ComandoTSQL.Parameters.AddWithValue("@TelefoneCliente", cliente.TelefoneCliente);
+                        ComandoTSQL.Parameters.AddWithValue("@CelularCliente", cliente.CelularCliente);
                         ComandoTSQL.Parameters.AddWithValue("@Cidade", cliente.Cidade);
                         ComandoTSQL.Parameters.AddWithValue("@CEP", cliente.CEP);
                         ComandoTSQL.Parameters.AddWithValue("@UF", cliente.UF);
@@ -258,10 +258,10 @@ namespace Camadas
                     using (ComandoTSQL = new SqlCommand(comandosql, Conectionsql))
                     {
                         ComandoTSQL.Parameters.AddWithValue("@IDFornecedor", fornecedor.IDFornecedor);
-                        ComandoTSQL.Parameters.AddWithValue("@NomeFornecedor", fornecedor.RazaoSocial);
-                        ComandoTSQL.Parameters.AddWithValue("@CNPJFornecedor ", fornecedor.CNPJ);
-                        ComandoTSQL.Parameters.AddWithValue("@EnderecoFornecedor", fornecedor.Endereco);
-                        ComandoTSQL.Parameters.AddWithValue("@CEPFornecedor", fornecedor.CEP);
+                        ComandoTSQL.Parameters.AddWithValue("@NomeFornecedor", fornecedor.NomeFornecedor);
+                        ComandoTSQL.Parameters.AddWithValue("@CNPJFornecedor ", fornecedor.CNPJFornecedor);
+                        ComandoTSQL.Parameters.AddWithValue("@EnderecoFornecedor", fornecedor.EnderecoFornecedor);
+                        ComandoTSQL.Parameters.AddWithValue("@CEPFornecedor", fornecedor.CEPFornecedor);
 
                         ComandoTSQL.ExecuteNonQuery();
                     }
@@ -288,11 +288,11 @@ namespace Camadas
                     using (ComandoTSQL = new SqlCommand(comandosql, Conectionsql))
                     {
                         ComandoTSQL.Parameters.AddWithValue("@CPF", vendedor.CPF);
-                        ComandoTSQL.Parameters.AddWithValue("@DataAdm", vendedor.DataAdmissao);
+                        ComandoTSQL.Parameters.AddWithValue("@DataAdm", vendedor.DataAdm);
                         ComandoTSQL.Parameters.AddWithValue("@Endereco", vendedor.Endereco);
                         ComandoTSQL.Parameters.AddWithValue("@Nomevendedor", vendedor.NomeVendedor);
-                        ComandoTSQL.Parameters.AddWithValue("@TelCel", vendedor.TelefoneCelular);
-                        ComandoTSQL.Parameters.AddWithValue("@TelFixo", vendedor.TelefoneFixo);
+                        ComandoTSQL.Parameters.AddWithValue("@TelCel", vendedor.TelCel);
+                        ComandoTSQL.Parameters.AddWithValue("@TelFixo", vendedor.TelFixo);
                         ComandoTSQL.Parameters.AddWithValue("@EstadoCivil", vendedor.EstadoCivil);
 
                         ComandoTSQL.ExecuteNonQuery();
@@ -449,7 +449,7 @@ namespace Camadas
                     Conectionsql.Open();
                     using (ComandoTSQL = new SqlCommand(comandosql, Conectionsql))
                     {
-                        ComandoTSQL.Parameters.AddWithValue("@IDCliente", cliente.ID_Cliente);
+                        ComandoTSQL.Parameters.AddWithValue("@IDCliente", cliente.IDCliente);
                         ComandoTSQL.ExecuteNonQuery();
                     }
                     Conectionsql.Close();
@@ -498,7 +498,7 @@ namespace Camadas
                         break;
                     case "Camadas.ItensVenda":
                         comandosql += "ITENSVENDA WHERE IDITENSVENDA";
-                        ComandoTSQL.Parameters.AddWithValue("@ID", ((ItensVenda)objetoASerDeletado)._IDItensVemda);
+                        ComandoTSQL.Parameters.AddWithValue("@ID", ((ItensVenda)objetoASerDeletado).IDItensVenda);
                         break;
                     case "Camadas.Fornecedor":
                         comandosql += "FORNECEDORES WHERE IDFORNECEDOR";
@@ -506,7 +506,7 @@ namespace Camadas
                         break;
                     case "Camadas.Cliente":
                         comandosql += "CLIENTES WHERE IDCLIENTE";
-                        ComandoTSQL.Parameters.AddWithValue("@ID", ((Cliente)objetoASerDeletado).ID_Cliente);
+                        ComandoTSQL.Parameters.AddWithValue("@ID", ((Cliente)objetoASerDeletado).IDCliente);
                         break;
                     case "Camadas.Categoria":
                         comandosql += "CATEGORIAS WHERE IDCATEGORIA";
@@ -772,8 +772,8 @@ namespace Camadas
                         ComandoTSQL.Parameters.AddWithValue("@NomePeca", peca.NomePeca);
                         ComandoTSQL.Parameters.AddWithValue("@IDFornecedor", peca.IDFornecedor);
                         ComandoTSQL.Parameters.AddWithValue("@IDVeiculo", peca.IDVeiculo);
-                        ComandoTSQL.Parameters.AddWithValue("@Quant", peca.QuatidadeEstoque);
-                        ComandoTSQL.Parameters.AddWithValue("@Preco", peca.PrecoUnitario);
+                        ComandoTSQL.Parameters.AddWithValue("@Quant", peca.Quantidade);
+                        ComandoTSQL.Parameters.AddWithValue("@Preco", peca.PrecoPeca);
                         ComandoTSQL.Parameters.AddWithValue("@IDCategoria", peca.IDCategoria);
                         ComandoTSQL.ExecuteNonQuery();
 
@@ -864,14 +864,14 @@ namespace Camadas
                             ComandoTSQL.Parameters.AddWithValue("@CPF", '-');
 
 
-                        ComandoTSQL.Parameters.AddWithValue("@EnderecoCliente", cliente.Logradouro);
+                        //ComandoTSQL.Parameters.AddWithValue("@EnderecoCliente", cliente.Logradouro);
                         ComandoTSQL.Parameters.AddWithValue("@Bairro", cliente.Bairro);
-                        ComandoTSQL.Parameters.AddWithValue("@TelefoneCliente", cliente.Telefone_Fixo);
-                        ComandoTSQL.Parameters.AddWithValue("@CelularCliente", cliente.Telefone_Celular);
+                        ComandoTSQL.Parameters.AddWithValue("@TelefoneCliente", cliente.TelefoneCliente);
+                        ComandoTSQL.Parameters.AddWithValue("@CelularCliente", cliente.CelularCliente);
                         ComandoTSQL.Parameters.AddWithValue("@Cidade", cliente.Cidade);
                         ComandoTSQL.Parameters.AddWithValue("@CEP", cliente.CEP);
                         ComandoTSQL.Parameters.AddWithValue("@UF", cliente.UF);
-                        ComandoTSQL.Parameters.AddWithValue("@Numresidencia", cliente.N_Residencia);
+                        //ComandoTSQL.Parameters.AddWithValue("@Numresidencia", cliente.N_Residencia);
 
                         ComandoTSQL.ExecuteNonQuery();
                     }
@@ -894,12 +894,12 @@ namespace Camadas
                     Conectionsql.Open();
                     using (ComandoTSQL = new SqlCommand(comandosql, Conectionsql))
                     {
-                        ComandoTSQL.Parameters.AddWithValue("@NomeFornecedor", fornecedor.RazaoSocial);
-                        ComandoTSQL.Parameters.AddWithValue("@CNPJFornecedor", fornecedor.CNPJ);
-                        ComandoTSQL.Parameters.AddWithValue("@EnderecoFornecedor", fornecedor.Endereco);
-                        ComandoTSQL.Parameters.AddWithValue("@CEPFornecedor", fornecedor.CEP);
-                        ComandoTSQL.Parameters.AddWithValue("@BairroFornecedor", fornecedor.Bairro);
-                        ComandoTSQL.Parameters.AddWithValue("@Telefonefixo", fornecedor.Telefone);
+                        ComandoTSQL.Parameters.AddWithValue("@NomeFornecedor", fornecedor.NomeFornecedor);
+                        ComandoTSQL.Parameters.AddWithValue("@CNPJFornecedor", fornecedor.CNPJFornecedor);
+                        ComandoTSQL.Parameters.AddWithValue("@EnderecoFornecedor", fornecedor.EnderecoFornecedor);
+                        ComandoTSQL.Parameters.AddWithValue("@CEPFornecedor", fornecedor.CEPFornecedor);
+                        ComandoTSQL.Parameters.AddWithValue("@BairroFornecedor", fornecedor.BairroFornecedor);
+                        ComandoTSQL.Parameters.AddWithValue("@Telefonefixo", fornecedor.TelefoneFixo);
                         ComandoTSQL.Parameters.AddWithValue("@TELEFONECELULAR", fornecedor.TelefoneCelular);
                         ComandoTSQL.Parameters.AddWithValue("@Datacontrato", fornecedor.DataContrato);
 
@@ -929,11 +929,11 @@ namespace Camadas
                     using (ComandoTSQL = new SqlCommand(comandosql, Conectionsql))
                     {
                         ComandoTSQL.Parameters.AddWithValue("@CPF", vendedor.CPF);
-                        ComandoTSQL.Parameters.AddWithValue("@DataAdm", vendedor.DataAdmissao);
+                        ComandoTSQL.Parameters.AddWithValue("@DataAdm", vendedor.DataAdm);
                         ComandoTSQL.Parameters.AddWithValue("@Endereco", vendedor.Endereco);
                         ComandoTSQL.Parameters.AddWithValue("@Nomevendedor", vendedor.NomeVendedor);
-                        ComandoTSQL.Parameters.AddWithValue("@TelCel", vendedor.TelefoneCelular);
-                        ComandoTSQL.Parameters.AddWithValue("@TelFixo", vendedor.TelefoneFixo);
+                        ComandoTSQL.Parameters.AddWithValue("@TelCel", vendedor.TelCel);
+                        ComandoTSQL.Parameters.AddWithValue("@TelFixo", vendedor.TelFixo);
                         ComandoTSQL.Parameters.AddWithValue("@EstadoCivil", vendedor.EstadoCivil);
 
 

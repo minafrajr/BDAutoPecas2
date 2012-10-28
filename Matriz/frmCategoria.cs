@@ -11,12 +11,13 @@ using AutoPeçasUI;
 
 namespace Matriz
 {
-    public partial class Form_Categorias : Form
+    public partial class frmCategoria : Form
     {
+        Controle controle = new Controle();
         BussinessLayer Negociacao = new BussinessLayer();
-        Categoria categoria = new Categoria();
+        Categoria categoria;
 
-        public Form_Categorias()
+        public frmCategoria()
         {
             InitializeComponent();
         }
@@ -56,10 +57,13 @@ namespace Matriz
         {
             try
             {
+                categoria = new Categoria();
+
                 categoria.NomeCategoria = tb_NomeCategoria.Text;
                 categoria.Descricao = tb_DescriCatg.Text;
 
-                Negociacao.GravarCategorias(categoria);
+                controle.ControleInserir(categoria);
+                //Negociacao.GravarCategorias(categoria);
 
                 CarregaTabela();
                 limpatb();
@@ -79,12 +83,15 @@ namespace Matriz
         {
             try
             {
+                categoria = new Categoria();
+
                 categoria.IDCategoria = Convert.ToInt16(tb_IDCategoria.Text);
                 categoria.NomeCategoria = tb_NomeCategoria.Text;
                 categoria.Descricao = tb_DescriCatg.Text;
-                
 
-                Negociacao.AtualizarCategoria(categoria);
+                controle.ControleAtualizar(categoria);
+                //Negociacao.AtualizarCategoria(categoria);
+
                 CarregaTabela();
                 limpatb();
             }
@@ -103,12 +110,15 @@ namespace Matriz
         {
             try
             {
+                categoria = new Categoria();
+
                 categoria.IDCategoria = Convert.ToInt16(tb_IDCategoria.Text);
 
                 if (MessageBox.Show("Deseja excluir a categoria  " + tb_NomeCategoria.Text.ToUpper() +" ?", "Test", MessageBoxButtons.YesNo).Equals(DialogResult.Yes))
                 {
                     //Negociacao.DeletarCategoria(categoria);
-                    Negociacao.DeletarPhilipe(categoria);
+                    //Negociacao.DeletarPhilipe(categoria);
+                    controle.ControleDeletar(categoria);
 
                     CarregaTabela();
                     limpatb();

@@ -11,14 +11,18 @@ namespace Camadas
 
         //Atributos
 
-        private int idvenda;
+        private int _idVenda;
+        private int _idVendedor;
+        private int _idCliente;
+        private double _precoTotal;
+        private double _desconto;
         private string _CPF;
         private string _Nome;
         private string _Endereco;
         private string _Numero;
         private string _Bairro;
         private string _Telefone;
-        private DateTime _Data ;
+        private DateTime _dataVenda ;
         private DateTime _Hora ; 
 
         #endregion Atributos
@@ -26,13 +30,33 @@ namespace Camadas
         #region Propriedades dos Atributos
         //Torna as variaveis como propriedades dos objetos
 
+        
 
+        public int IDVendedor
+        {
+            get { return _idVendedor; }
+            set { _idVendedor = value; }
+        }       
+        public int IDCliente
+        {
+            get { return _idCliente; }
+            set { _idCliente = value; }
+        }
         public int IDVenda
         {
-            get { return idvenda; }
-            set { idvenda = value; }
+            get { return _idVenda; }
+            set { _idVenda = value; }
         }
-
+        public double PrecoTotal
+        {
+            get { return _precoTotal; }
+            set { _precoTotal = value; }
+        }
+        public double Desconto
+        {
+            get { return _desconto; }
+            set { _desconto = value; }
+        }
         public string CPF
         {
             get { return _CPF; }
@@ -64,9 +88,9 @@ namespace Camadas
             get { return _Telefone; }
             set { _Telefone = value; }
         }
-        public DateTime Data
+        public DateTime DataVenda
         {
-            get { return _Data = RetornaHoraData(); }
+            get { return _dataVenda = RetornaHoraData(); }
             
         }
         public DateTime Hora

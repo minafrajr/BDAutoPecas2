@@ -9,88 +9,88 @@ namespace Camadas
     {
         public Venda venda;
 
-        private int IDItensVenda;
-        private int IDPeca;
-        private int IDVenda;
-        private double PrecoUnitario;
-        private int Quantidade;
-        private double SubTotal;
+        private int _idItensVenda;
+        private int _idPeca;
+        private int _idVenda;
+        private double _precoUnitario;
+        private int _quantidade;
+        private double _subtotal;
 
-        public int _IDItensVemda
+        public int IDItensVenda
         {
             get
             {
-                return IDItensVenda;
+                return _idItensVenda;
             }
             set
             {
-                if (this.IDItensVenda != value)
-                    this.IDItensVenda = value;
+                if (this._idItensVenda != value)
+                    this._idItensVenda = value;
             }
         }
 
-        public int _IDPeca
+        public int IDPeca
         {
             get
             {
-                return IDPeca;
+                return _idPeca;
             }
             set
             {
-                if (this.IDPeca != value)
-                    this.IDPeca = value;
+                if (this._idPeca != value)
+                    this._idPeca = value;
             }
         }
 
-        public int _IDVenda
+        public int IDVenda
         {
             get
             {
-                return IDVenda;
+                return _idVenda;
             }
             set
             {
-                if (this.IDVenda != value)
-                    this.IDVenda = value;
+                if (this._idVenda != value)
+                    this._idVenda = value;
             }
         }
 
-        public double _PrecoUnitario
+        public double PrecoUnitario
         {
             get
             {
-                return PrecoUnitario;
+                return _precoUnitario;
             }
             set
             {
-                if (this.PrecoUnitario != value)
-                    this.PrecoUnitario = value;
+                if (this._precoUnitario != value)
+                    this._precoUnitario = value;
             }
         }
 
-        public int _Quantidade
+        public int Quantidade
         {
             get
             {
-                return Quantidade;
+                return _quantidade;
             }
             set
             {
-                if (this.Quantidade != value)
-                    this.Quantidade = value;
+                if (this._quantidade != value)
+                    this._quantidade = value;
             }
         }
 
-        public double _SubTotal
+        public double Subtotal
         {
             get
             {
-                return SubTotal;
+                return _subtotal;
             }
             set
             {
-                if (this.SubTotal != value)
-                    this.SubTotal = value;
+                if (this._subtotal != value)
+                    this._subtotal = value;
             }
         }
 

@@ -1,6 +1,6 @@
 ﻿namespace Matriz
 {
-    partial class Form_Veiculos
+    partial class frmVeiculo
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Veiculos));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVeiculo));
             this.panel1 = new System.Windows.Forms.Panel();
             this.bt_Sair = new System.Windows.Forms.Button();
             this.bt_filtrar = new System.Windows.Forms.Button();

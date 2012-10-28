@@ -13,7 +13,7 @@ using Camadas;
 
 namespace Matriz
 {
-    public partial class Form_Venda : Form
+    public partial class frmVenda : Form
     {
 
         BussinessLayer negocio = new BussinessLayer();
@@ -22,7 +22,7 @@ namespace Matriz
         public static List<Camadas.Peca> listaPecasSelecionadas;
         //Camadas.Peca pecaSelecionada;
         //
-        public Form_Venda()
+        public frmVenda()
         {
             InitializeComponent();
         }
@@ -52,7 +52,7 @@ namespace Matriz
 
         private void bt_PesquisarCliente_Click(object sender, EventArgs e)
         {
-            Form_Cliente cliente = new Form_Cliente();
+            frmCliente cliente = new frmCliente();
             cliente.ShowDialog();
         }
 

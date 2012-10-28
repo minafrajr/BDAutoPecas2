@@ -10,28 +10,28 @@ namespace Camadas
 
         #region Propriedades e Atributos
 
-        private int idveiculo;
+        private int _idVeiculo;
 
         public int IDVeiculo
         {
-            get { return idveiculo; }
-            set { idveiculo = value; }
+            get { return _idVeiculo; }
+            set { _idVeiculo = value; }
         }
 
-        private string nomeveiculo;
+        private string _nomeVeiculo;
 
         public string NomeVeiculo
         {
-            get { return nomeveiculo; }
-            set { nomeveiculo = value; }
+            get { return _nomeVeiculo; }
+            set { _nomeVeiculo = value; }
         }
 
-        private string fabricante;
+        private string _fabricante;
 
         public string Fabricante
         {
-            get { return fabricante; }
-            set { fabricante = value; }
+            get { return _fabricante; }
+            set { _fabricante = value; }
         }
 
         private string marca;
@@ -50,20 +50,20 @@ namespace Camadas
             set { cilindrada = value; }
         }
 
-        private DateTime anoinicial;
+        private DateTime _anoInicial;
 
         public DateTime AnoInicial
         {
-            get { return anoinicial; }
-            set { anoinicial = value; }
+            get { return _anoInicial; }
+            set { _anoInicial = value; }
         }
 
-        private DateTime anofinal;
+        private DateTime _anoFinal;
 
         public DateTime AnoFinal
         {
-            get { return anofinal; }
-            set { anofinal = value; }
+            get { return _anoFinal; }
+            set { _anoFinal = value; }
         }
 
         private string modelo;
@@ -95,13 +95,13 @@ namespace Camadas
         /// <param name="_cilindrada">a potencia em cilindrada do veiculo</param>
         public Veiculo(int _idveiculo,string _nomeveiculo,string _fabricante,string _marca,string _modelo,DateTime _anoinicial, DateTime _anofinal,double _cilindrada )
         {
-            this.idveiculo = _idveiculo;
-            this.nomeveiculo = _nomeveiculo;
+            this._idVeiculo = _idveiculo;
+            this._nomeVeiculo = _nomeveiculo;
             this.marca = _marca;
             this.modelo = _modelo;
-            this.fabricante = _fabricante;
-            this.anoinicial = _anoinicial;
-            this.anofinal = _anofinal;
+            this._fabricante = _fabricante;
+            this._anoInicial = _anoinicial;
+            this._anoFinal = _anofinal;
             this.cilindrada = _cilindrada;
         }
 

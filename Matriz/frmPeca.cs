@@ -10,7 +10,7 @@ using Camadas;
 
 namespace Matriz
 {
-    public partial class Form_Pecas : Form
+    public partial class frmPeca : Form
     {
      
         
@@ -18,7 +18,7 @@ namespace Matriz
         private BussinessLayer Negociacao = new BussinessLayer();
         
 
-        public Form_Pecas()
+        public frmPeca()
         {
             InitializeComponent();
             this.CenterToScreen();
@@ -126,8 +126,8 @@ namespace Matriz
                 peca.IDVeiculo = Convert.ToInt32(cmb_IDVeiculo.SelectedValue);
                 peca.IDFornecedor = Convert.ToInt32(cmb_codigofornecedor_peças.SelectedValue);
                 peca.IDCategoria = Convert.ToInt32(cmb_idCategoria.SelectedValue);
-                peca.QuatidadeEstoque = Convert.ToInt32( mskt_quantidade.Text);
-                peca.PrecoUnitario = Convert.ToDouble(mskt_preco.Text);
+                peca.Quantidade = Convert.ToInt32( mskt_quantidade.Text);
+                peca.PrecoPeca = Convert.ToDouble(mskt_preco.Text);
 
                 
                 Negociacao.GravarPeca(peca);

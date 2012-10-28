@@ -11,11 +11,11 @@ using AutoPeçasUI;
 
 namespace Matriz
 {
-    public partial class Form_Fornecedor : Form
+    public partial class frmFornecedor : Form
     {
         BussinessLayer Negociacao = new BussinessLayer();
         Fornecedor fornecedor;
-        public Form_Fornecedor()
+        public frmFornecedor()
         {
             InitializeComponent();
             Tips.Dicas_Botões(bt_gravar, bt_Atualiza, bt_Deleta, Bt_busca1, bt_filtrar, bt_Sair);
@@ -63,13 +63,13 @@ namespace Matriz
             {
                 fornecedor = new Fornecedor();
                                 
-                fornecedor.RazaoSocial = tb_NomeFornecedor.Text;
-                fornecedor.CNPJ = msktb_CNPJ.Text;
-                fornecedor.CEP = msktb_CEP.Text;
-                fornecedor.Endereco = tb_endrua.Text + tb_numendereco.Text + tb_complemento.Text ;
-                fornecedor.Bairro = tb_bairro.Text;
+                fornecedor.NomeFornecedor = tb_NomeFornecedor.Text;
+                fornecedor.CNPJFornecedor = msktb_CNPJ.Text;
+                fornecedor.CEPFornecedor = msktb_CEP.Text;
+                fornecedor.EnderecoFornecedor = tb_endrua.Text + tb_numendereco.Text + tb_complemento.Text ;
+                fornecedor.BairroFornecedor = tb_bairro.Text;
                 fornecedor.DataContrato = dtp_Fornecedor.Value.Date;
-                fornecedor.Telefone = msk_telfixo.Text;
+                fornecedor.TelefoneFixo = msk_telfixo.Text;
                 fornecedor.TelefoneCelular = mskt_telcel.Text;
 
 
@@ -93,10 +93,10 @@ namespace Matriz
                     fornecedor = new Fornecedor();
 
                     fornecedor.IDFornecedor = Convert.ToInt32(tb_IDFornecedor.Text);
-                    fornecedor.RazaoSocial = tb_NomeFornecedor.Text;
-                    fornecedor.CNPJ = msktb_CNPJ.Text;
-                    fornecedor.CEP = msktb_CEP.Text;
-                    fornecedor.Endereco = tb_endrua.Text;
+                    fornecedor.NomeFornecedor = tb_NomeFornecedor.Text;
+                    fornecedor.CNPJFornecedor = msktb_CNPJ.Text;
+                    fornecedor.CEPFornecedor = msktb_CEP.Text;
+                    fornecedor.EnderecoFornecedor = tb_endrua.Text;
 
                     Negociacao.AutalizarFornecedor(fornecedor);
 

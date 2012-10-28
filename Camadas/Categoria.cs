@@ -7,29 +7,29 @@ namespace Camadas
 {
     public class Categoria
     {
-        private int idcategoria;
+        private int _idCategoria;
 
         public int IDCategoria
         {
-            get { return idcategoria; }
-            set { idcategoria = value; }
+            get { return _idCategoria; }
+            set { _idCategoria = value; }
         }
 
 
-        private string nomecategoria;
+        private string _nomeCategoria;
 
         public string NomeCategoria
         {
-            get { return nomecategoria; }
-            set { nomecategoria = value; }
+            get { return _nomeCategoria; }
+            set { _nomeCategoria = value; }
         }
 
-        private string descricao;
+        private string _descricao;
 
         public string Descricao
         {
-            get { return descricao; }
-            set { descricao = value; }
+            get { return _descricao; }
+            set { _descricao = value; }
         }
 
     }

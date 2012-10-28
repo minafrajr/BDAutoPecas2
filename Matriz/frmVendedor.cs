@@ -11,12 +11,12 @@ using Camadas;
 
 namespace Matriz
 {
-    public partial class Form_Vendedor : Form
+    public partial class frmVendedor : Form
     {
         Vendedor vendedor = new Vendedor();
         BussinessLayer Negociacao = new BussinessLayer();
 
-        public Form_Vendedor()
+        public frmVendedor()
         {
             InitializeComponent();
         }
@@ -55,10 +55,10 @@ namespace Matriz
                 vendedor.NomeVendedor = tb_NomeVendedor.Text;
                 vendedor.Endereco = tb_endrua.Text + " nº " + tb_numerocasa.Text + " compl. " + tb_complemento.Text+" bairro"+tb_bairrro.Text;
                 vendedor.CPF = msktb_CPF.Text;
-                vendedor.DataAdmissao = dtp_Admissão.Value.Date;
+                vendedor.DataAdm = dtp_Admissão.Value.Date;
                 vendedor.EstadoCivil = cmb_estadocivil.SelectedItem.ToString();
-                vendedor.TelefoneCelular = msktb_TelCelular.Text;
-                vendedor.TelefoneFixo = msktb_Telfixo.Text;
+                vendedor.TelCel = msktb_TelCelular.Text;
+                vendedor.TelFixo = msktb_Telfixo.Text;
 
                 Negociacao.GravarVendedor(vendedor);
 

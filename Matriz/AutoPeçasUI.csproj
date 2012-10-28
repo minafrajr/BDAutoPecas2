@@ -92,59 +92,59 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AUTOPECASDataSet11.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Form_Categorias.cs">
+    <Compile Include="frmCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Categorias.Designer.cs">
-      <DependentUpon>Form_Categorias.cs</DependentUpon>
+    <Compile Include="frmCategoria.Designer.cs">
+      <DependentUpon>frmCategoria.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_Cliente.cs">
+    <Compile Include="frmCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Cliente.designer.cs">
-      <DependentUpon>Form_Cliente.cs</DependentUpon>
+    <Compile Include="frmCliente.designer.cs">
+      <DependentUpon>frmCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_Fornecedor.cs">
+    <Compile Include="frmFornecedor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Fornecedor.Designer.cs">
-      <DependentUpon>Form_Fornecedor.cs</DependentUpon>
+    <Compile Include="frmFornecedor.Designer.cs">
+      <DependentUpon>frmFornecedor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_Load.cs">
+    <Compile Include="frmLoad.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Load.Designer.cs">
-      <DependentUpon>Form_Load.cs</DependentUpon>
+    <Compile Include="frmLoad.Designer.cs">
+      <DependentUpon>frmLoad.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_Pecas.cs">
+    <Compile Include="frmPeca.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Busca1.Designer.cs">
-      <DependentUpon>Form_Pecas.cs</DependentUpon>
+    <Compile Include="frmPeca.Designer.cs">
+      <DependentUpon>frmPeca.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_Principal.cs">
+    <Compile Include="frmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Principal.Designer.cs">
-      <DependentUpon>Form_Principal.cs</DependentUpon>
+    <Compile Include="frmPrincipal.Designer.cs">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_Veiculos.cs">
+    <Compile Include="frmVeiculo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Veiculos.Designer.cs">
-      <DependentUpon>Form_Veiculos.cs</DependentUpon>
+    <Compile Include="frmVeiculo.Designer.cs">
+      <DependentUpon>frmVeiculo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_Venda.cs">
+    <Compile Include="frmVenda.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Venda.Designer.cs">
-      <DependentUpon>Form_Venda.cs</DependentUpon>
+    <Compile Include="frmVenda.Designer.cs">
+      <DependentUpon>frmVenda.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_Vendedor.cs">
+    <Compile Include="frmVendedor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Vendedor.Designer.cs">
-      <DependentUpon>Form_Vendedor.cs</DependentUpon>
+    <Compile Include="frmVendedor.Designer.cs">
+      <DependentUpon>frmVendedor.cs</DependentUpon>
     </Compile>
     <Compile Include="Msktextbox.cs">
       <SubType>Component</SubType>
@@ -167,41 +167,41 @@
       <DependentUpon>Report.cs</DependentUpon>
     </Compile>
     <Compile Include="Tips.cs" />
-    <EmbeddedResource Include="Form_Categorias.resx">
-      <DependentUpon>Form_Categorias.cs</DependentUpon>
+    <EmbeddedResource Include="frmCategoria.resx">
+      <DependentUpon>frmCategoria.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_Cliente.resx">
-      <DependentUpon>Form_Cliente.cs</DependentUpon>
+    <EmbeddedResource Include="frmCliente.resx">
+      <DependentUpon>frmCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_Fornecedor.resx">
-      <DependentUpon>Form_Fornecedor.cs</DependentUpon>
+    <EmbeddedResource Include="frmFornecedor.resx">
+      <DependentUpon>frmFornecedor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_Load.resx">
-      <DependentUpon>Form_Load.cs</DependentUpon>
+    <EmbeddedResource Include="frmLoad.resx">
+      <DependentUpon>frmLoad.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_Pecas.pt-BR.resx">
-      <DependentUpon>Form_Pecas.cs</DependentUpon>
+    <EmbeddedResource Include="frmPeca.pt-BR.resx">
+      <DependentUpon>frmPeca.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_Pecas.resx">
-      <DependentUpon>Form_Pecas.cs</DependentUpon>
+    <EmbeddedResource Include="frmPeca.resx">
+      <DependentUpon>frmPeca.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_Principal.resx">
-      <DependentUpon>Form_Principal.cs</DependentUpon>
+    <EmbeddedResource Include="frmPrincipal.resx">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_Veiculos.resx">
-      <DependentUpon>Form_Veiculos.cs</DependentUpon>
+    <EmbeddedResource Include="frmVeiculo.resx">
+      <DependentUpon>frmVeiculo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_Venda.resx">
-      <DependentUpon>Form_Venda.cs</DependentUpon>
+    <EmbeddedResource Include="frmVenda.resx">
+      <DependentUpon>frmVenda.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_Vendedor.af.resx">
-      <DependentUpon>Form_Vendedor.cs</DependentUpon>
+    <EmbeddedResource Include="frmVendedor.af.resx">
+      <DependentUpon>frmVendedor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_Vendedor.pt-BR.resx">
-      <DependentUpon>Form_Vendedor.cs</DependentUpon>
+    <EmbeddedResource Include="frmVendedor.pt-BR.resx">
+      <DependentUpon>frmVendedor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_Vendedor.resx">
-      <DependentUpon>Form_Vendedor.cs</DependentUpon>
+    <EmbeddedResource Include="frmVendedor.resx">
+      <DependentUpon>frmVendedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
