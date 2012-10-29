@@ -11,12 +11,27 @@ namespace Camadas
         DataAccess Acessoadados = new DataAccess(); //objeto da camada de acesso a dados
 
 
-        public DataTable pesquisaCliente(string pesquisa)
+        public DataTable pesquisa_ID_Cliente(string pesquisa)
         {
 
             DataTable data = Acessoadados.ConsultaIDCliente(pesquisa);
             return data;
         }
+
+        public DataTable pesquisa_ID_Peca(string pesquisa)
+        {
+            DataTable data = Acessoadados.ConsultaIDPeca(pesquisa);
+            return data;
+        }
+
+        public string ID_UltimaVenda()
+        {
+            string idVenda = Acessoadados.UltimaVenda();
+            return idVenda;
+
+        }
+
+
 
         public int contapeca()
         {

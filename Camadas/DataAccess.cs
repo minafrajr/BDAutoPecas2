@@ -16,13 +16,13 @@ namespace Camadas
         private SqlConnection Conectionsql;
 
         /*essa string conecta com o serviço local*/
-        private string conexao = "Data Source = PHLP; Initial Catalog = AUTOPECAS; Integrated Security = True; ";
+        //private string conexao = "Data Source = PHLP; Initial Catalog = AUTOPECAS; Integrated Security = True; ";
 
         //servidor trablaho luis
         //private string conexao = "Data Source = SESA-10267; Initial Catalog = AUTOPECAS; User ID = sa; Integrated Security = True; ";
         
         //servidor casa luis
-        //private string conexao = "Data Source = CASA; Initial Catalog = AUTOPECAS; User ID = sa; Integrated Security = True; ";
+        private string conexao = "Data Source = CASA; Initial Catalog = AUTOPECAS; User ID = sa; Integrated Security = True; ";
 
         //essa conexão deu certo no servidor GENESIS via IP
         //private string conexao = "Data Source=192.168.0.100,1433; Initial Catalog=AUTOPECAS; User ID=sa; Password=1234";
@@ -1154,11 +1154,65 @@ namespace Camadas
 
                 throw erro;
             }
-            
-
-
-            
         }
+
+        public DataTable ConsultaIDPeca(string pesquisa)
+        {
+            try
+            {
+                DataTable _datatable = new DataTable();
+                comandosql = "Select * FROM PECAS WHERE IDPECA LIKE " + pesquisa;
+                using (Conectionsql = new SqlConnection(conexao))
+                {
+                    Conectionsql.Open();
+                    using (ComandoTSQL = new SqlCommand (comandosql,Conectionsql))
+                    {
+                        SqlDataReader leitor = ComandoTSQL.ExecuteReader(CommandBehavior.CloseConnection);
+                        _datatable.Load(leitor);
+                        leitor.Close();
+                    }
+                    return _datatable;
+                    Conectionsql.Close();
+                    
+                }
+
+            }
+            catch (Exception erro)
+            {
+                
+                throw;
+            }
+        }
+        public string UltimaVenda()
+        {
+            comandosql = "SELECT MAX(IDVENDA) FROM VENDA";
+            SqlCommand cmd = default(SqlCommand);
+            Conectionsql = new SqlConnection(conexao);
+            
+            try
+            {
+                Conectionsql.Open();
+                cmd = new SqlCommand(comandosql, Conectionsql);
+                string idvenda = Convert.ToString(cmd.ExecuteScalar());
+                cmd.Dispose();
+                Conectionsql.Close();
+                return idvenda;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            
+
+            
+
+ 
+        }
+
+
+
+
 
 
     }
