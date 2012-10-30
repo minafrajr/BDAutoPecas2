@@ -28,7 +28,18 @@ namespace Camadas
         {
             string idVenda = Acessoadados.UltimaVenda();
             return idVenda;
+        }
 
+        public DataTable ConsultaLogon(string login)
+        {
+            DataTable _login = Acessoadados.ConsultaLogon(login);
+            return _login;
+        }
+
+        public string ConsultaIdVendedor(string login)
+        {
+            string _idvendedor = Acessoadados.ConsultaIDVendedor(login);
+            return _idvendedor;
         }
 
 

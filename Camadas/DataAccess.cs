@@ -16,10 +16,10 @@ namespace Camadas
         private SqlConnection Conectionsql;
 
         /*essa string conecta com o serviço local*/
-        private string conexao = "Data Source = PHLP; Initial Catalog = AUTOPECAS; Integrated Security = True; ";
+        //private string conexao = "Data Source = PHLP; Initial Catalog = AUTOPECAS; Integrated Security = True; ";
 
         //servidor trablaho luis
-        //private string conexao = "Data Source = SESA-10267; Initial Catalog = AUTOPECAS; User ID = sa; Integrated Security = True; ";
+        private string conexao = "Data Source = SESA-10267; Initial Catalog = AUTOPECAS; User ID = sa; Integrated Security = True; ";
         
         //servidor casa luis
         //private string conexao = "Data Source = CASA; Initial Catalog = AUTOPECAS; User ID = sa; Integrated Security = True; ";
@@ -1183,6 +1183,7 @@ namespace Camadas
                 throw;
             }
         }
+
         public string UltimaVenda()
         {
             comandosql = "SELECT MAX(IDVENDA) FROM VENDA";
@@ -1203,14 +1204,7 @@ namespace Camadas
                 
                 throw;
             }
-            
-
-            
-
- 
         }
-
-
         ////////////////////////////////////////////////////////////////////
         public List<Vendedor> getVendedores()
         {
@@ -1252,7 +1246,60 @@ namespace Camadas
             }
         }
 
+        public DataTable ConsultaLogon(string login)
+        {
+            //try
+            //{
+                DataTable _datatable = new DataTable();                
+                comandosql = "SELECT * FROM LOGINVENDEDORES WHERE LOGINVENDEDOR LIKE " + login;
+                using (Conectionsql = new SqlConnection(conexao))
+                {
+                    Conectionsql.Open();
+                    using (ComandoTSQL = new SqlCommand(comandosql, Conectionsql))
+                    {   
+                        SqlDataReader leitor = ComandoTSQL.ExecuteReader(CommandBehavior.CloseConnection);
+                        _datatable.Load(leitor);                        
+                        leitor.Close();
+                    }
+                    return _datatable;
+                    Conectionsql.Close();
+                }
 
+            //}
+            //catch (Exception erro)
+            //{
+
+                //throw;
+            //}
+        }
+        public string ConsultaIDVendedor(string login)
+        {
+            try
+            {
+                DataTable _datatable = new DataTable();
+                string teste;
+                comandosql = "Select * FROM LOGONVENDEDOR WHERE login_vendedor LIKE " + login;
+                using (Conectionsql = new SqlConnection(conexao))
+                {
+                    Conectionsql.Open();
+                    using (ComandoTSQL = new SqlCommand(comandosql, Conectionsql))
+                    {
+                        SqlDataReader leitor = ComandoTSQL.ExecuteReader(CommandBehavior.CloseConnection);
+                        teste = (string)leitor.GetValue(1);
+                        leitor.Close();
+                    }
+                    return teste;
+                    Conectionsql.Close();
+                }
+
+            }
+            catch (Exception erro)
+            {
+
+                throw;
+            }
+ 
+        }
 
     }
 }

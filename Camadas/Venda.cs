@@ -90,7 +90,8 @@ namespace Camadas
         }
         public DateTime DataVenda
         {
-            get { return _dataVenda = RetornaHoraData(); }
+            get { return _dataVenda; }
+            set { _dataVenda = value; }
             
         }
         public DateTime Hora

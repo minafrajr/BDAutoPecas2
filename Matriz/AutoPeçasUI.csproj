@@ -116,6 +116,12 @@
     <Compile Include="frmLoad.Designer.cs">
       <DependentUpon>frmLoad.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmLogonVendedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogonVendedores.Designer.cs">
+      <DependentUpon>frmLogonVendedores.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPeca.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,6 +195,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLoad.resx">
       <DependentUpon>frmLoad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogonVendedores.resx">
+      <DependentUpon>frmLogonVendedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPeca.pt-BR.resx">
       <DependentUpon>frmPeca.cs</DependentUpon>

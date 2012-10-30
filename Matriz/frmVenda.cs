@@ -15,16 +15,49 @@ namespace Matriz
 {
     public partial class frmVenda : Form
     {
-
+        ItensVenda _ItemdeVenda;
+        Controle obj_controle = new Controle();
         BussinessLayer negocio = new BussinessLayer();
+        Venda obj_venda = new Venda();
+        private string id_Vendedor;
+
+        public string ID_vendedor
+        {
+            get { return id_Vendedor; }
+            set { id_Vendedor = value; }
+        }
+        
         
         //philipe
         public static List<Camadas.Peca> listaPecasSelecionadas;
         //Camadas.Peca pecaSelecionada;
         //
+
+
+        private void GravaVendaTemp()
+        {
+            try
+            {
+                obj_venda.IDVendedor = int.Parse(tb_CondVendedor.Text);
+                obj_venda.DataVenda = DateTime.Now;
+                obj_venda.IDCliente = int.Parse(tb_Cliente.Text);
+                obj_venda.PrecoTotal = 0.00;
+                obj_venda.Desconto = 0.00;
+                obj_controle.ControleInserir(obj_venda);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            } 
+        }
+        
         public frmVenda()
         {
             InitializeComponent();
+            ID_vendedor = "2";
+            tb_CondVendedor.Text = id_Vendedor;
+            
         }
 
         private void bt_Sair_Click(object sender, EventArgs e)
@@ -55,7 +88,6 @@ namespace Matriz
                 Proximavenda = (int.Parse(ultimavenda)) + 1;
                 tb_IDVenda.Text = Proximavenda.ToString();
             }
-            
 
         }
 
@@ -81,13 +113,13 @@ namespace Matriz
         {
             //dtgw_auxiliar.Rows.Clear();
             if (e.KeyChar == 13)
-            {
-
+            {                
                 DataTable _clienteEncontrado = negocio.pesquisa_ID_Cliente(tb_codCliente.Text);
                 dtgw_auxiliarCliente.DataSource = _clienteEncontrado;
                 if (dtgw_auxiliarCliente.CurrentRow != null)
                 {
                     tb_Cliente.Text = dtgw_auxiliarCliente.CurrentRow.Cells[1].Value.ToString();
+                    GravaVendaTemp();
                     this.SelectNextControl(this.ActiveControl, true, true, true, true);
                 }
                 else
@@ -120,8 +152,23 @@ namespace Matriz
         }
         private void bt_gravar_Click(object sender, EventArgs e)
         {
-
-            MessageBox.Show("Test");
+            try
+            {
+                _ItemdeVenda = new ItensVenda();
+                _ItemdeVenda.IDVenda = int.Parse(tb_IDVenda.Text);
+                MessageBox.Show("Test");
+                tb_codPeca.Clear();
+                tb_descricaoPeca.Clear();
+                tb_PrecoPecaUnita.Clear();
+                tb_quantidadePecaEstoque.Clear();
+                num_quantidadePecas.Value = 1;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            
 
         }
 
@@ -136,11 +183,8 @@ namespace Matriz
                 else
                 {
                     bt_gravar_Click(sender, e);
-                    tb_codPeca.Clear();
-                    tb_descricaoPeca.Clear();
-                    tb_PrecoPecaUnita.Clear();
-                    tb_quantidadePecaEstoque.Clear();
-                    num_quantidadePecas.Value = 1;
+                    this.SelectNextControl(this.ActiveControl,false,true,true,true);
+                    
                 }
             }
         }
