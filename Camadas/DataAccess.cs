@@ -16,13 +16,13 @@ namespace Camadas
         private SqlConnection Conectionsql;
 
         /*essa string conecta com o serviço local*/
-        //private string conexao = "Data Source = PHLP; Initial Catalog = AUTOPECAS; Integrated Security = True; ";
+        private string conexao = "Data Source = PHLP; Initial Catalog = AUTOPECAS; Integrated Security = True; ";
 
         //servidor trablaho luis
         //private string conexao = "Data Source = SESA-10267; Initial Catalog = AUTOPECAS; User ID = sa; Integrated Security = True; ";
         
         //servidor casa luis
-        private string conexao = "Data Source = CASA; Initial Catalog = AUTOPECAS; User ID = sa; Integrated Security = True; ";
+        //private string conexao = "Data Source = CASA; Initial Catalog = AUTOPECAS; User ID = sa; Integrated Security = True; ";
 
         //essa conexão deu certo no servidor GENESIS via IP
         //private string conexao = "Data Source=192.168.0.100,1433; Initial Catalog=AUTOPECAS; User ID=sa; Password=1234";
@@ -1211,7 +1211,46 @@ namespace Camadas
         }
 
 
+        ////////////////////////////////////////////////////////////////////
+        public List<Vendedor> getVendedores()
+        {
+            comandosql = "select * from VENDEDORES";
+            List<Vendedor> listaVendedores = new List<Vendedor>();
+            Conectionsql = new SqlConnection(conexao);
 
+            try
+            {
+                ComandoTSQL = new SqlCommand(comandosql, Conectionsql);
+                Conectionsql.Open();
+                SqlDataReader dr = ComandoTSQL.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    Vendedor v = new Vendedor();
+                    v.IDVendedor = (int)dr["IDVENDEDOR"];
+                    v.NomeVendedor = (string)dr["NOMEVENDEDOR"];
+                    v.NCadastro = (int)dr["N_CADASTRO"];
+                    v.DataAdm=(DateTime)dr["DATAADM"];
+                    v.Endereco = (string)dr["ENDERECO"];
+                    v.TelFixo = (string)dr["TELFIXO"];
+                    v.TelCel = (string)dr["TELCEL"];
+                    v.CPF = (string)dr["CPF"];
+                    v.EstadoCivil = (string)dr["ESTADOCIVIL"];
+
+                    listaVendedores.Add(v);
+                }
+
+                return listaVendedores;
+            }
+            catch
+            {
+                throw new Exception("Erro ao gerar lista de alunos");
+            }
+            finally
+            {
+                Conectionsql.Close();
+            }
+        }
 
 
 

@@ -140,11 +140,22 @@
     <Compile Include="frmVenda.Designer.cs">
       <DependentUpon>frmVenda.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmVenda2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVenda2.Designer.cs">
+      <DependentUpon>frmVenda2.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmVendedor.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmVendedor.Designer.cs">
       <DependentUpon>frmVendedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Msktextbox.cs">
       <SubType>Component</SubType>
@@ -194,6 +205,9 @@
     <EmbeddedResource Include="frmVenda.resx">
       <DependentUpon>frmVenda.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmVenda2.resx">
+      <DependentUpon>frmVenda2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmVendedor.af.resx">
       <DependentUpon>frmVendedor.cs</DependentUpon>
     </EmbeddedResource>
@@ -240,6 +254,10 @@
     <None Include="AUTOPECASDataSet11.xss">
       <DependentUpon>AUTOPECASDataSet11.xsd</DependentUpon>
     </None>
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

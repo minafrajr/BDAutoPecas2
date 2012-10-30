@@ -437,6 +437,21 @@ namespace Camadas
             }
         }
         #endregion
+
+
+        //////////////////////////////////////////////
+        public List<Vendedor> getVendedores()
+        {
+            try
+            {
+                return Acessoadados.getVendedores();
+            }
+            catch
+            {
+                throw new Exception("Ocorreu um erro ao pegar os vendedores");
+            }
+        }
+
     }
 
 

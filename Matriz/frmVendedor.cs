@@ -13,7 +13,8 @@ namespace Matriz
 {
     public partial class frmVendedor : Form
     {
-        Vendedor vendedor = new Vendedor();
+        Controle controle;
+        Vendedor vendedor;
         BussinessLayer Negociacao = new BussinessLayer();
 
         public frmVendedor()
@@ -52,15 +53,19 @@ namespace Matriz
         {
             try
             {
-                vendedor.NomeVendedor = tb_NomeVendedor.Text;
-                vendedor.Endereco = tb_endrua.Text + " nº " + tb_numerocasa.Text + " compl. " + tb_complemento.Text+" bairro"+tb_bairrro.Text;
-                vendedor.CPF = msktb_CPF.Text;
-                vendedor.DataAdm = dtp_Admissão.Value.Date;
-                vendedor.EstadoCivil = cmb_estadocivil.SelectedItem.ToString();
-                vendedor.TelCel = msktb_TelCelular.Text;
-                vendedor.TelFixo = msktb_Telfixo.Text;
+                vendedor = new Vendedor();
 
-                Negociacao.GravarVendedor(vendedor);
+                vendedor.NomeVendedor = tb_NomeVendedor.Text;
+                vendedor.DataAdm = dtp_Admissão.Value.Date;
+                vendedor.Endereco = string.Format("{0}, {1}, {2}, {3}", tb_endrua.Text, tb_numerocasa.Text, tb_complemento.Text, tb_bairrro.Text);
+                vendedor.TelFixo = msktb_Telfixo.Text;
+                vendedor.TelCel = msktb_TelCelular.Text;
+                vendedor.CPF = msktb_CPF.Text;
+                vendedor.EstadoCivil = cmb_estadocivil.SelectedItem.ToString();
+
+                controle = new Controle();
+                controle.ControleInserir(vendedor);
+                //Negociacao.GravarVendedor(vendedor);
 
             }
             catch (Exception erro)

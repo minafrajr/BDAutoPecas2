@@ -1,0 +1,685 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AUTOPECASModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="AUTOPECASModelStoreContainer">
+          <EntitySet Name="CATEGORIAS" EntityType="AUTOPECASModel.Store.CATEGORIAS" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CLIENTES" EntityType="AUTOPECASModel.Store.CLIENTES" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FORNECEDORES" EntityType="AUTOPECASModel.Store.FORNECEDORES" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ITENSVENDA" EntityType="AUTOPECASModel.Store.ITENSVENDA" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PECAS" EntityType="AUTOPECASModel.Store.PECAS" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysdiagrams" EntityType="AUTOPECASModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="VEICULOS" EntityType="AUTOPECASModel.Store.VEICULOS" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="VENDA" EntityType="AUTOPECASModel.Store.VENDA" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="VENDEDORES" EntityType="AUTOPECASModel.Store.VENDEDORES" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_ITENSVEN_REFERENCE_VENDA" Association="AUTOPECASModel.Store.FK_ITENSVEN_REFERENCE_VENDA">
+            <End Role="VENDA" EntitySet="VENDA" />
+            <End Role="ITENSVENDA" EntitySet="ITENSVENDA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItensVenda_Pecas" Association="AUTOPECASModel.Store.FK_ItensVenda_Pecas">
+            <End Role="PECAS" EntitySet="PECAS" />
+            <End Role="ITENSVENDA" EntitySet="ITENSVENDA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pecas_Categorias1" Association="AUTOPECASModel.Store.FK_Pecas_Categorias1">
+            <End Role="CATEGORIAS" EntitySet="CATEGORIAS" />
+            <End Role="PECAS" EntitySet="PECAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pecas_Fornecedores" Association="AUTOPECASModel.Store.FK_Pecas_Fornecedores">
+            <End Role="FORNECEDORES" EntitySet="FORNECEDORES" />
+            <End Role="PECAS" EntitySet="PECAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pecas_Veiculos" Association="AUTOPECASModel.Store.FK_Pecas_Veiculos">
+            <End Role="VEICULOS" EntitySet="VEICULOS" />
+            <End Role="PECAS" EntitySet="PECAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VENDA_REFERENCE_CLIENTES" Association="AUTOPECASModel.Store.FK_VENDA_REFERENCE_CLIENTES">
+            <End Role="CLIENTES" EntitySet="CLIENTES" />
+            <End Role="VENDA" EntitySet="VENDA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VENDA_REFERENCE_VENDEDOR" Association="AUTOPECASModel.Store.FK_VENDA_REFERENCE_VENDEDOR">
+            <End Role="VENDEDORES" EntitySet="VENDEDORES" />
+            <End Role="VENDA" EntitySet="VENDA" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CATEGORIAS">
+          <Key>
+            <PropertyRef Name="IDCATEGORIA" />
+          </Key>
+          <Property Name="IDCATEGORIA" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NOMECATEGORIA" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="DESCRICAO" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CLIENTES">
+          <Key>
+            <PropertyRef Name="IDCLIENTE" />
+          </Key>
+          <Property Name="IDCLIENTE" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NOMECLIENTE" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="CNPJ" Type="varchar" MaxLength="50" />
+          <Property Name="CPF" Type="varchar" MaxLength="50" />
+          <Property Name="ENDERECOCLIENTE" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="BAIRRO" Type="varchar" MaxLength="50" />
+          <Property Name="CEP" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="TELEFONECLIENTE" Type="varchar" MaxLength="50" />
+          <Property Name="CELULARCLIENTE" Type="varchar" MaxLength="50" />
+          <Property Name="CIDADE" Type="varchar" MaxLength="50" />
+          <Property Name="UF" Type="char" MaxLength="2" />
+        </EntityType>
+        <EntityType Name="FORNECEDORES">
+          <Key>
+            <PropertyRef Name="IDFORNECEDOR" />
+          </Key>
+          <Property Name="IDFORNECEDOR" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NOMEFORNECEDOR" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="CNPJFORNECEDOR" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ENDERECOFORNECEDOR" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="BAIRROFORNECEDOR" Type="varchar" MaxLength="50" />
+          <Property Name="CEPFORNECEDOR" Type="varchar" MaxLength="50" />
+          <Property Name="TELEFONEFIXO" Type="varchar" MaxLength="50" />
+          <Property Name="TELEFONECELULAR" Type="varchar" MaxLength="50" />
+          <Property Name="DATACONTRATO" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ITENSVENDA">
+          <Key>
+            <PropertyRef Name="IDITENSVENDA" />
+          </Key>
+          <Property Name="IDITENSVENDA" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IDPECA" Type="int" Nullable="false" />
+          <Property Name="IDVENDA" Type="int" />
+          <Property Name="PRECOUNITARIO" Type="money" Nullable="false" />
+          <Property Name="QUANTIDADE" Type="int" Nullable="false" />
+          <Property Name="SUBTOTAL" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PECAS">
+          <Key>
+            <PropertyRef Name="IDPECA" />
+          </Key>
+          <Property Name="IDPECA" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NOMEPECA" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="IDFORNECEDOR" Type="int" Nullable="false" />
+          <Property Name="IDVEICULO" Type="int" />
+          <Property Name="QUANTIDADE" Type="int" />
+          <Property Name="PRECOPECA" Type="money" />
+          <Property Name="IDCATEGORIA" Type="int" />
+          <Property Name="PRECOESTOCADO" Type="money" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="VEICULOS">
+          <Key>
+            <PropertyRef Name="IDVEICULO" />
+          </Key>
+          <Property Name="IDVEICULO" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NOMEVEICULO" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="FABRICANTE" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ANOINICIAL" Type="datetime" Nullable="false" />
+          <Property Name="ANOFINAL" Type="datetime" />
+        </EntityType>
+        <EntityType Name="VENDA">
+          <Key>
+            <PropertyRef Name="IDVENDA" />
+          </Key>
+          <Property Name="IDVENDA" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IDVENDEDOR" Type="int" />
+          <Property Name="DATAVENDA" Type="datetime" />
+          <Property Name="IDCLIENTE" Type="int" />
+          <Property Name="PRECOTOTAL" Type="money" />
+          <Property Name="DESCONTO" Type="float" />
+        </EntityType>
+        <EntityType Name="VENDEDORES">
+          <Key>
+            <PropertyRef Name="IDVENDEDOR" />
+          </Key>
+          <Property Name="IDVENDEDOR" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NOMEVENDEDOR" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="N_CADASTRO" Type="int" Nullable="false" />
+          <Property Name="DATAADM" Type="datetime" Nullable="false" />
+          <Property Name="ENDERECO" Type="varchar" MaxLength="50" />
+          <Property Name="TELFIXO" Type="varchar" MaxLength="50" />
+          <Property Name="TELCEL" Type="varchar" MaxLength="50" />
+          <Property Name="CPF" Type="varchar" MaxLength="50" />
+          <Property Name="ESTADOCIVIL" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_ITENSVEN_REFERENCE_VENDA">
+          <End Role="VENDA" Type="AUTOPECASModel.Store.VENDA" Multiplicity="0..1" />
+          <End Role="ITENSVENDA" Type="AUTOPECASModel.Store.ITENSVENDA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VENDA">
+              <PropertyRef Name="IDVENDA" />
+            </Principal>
+            <Dependent Role="ITENSVENDA">
+              <PropertyRef Name="IDVENDA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItensVenda_Pecas">
+          <End Role="PECAS" Type="AUTOPECASModel.Store.PECAS" Multiplicity="1" />
+          <End Role="ITENSVENDA" Type="AUTOPECASModel.Store.ITENSVENDA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PECAS">
+              <PropertyRef Name="IDPECA" />
+            </Principal>
+            <Dependent Role="ITENSVENDA">
+              <PropertyRef Name="IDPECA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pecas_Categorias1">
+          <End Role="CATEGORIAS" Type="AUTOPECASModel.Store.CATEGORIAS" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PECAS" Type="AUTOPECASModel.Store.PECAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATEGORIAS">
+              <PropertyRef Name="IDCATEGORIA" />
+            </Principal>
+            <Dependent Role="PECAS">
+              <PropertyRef Name="IDCATEGORIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pecas_Fornecedores">
+          <End Role="FORNECEDORES" Type="AUTOPECASModel.Store.FORNECEDORES" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PECAS" Type="AUTOPECASModel.Store.PECAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FORNECEDORES">
+              <PropertyRef Name="IDFORNECEDOR" />
+            </Principal>
+            <Dependent Role="PECAS">
+              <PropertyRef Name="IDFORNECEDOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pecas_Veiculos">
+          <End Role="VEICULOS" Type="AUTOPECASModel.Store.VEICULOS" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PECAS" Type="AUTOPECASModel.Store.PECAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VEICULOS">
+              <PropertyRef Name="IDVEICULO" />
+            </Principal>
+            <Dependent Role="PECAS">
+              <PropertyRef Name="IDVEICULO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VENDA_REFERENCE_CLIENTES">
+          <End Role="CLIENTES" Type="AUTOPECASModel.Store.CLIENTES" Multiplicity="0..1" />
+          <End Role="VENDA" Type="AUTOPECASModel.Store.VENDA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTES">
+              <PropertyRef Name="IDCLIENTE" />
+            </Principal>
+            <Dependent Role="VENDA">
+              <PropertyRef Name="IDCLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VENDA_REFERENCE_VENDEDOR">
+          <End Role="VENDEDORES" Type="AUTOPECASModel.Store.VENDEDORES" Multiplicity="0..1" />
+          <End Role="VENDA" Type="AUTOPECASModel.Store.VENDA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VENDEDORES">
+              <PropertyRef Name="IDVENDEDOR" />
+            </Principal>
+            <Dependent Role="VENDA">
+              <PropertyRef Name="IDVENDEDOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AUTOPECASModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="AUTOPECASEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CATEGORIAS" EntityType="AUTOPECASModel.CATEGORIAS" />
+          <EntitySet Name="CLIENTES" EntityType="AUTOPECASModel.CLIENTES" />
+          <EntitySet Name="FORNECEDORES" EntityType="AUTOPECASModel.FORNECEDORES" />
+          <EntitySet Name="ITENSVENDA" EntityType="AUTOPECASModel.ITENSVENDA" />
+          <EntitySet Name="PECAS" EntityType="AUTOPECASModel.PECAS" />
+          <EntitySet Name="sysdiagrams" EntityType="AUTOPECASModel.sysdiagrams" />
+          <EntitySet Name="VEICULOS" EntityType="AUTOPECASModel.VEICULOS" />
+          <EntitySet Name="VENDA" EntityType="AUTOPECASModel.VENDA" />
+          <EntitySet Name="VENDEDORES" EntityType="AUTOPECASModel.VENDEDORES" />
+          <AssociationSet Name="FK_Pecas_Categorias1" Association="AUTOPECASModel.FK_Pecas_Categorias1">
+            <End Role="CATEGORIAS" EntitySet="CATEGORIAS" />
+            <End Role="PECAS" EntitySet="PECAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VENDA_REFERENCE_CLIENTES" Association="AUTOPECASModel.FK_VENDA_REFERENCE_CLIENTES">
+            <End Role="CLIENTES" EntitySet="CLIENTES" />
+            <End Role="VENDA" EntitySet="VENDA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pecas_Fornecedores" Association="AUTOPECASModel.FK_Pecas_Fornecedores">
+            <End Role="FORNECEDORES" EntitySet="FORNECEDORES" />
+            <End Role="PECAS" EntitySet="PECAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ITENSVEN_REFERENCE_VENDA" Association="AUTOPECASModel.FK_ITENSVEN_REFERENCE_VENDA">
+            <End Role="VENDA" EntitySet="VENDA" />
+            <End Role="ITENSVENDA" EntitySet="ITENSVENDA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ItensVenda_Pecas" Association="AUTOPECASModel.FK_ItensVenda_Pecas">
+            <End Role="PECAS" EntitySet="PECAS" />
+            <End Role="ITENSVENDA" EntitySet="ITENSVENDA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pecas_Veiculos" Association="AUTOPECASModel.FK_Pecas_Veiculos">
+            <End Role="VEICULOS" EntitySet="VEICULOS" />
+            <End Role="PECAS" EntitySet="PECAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VENDA_REFERENCE_VENDEDOR" Association="AUTOPECASModel.FK_VENDA_REFERENCE_VENDEDOR">
+            <End Role="VENDEDORES" EntitySet="VENDEDORES" />
+            <End Role="VENDA" EntitySet="VENDA" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CATEGORIAS">
+          <Key>
+            <PropertyRef Name="IDCATEGORIA" />
+          </Key>
+          <Property Name="IDCATEGORIA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMECATEGORIA" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="DESCRICAO" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="PECAS" Relationship="AUTOPECASModel.FK_Pecas_Categorias1" FromRole="CATEGORIAS" ToRole="PECAS" />
+        </EntityType>
+        <EntityType Name="CLIENTES">
+          <Key>
+            <PropertyRef Name="IDCLIENTE" />
+          </Key>
+          <Property Name="IDCLIENTE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMECLIENTE" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CNPJ" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CPF" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ENDERECOCLIENTE" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="BAIRRO" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CEP" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="TELEFONECLIENTE" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CELULARCLIENTE" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CIDADE" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="UF" Type="String" MaxLength="2" Unicode="false" FixedLength="true" />
+          <NavigationProperty Name="VENDA" Relationship="AUTOPECASModel.FK_VENDA_REFERENCE_CLIENTES" FromRole="CLIENTES" ToRole="VENDA" />
+        </EntityType>
+        <EntityType Name="FORNECEDORES">
+          <Key>
+            <PropertyRef Name="IDFORNECEDOR" />
+          </Key>
+          <Property Name="IDFORNECEDOR" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMEFORNECEDOR" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CNPJFORNECEDOR" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ENDERECOFORNECEDOR" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="BAIRROFORNECEDOR" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CEPFORNECEDOR" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="TELEFONEFIXO" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="TELEFONECELULAR" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="DATACONTRATO" Type="DateTime" />
+          <NavigationProperty Name="PECAS" Relationship="AUTOPECASModel.FK_Pecas_Fornecedores" FromRole="FORNECEDORES" ToRole="PECAS" />
+        </EntityType>
+        <EntityType Name="ITENSVENDA">
+          <Key>
+            <PropertyRef Name="IDITENSVENDA" />
+          </Key>
+          <Property Name="IDITENSVENDA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDPECA" Type="Int32" Nullable="false" />
+          <Property Name="IDVENDA" Type="Int32" />
+          <Property Name="PRECOUNITARIO" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="QUANTIDADE" Type="Int32" Nullable="false" />
+          <Property Name="SUBTOTAL" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <NavigationProperty Name="VENDA" Relationship="AUTOPECASModel.FK_ITENSVEN_REFERENCE_VENDA" FromRole="ITENSVENDA" ToRole="VENDA" />
+          <NavigationProperty Name="PECAS" Relationship="AUTOPECASModel.FK_ItensVenda_Pecas" FromRole="ITENSVENDA" ToRole="PECAS" />
+        </EntityType>
+        <EntityType Name="PECAS">
+          <Key>
+            <PropertyRef Name="IDPECA" />
+          </Key>
+          <Property Name="IDPECA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMEPECA" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="IDFORNECEDOR" Type="Int32" Nullable="false" />
+          <Property Name="IDVEICULO" Type="Int32" />
+          <Property Name="QUANTIDADE" Type="Int32" />
+          <Property Name="PRECOPECA" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="IDCATEGORIA" Type="Int32" />
+          <Property Name="PRECOESTOCADO" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="CATEGORIAS" Relationship="AUTOPECASModel.FK_Pecas_Categorias1" FromRole="PECAS" ToRole="CATEGORIAS" />
+          <NavigationProperty Name="FORNECEDORES" Relationship="AUTOPECASModel.FK_Pecas_Fornecedores" FromRole="PECAS" ToRole="FORNECEDORES" />
+          <NavigationProperty Name="ITENSVENDA" Relationship="AUTOPECASModel.FK_ItensVenda_Pecas" FromRole="PECAS" ToRole="ITENSVENDA" />
+          <NavigationProperty Name="VEICULOS" Relationship="AUTOPECASModel.FK_Pecas_Veiculos" FromRole="PECAS" ToRole="VEICULOS" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="VEICULOS">
+          <Key>
+            <PropertyRef Name="IDVEICULO" />
+          </Key>
+          <Property Name="IDVEICULO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMEVEICULO" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="FABRICANTE" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ANOINICIAL" Type="DateTime" Nullable="false" />
+          <Property Name="ANOFINAL" Type="DateTime" />
+          <NavigationProperty Name="PECAS" Relationship="AUTOPECASModel.FK_Pecas_Veiculos" FromRole="VEICULOS" ToRole="PECAS" />
+        </EntityType>
+        <EntityType Name="VENDA">
+          <Key>
+            <PropertyRef Name="IDVENDA" />
+          </Key>
+          <Property Name="IDVENDA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDVENDEDOR" Type="Int32" />
+          <Property Name="DATAVENDA" Type="DateTime" />
+          <Property Name="IDCLIENTE" Type="Int32" />
+          <Property Name="PRECOTOTAL" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="DESCONTO" Type="Double" />
+          <NavigationProperty Name="CLIENTES" Relationship="AUTOPECASModel.FK_VENDA_REFERENCE_CLIENTES" FromRole="VENDA" ToRole="CLIENTES" />
+          <NavigationProperty Name="ITENSVENDA" Relationship="AUTOPECASModel.FK_ITENSVEN_REFERENCE_VENDA" FromRole="VENDA" ToRole="ITENSVENDA" />
+          <NavigationProperty Name="VENDEDORES" Relationship="AUTOPECASModel.FK_VENDA_REFERENCE_VENDEDOR" FromRole="VENDA" ToRole="VENDEDORES" />
+        </EntityType>
+        <EntityType Name="VENDEDORES">
+          <Key>
+            <PropertyRef Name="IDVENDEDOR" />
+          </Key>
+          <Property Name="IDVENDEDOR" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMEVENDEDOR" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="N_CADASTRO" Type="Int32" Nullable="false" />
+          <Property Name="DATAADM" Type="DateTime" Nullable="false" />
+          <Property Name="ENDERECO" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="TELFIXO" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="TELCEL" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CPF" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ESTADOCIVIL" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="VENDA" Relationship="AUTOPECASModel.FK_VENDA_REFERENCE_VENDEDOR" FromRole="VENDEDORES" ToRole="VENDA" />
+        </EntityType>
+        <Association Name="FK_Pecas_Categorias1">
+          <End Role="CATEGORIAS" Type="AUTOPECASModel.CATEGORIAS" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PECAS" Type="AUTOPECASModel.PECAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATEGORIAS">
+              <PropertyRef Name="IDCATEGORIA" />
+            </Principal>
+            <Dependent Role="PECAS">
+              <PropertyRef Name="IDCATEGORIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VENDA_REFERENCE_CLIENTES">
+          <End Role="CLIENTES" Type="AUTOPECASModel.CLIENTES" Multiplicity="0..1" />
+          <End Role="VENDA" Type="AUTOPECASModel.VENDA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTES">
+              <PropertyRef Name="IDCLIENTE" />
+            </Principal>
+            <Dependent Role="VENDA">
+              <PropertyRef Name="IDCLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pecas_Fornecedores">
+          <End Role="FORNECEDORES" Type="AUTOPECASModel.FORNECEDORES" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PECAS" Type="AUTOPECASModel.PECAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FORNECEDORES">
+              <PropertyRef Name="IDFORNECEDOR" />
+            </Principal>
+            <Dependent Role="PECAS">
+              <PropertyRef Name="IDFORNECEDOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ITENSVEN_REFERENCE_VENDA">
+          <End Role="VENDA" Type="AUTOPECASModel.VENDA" Multiplicity="0..1" />
+          <End Role="ITENSVENDA" Type="AUTOPECASModel.ITENSVENDA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VENDA">
+              <PropertyRef Name="IDVENDA" />
+            </Principal>
+            <Dependent Role="ITENSVENDA">
+              <PropertyRef Name="IDVENDA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ItensVenda_Pecas">
+          <End Role="PECAS" Type="AUTOPECASModel.PECAS" Multiplicity="1" />
+          <End Role="ITENSVENDA" Type="AUTOPECASModel.ITENSVENDA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PECAS">
+              <PropertyRef Name="IDPECA" />
+            </Principal>
+            <Dependent Role="ITENSVENDA">
+              <PropertyRef Name="IDPECA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pecas_Veiculos">
+          <End Role="VEICULOS" Type="AUTOPECASModel.VEICULOS" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PECAS" Type="AUTOPECASModel.PECAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VEICULOS">
+              <PropertyRef Name="IDVEICULO" />
+            </Principal>
+            <Dependent Role="PECAS">
+              <PropertyRef Name="IDVEICULO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VENDA_REFERENCE_VENDEDOR">
+          <End Role="VENDEDORES" Type="AUTOPECASModel.VENDEDORES" Multiplicity="0..1" />
+          <End Role="VENDA" Type="AUTOPECASModel.VENDA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VENDEDORES">
+              <PropertyRef Name="IDVENDEDOR" />
+            </Principal>
+            <Dependent Role="VENDA">
+              <PropertyRef Name="IDVENDEDOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AUTOPECASModelStoreContainer" CdmEntityContainer="AUTOPECASEntities2">
+          <EntitySetMapping Name="CATEGORIAS">
+            <EntityTypeMapping TypeName="AUTOPECASModel.CATEGORIAS">
+              <MappingFragment StoreEntitySet="CATEGORIAS">
+                <ScalarProperty Name="IDCATEGORIA" ColumnName="IDCATEGORIA" />
+                <ScalarProperty Name="NOMECATEGORIA" ColumnName="NOMECATEGORIA" />
+                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CLIENTES">
+            <EntityTypeMapping TypeName="AUTOPECASModel.CLIENTES">
+              <MappingFragment StoreEntitySet="CLIENTES">
+                <ScalarProperty Name="IDCLIENTE" ColumnName="IDCLIENTE" />
+                <ScalarProperty Name="NOMECLIENTE" ColumnName="NOMECLIENTE" />
+                <ScalarProperty Name="CNPJ" ColumnName="CNPJ" />
+                <ScalarProperty Name="CPF" ColumnName="CPF" />
+                <ScalarProperty Name="ENDERECOCLIENTE" ColumnName="ENDERECOCLIENTE" />
+                <ScalarProperty Name="BAIRRO" ColumnName="BAIRRO" />
+                <ScalarProperty Name="CEP" ColumnName="CEP" />
+                <ScalarProperty Name="TELEFONECLIENTE" ColumnName="TELEFONECLIENTE" />
+                <ScalarProperty Name="CELULARCLIENTE" ColumnName="CELULARCLIENTE" />
+                <ScalarProperty Name="CIDADE" ColumnName="CIDADE" />
+                <ScalarProperty Name="UF" ColumnName="UF" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FORNECEDORES">
+            <EntityTypeMapping TypeName="AUTOPECASModel.FORNECEDORES">
+              <MappingFragment StoreEntitySet="FORNECEDORES">
+                <ScalarProperty Name="IDFORNECEDOR" ColumnName="IDFORNECEDOR" />
+                <ScalarProperty Name="NOMEFORNECEDOR" ColumnName="NOMEFORNECEDOR" />
+                <ScalarProperty Name="CNPJFORNECEDOR" ColumnName="CNPJFORNECEDOR" />
+                <ScalarProperty Name="ENDERECOFORNECEDOR" ColumnName="ENDERECOFORNECEDOR" />
+                <ScalarProperty Name="BAIRROFORNECEDOR" ColumnName="BAIRROFORNECEDOR" />
+                <ScalarProperty Name="CEPFORNECEDOR" ColumnName="CEPFORNECEDOR" />
+                <ScalarProperty Name="TELEFONEFIXO" ColumnName="TELEFONEFIXO" />
+                <ScalarProperty Name="TELEFONECELULAR" ColumnName="TELEFONECELULAR" />
+                <ScalarProperty Name="DATACONTRATO" ColumnName="DATACONTRATO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ITENSVENDA">
+            <EntityTypeMapping TypeName="AUTOPECASModel.ITENSVENDA">
+              <MappingFragment StoreEntitySet="ITENSVENDA">
+                <ScalarProperty Name="IDITENSVENDA" ColumnName="IDITENSVENDA" />
+                <ScalarProperty Name="IDPECA" ColumnName="IDPECA" />
+                <ScalarProperty Name="IDVENDA" ColumnName="IDVENDA" />
+                <ScalarProperty Name="PRECOUNITARIO" ColumnName="PRECOUNITARIO" />
+                <ScalarProperty Name="QUANTIDADE" ColumnName="QUANTIDADE" />
+                <ScalarProperty Name="SUBTOTAL" ColumnName="SUBTOTAL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PECAS">
+            <EntityTypeMapping TypeName="AUTOPECASModel.PECAS">
+              <MappingFragment StoreEntitySet="PECAS">
+                <ScalarProperty Name="IDPECA" ColumnName="IDPECA" />
+                <ScalarProperty Name="NOMEPECA" ColumnName="NOMEPECA" />
+                <ScalarProperty Name="IDFORNECEDOR" ColumnName="IDFORNECEDOR" />
+                <ScalarProperty Name="IDVEICULO" ColumnName="IDVEICULO" />
+                <ScalarProperty Name="QUANTIDADE" ColumnName="QUANTIDADE" />
+                <ScalarProperty Name="PRECOPECA" ColumnName="PRECOPECA" />
+                <ScalarProperty Name="IDCATEGORIA" ColumnName="IDCATEGORIA" />
+                <ScalarProperty Name="PRECOESTOCADO" ColumnName="PRECOESTOCADO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="AUTOPECASModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VEICULOS">
+            <EntityTypeMapping TypeName="AUTOPECASModel.VEICULOS">
+              <MappingFragment StoreEntitySet="VEICULOS">
+                <ScalarProperty Name="IDVEICULO" ColumnName="IDVEICULO" />
+                <ScalarProperty Name="NOMEVEICULO" ColumnName="NOMEVEICULO" />
+                <ScalarProperty Name="FABRICANTE" ColumnName="FABRICANTE" />
+                <ScalarProperty Name="ANOINICIAL" ColumnName="ANOINICIAL" />
+                <ScalarProperty Name="ANOFINAL" ColumnName="ANOFINAL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VENDA">
+            <EntityTypeMapping TypeName="AUTOPECASModel.VENDA">
+              <MappingFragment StoreEntitySet="VENDA">
+                <ScalarProperty Name="IDVENDA" ColumnName="IDVENDA" />
+                <ScalarProperty Name="IDVENDEDOR" ColumnName="IDVENDEDOR" />
+                <ScalarProperty Name="DATAVENDA" ColumnName="DATAVENDA" />
+                <ScalarProperty Name="IDCLIENTE" ColumnName="IDCLIENTE" />
+                <ScalarProperty Name="PRECOTOTAL" ColumnName="PRECOTOTAL" />
+                <ScalarProperty Name="DESCONTO" ColumnName="DESCONTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VENDEDORES">
+            <EntityTypeMapping TypeName="AUTOPECASModel.VENDEDORES">
+              <MappingFragment StoreEntitySet="VENDEDORES">
+                <ScalarProperty Name="IDVENDEDOR" ColumnName="IDVENDEDOR" />
+                <ScalarProperty Name="NOMEVENDEDOR" ColumnName="NOMEVENDEDOR" />
+                <ScalarProperty Name="N_CADASTRO" ColumnName="N_CADASTRO" />
+                <ScalarProperty Name="DATAADM" ColumnName="DATAADM" />
+                <ScalarProperty Name="ENDERECO" ColumnName="ENDERECO" />
+                <ScalarProperty Name="TELFIXO" ColumnName="TELFIXO" />
+                <ScalarProperty Name="TELCEL" ColumnName="TELCEL" />
+                <ScalarProperty Name="CPF" ColumnName="CPF" />
+                <ScalarProperty Name="ESTADOCIVIL" ColumnName="ESTADOCIVIL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model1">
+        <EntityTypeShape EntityType="AUTOPECASModel.CATEGORIAS" Width="1.5" PointX="0.75" PointY="1.75" Height="1.7879850260416672" IsExpanded="true" />
+        <EntityTypeShape EntityType="AUTOPECASModel.CLIENTES" Width="1.5" PointX="0.75" PointY="13.125" Height="3.3263964843749978" IsExpanded="true" />
+        <EntityTypeShape EntityType="AUTOPECASModel.FORNECEDORES" Width="1.5" PointX="0.75" PointY="6.375" Height="2.9417936197916665" IsExpanded="true" />
+        <EntityTypeShape EntityType="AUTOPECASModel.ITENSVENDA" Width="1.5" PointX="5.25" PointY="1.375" Height="2.5571907552083335" IsExpanded="true" />
+        <EntityTypeShape EntityType="AUTOPECASModel.PECAS" Width="1.5" PointX="3" PointY="1" Height="3.3263964843749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="AUTOPECASModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="5.75" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="AUTOPECASModel.VEICULOS" Width="1.5" PointX="0.75" PointY="10" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="AUTOPECASModel.VENDA" Width="1.5" PointX="3" PointY="15.25" Height="2.7494921874999978" IsExpanded="true" />
+        <EntityTypeShape EntityType="AUTOPECASModel.VENDEDORES" Width="1.5" PointX="0.75" PointY="17.25" Height="2.9417936197916674" IsExpanded="true" />
+        <AssociationConnector Association="AUTOPECASModel.FK_Pecas_Categorias1" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="2.6439925130208337" />
+          <ConnectorPoint PointX="3" PointY="2.6439925130208337" />
+        </AssociationConnector>
+        <AssociationConnector Association="AUTOPECASModel.FK_VENDA_REFERENCE_CLIENTES" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="15.850698242187498" />
+          <ConnectorPoint PointX="3" PointY="15.850698242187498" />
+        </AssociationConnector>
+        <AssociationConnector Association="AUTOPECASModel.FK_Pecas_Fornecedores" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="8.5547900390625" />
+          <ConnectorPoint PointX="4.40625" PointY="8.5547900390625" />
+          <ConnectorPoint PointX="4.40625" PointY="4.326396484375" />
+        </AssociationConnector>
+        <AssociationConnector Association="AUTOPECASModel.FK_ITENSVEN_REFERENCE_VENDA" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="16.624746093749998" />
+          <ConnectorPoint PointX="6" PointY="16.624746093749998" />
+          <ConnectorPoint PointX="6" PointY="3.9321907552083335" />
+        </AssociationConnector>
+        <AssociationConnector Association="AUTOPECASModel.FK_ItensVenda_Pecas" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="2.6535953776041667" />
+          <ConnectorPoint PointX="5.25" PointY="2.6535953776041667" />
+        </AssociationConnector>
+        <AssociationConnector Association="AUTOPECASModel.FK_Pecas_Veiculos" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="11.0862939453125" />
+          <ConnectorPoint PointX="4.3749975" PointY="11.0862939453125" />
+          <ConnectorPoint PointX="4.3749975" PointY="4.326396484375" />
+        </AssociationConnector>
+        <AssociationConnector Association="AUTOPECASModel.FK_VENDA_REFERENCE_VENDEDOR" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="17.624746093749998" />
+          <ConnectorPoint PointX="3" PointY="17.624746093749998" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
