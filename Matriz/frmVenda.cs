@@ -40,7 +40,7 @@ namespace Matriz
             {
                 obj_venda.IDVendedor = int.Parse(tb_CondVendedor.Text);
                 obj_venda.DataVenda = DateTime.Now;
-                obj_venda.IDCliente = int.Parse(tb_Cliente.Text);
+                obj_venda.IDCliente = int.Parse(tb_codCliente.Text);
                 obj_venda.PrecoTotal = 0.00;
                 obj_venda.Desconto = 0.00;
                 obj_controle.ControleInserir(obj_venda);
@@ -50,8 +50,7 @@ namespace Matriz
 
                 throw;
             } 
-        }
-        
+        }        
         public frmVenda()
         {
             InitializeComponent();
@@ -59,18 +58,15 @@ namespace Matriz
             tb_CondVendedor.Text = id_Vendedor;
             
         }
-
         private void bt_Sair_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void bt_Cliente_Click(object sender, EventArgs e)
         {           
 
 
         }
-
         private void Form_Venda_Load(object sender, EventArgs e)
         {
             int Proximavenda;
@@ -90,19 +86,16 @@ namespace Matriz
             }
 
         }
-
         private void bt_ConsultaPeca_Click(object sender, EventArgs e)
         {
             frmPeca _obj_peca = new frmPeca();
             _obj_peca.ShowDialog();
         }
-
         private void bt_PesquisarCliente_Click(object sender, EventArgs e)
         {
             frmCliente cliente = new frmCliente();
             cliente.ShowDialog();
         }
-
         /// <summary>
         /// Médoto para pesquisar o codigo do cliente, uma gridview é utilizada como auxiliar
         /// para receber a datatable. 
@@ -119,14 +112,13 @@ namespace Matriz
                 if (dtgw_auxiliarCliente.CurrentRow != null)
                 {
                     tb_Cliente.Text = dtgw_auxiliarCliente.CurrentRow.Cells[1].Value.ToString();
-                    GravaVendaTemp();
+                    //GravaVendaTemp();
                     this.SelectNextControl(this.ActiveControl, true, true, true, true);
                 }
                 else
                     MessageBox.Show("Cliente não localizado");
             }
         }
-
         private void tb_codPeca_KeyPress(object sender, KeyPressEventArgs e)
         {
             //dtgw_auxiliar.Rows.Clear();
@@ -156,6 +148,21 @@ namespace Matriz
             {
                 _ItemdeVenda = new ItensVenda();
                 _ItemdeVenda.IDVenda = int.Parse(tb_IDVenda.Text);
+                _ItemdeVenda.IDPeca = int.Parse(tb_codPeca.Text);
+                _ItemdeVenda.PrecoUnitario = double.Parse(tb_PrecoPecaUnita.Text);
+                _ItemdeVenda.Quantidade = (int)num_quantidadePecas.Value;
+                _ItemdeVenda.Subtotal = ((double)num_quantidadePecas.Value * (double.Parse(tb_PrecoPecaUnita.Text)));
+                obj_controle.ControleInserir(_ItemdeVenda);
+                Peca obj_peca = new Peca();
+                obj_peca.IDPeca = int.Parse(tb_codPeca.Text);
+                obj_peca.NomePeca = tb_descricaoPeca.Text;
+                obj_peca.IDFornecedor = (int)dtgw_auxiliarPecas.CurrentRow.Cells[2].Value;
+                obj_peca.IDVeiculo = (int)dtgw_auxiliarPecas.CurrentRow.Cells[3].Value;
+                obj_peca.Quantidade = (int.Parse(tb_quantidadePecaEstoque.Text)) - ((int)num_quantidadePecas.Value);
+                obj_peca.PrecoPeca = double.Parse(tb_PrecoPecaUnita.Text);
+                obj_peca.IDCategoria = (int)dtgw_auxiliarPecas.CurrentRow.Cells[6].Value;
+                obj_controle.ControleAtualizar(obj_peca);
+                CarregaTabelaItensdeVenda();                
                 MessageBox.Show("Test");
                 tb_codPeca.Clear();
                 tb_descricaoPeca.Clear();
@@ -186,6 +193,19 @@ namespace Matriz
                     this.SelectNextControl(this.ActiveControl,false,true,true,true);
                     
                 }
+            }
+        }
+
+        private void CarregaTabelaItensdeVenda()
+        {
+            try
+            {
+                dtg_Venda.DataSource = negocio.LerDados("ITENSVENDA");
+            }
+            catch (Exception erro)
+            {
+                
+                throw erro;
             }
         }
 

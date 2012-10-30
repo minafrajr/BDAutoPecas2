@@ -180,9 +180,9 @@
             this.dtg_Venda.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtg_Venda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_Venda.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dtg_Venda.Location = new System.Drawing.Point(0, 359);
+            this.dtg_Venda.Location = new System.Drawing.Point(0, 258);
             this.dtg_Venda.Name = "dtg_Venda";
-            this.dtg_Venda.Size = new System.Drawing.Size(959, 91);
+            this.dtg_Venda.Size = new System.Drawing.Size(959, 192);
             this.dtg_Venda.TabIndex = 13;
             // 
             // label1
@@ -271,7 +271,7 @@
             this.dtgw_auxiliarCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgw_auxiliarCliente.Location = new System.Drawing.Point(12, 199);
             this.dtgw_auxiliarCliente.Name = "dtgw_auxiliarCliente";
-            this.dtgw_auxiliarCliente.Size = new System.Drawing.Size(450, 145);
+            this.dtgw_auxiliarCliente.Size = new System.Drawing.Size(450, 53);
             this.dtgw_auxiliarCliente.TabIndex = 26;
             // 
             // tb_quantidadePecaEstoque
@@ -345,7 +345,7 @@
             this.dtgw_auxiliarPecas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgw_auxiliarPecas.Location = new System.Drawing.Point(491, 199);
             this.dtgw_auxiliarPecas.Name = "dtgw_auxiliarPecas";
-            this.dtgw_auxiliarPecas.Size = new System.Drawing.Size(413, 141);
+            this.dtgw_auxiliarPecas.Size = new System.Drawing.Size(413, 53);
             this.dtgw_auxiliarPecas.TabIndex = 34;
             // 
             // tb_IDVenda

@@ -19,10 +19,10 @@ namespace Camadas
         //private string conexao = "Data Source = PHLP; Initial Catalog = AUTOPECAS; Integrated Security = True; ";
 
         //servidor trablaho luis
-        private string conexao = "Data Source = SESA-10267; Initial Catalog = AUTOPECAS; User ID = sa; Integrated Security = True; ";
+        //private string conexao = "Data Source = SESA-10267; Initial Catalog = AUTOPECAS; User ID = sa; Integrated Security = True; ";
         
         //servidor casa luis
-        //private string conexao = "Data Source = CASA; Initial Catalog = AUTOPECAS; User ID = sa; Integrated Security = True; ";
+        private string conexao = "Data Source = CASA; Initial Catalog = AUTOPECAS; User ID = sa; Integrated Security = True; ";
 
         //essa conexão deu certo no servidor GENESIS via IP
         //private string conexao = "Data Source=192.168.0.100,1433; Initial Catalog=AUTOPECAS; User ID=sa; Password=1234";
