@@ -153,6 +153,7 @@ namespace Matriz
                 _ItemdeVenda.Quantidade = (int)num_quantidadePecas.Value;
                 _ItemdeVenda.Subtotal = ((double)num_quantidadePecas.Value * (double.Parse(tb_PrecoPecaUnita.Text)));
                 obj_controle.ControleInserir(_ItemdeVenda);
+
                 Peca obj_peca = new Peca();
                 obj_peca.IDPeca = int.Parse(tb_codPeca.Text);
                 obj_peca.NomePeca = tb_descricaoPeca.Text;
@@ -163,6 +164,7 @@ namespace Matriz
                 obj_peca.IDCategoria = (int)dtgw_auxiliarPecas.CurrentRow.Cells[6].Value;
                 obj_controle.ControleAtualizar(obj_peca);
                 CarregaTabelaItensdeVenda();                
+                
                 MessageBox.Show("Test");
                 tb_codPeca.Clear();
                 tb_descricaoPeca.Clear();
@@ -170,10 +172,10 @@ namespace Matriz
                 tb_quantidadePecaEstoque.Clear();
                 num_quantidadePecas.Value = 1;
             }
-            catch (Exception)
+            catch (Exception erro)
             {
                 
-                throw;
+                throw erro;
             }
             
 
