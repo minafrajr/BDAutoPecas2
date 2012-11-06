@@ -14,7 +14,7 @@ namespace Camadas
         private int _idVenda;
         private double _precoUnitario;
         private int _quantidade;
-        private double _subtotal;
+        private double _subtotal;        
 
         public int IDItensVenda
         {

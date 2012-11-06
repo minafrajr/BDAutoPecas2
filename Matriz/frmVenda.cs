@@ -41,8 +41,8 @@ namespace Matriz
                 obj_venda.IDVendedor = int.Parse(tb_CondVendedor.Text);
                 obj_venda.DataVenda = DateTime.Now;
                 obj_venda.IDCliente = int.Parse(tb_codCliente.Text);
-                obj_venda.PrecoTotal = 0.00;
-                obj_venda.Desconto = 0.00;
+                obj_venda.PrecoTotal = 0.00F;
+                obj_venda.Desconto = 0.00F;
                 obj_controle.ControleInserir(obj_venda);
             }
             catch (Exception)
@@ -54,9 +54,6 @@ namespace Matriz
         public frmVenda()
         {
             InitializeComponent();
-            ID_vendedor = "2";
-            tb_CondVendedor.Text = id_Vendedor;
-            
         }
         private void bt_Sair_Click(object sender, EventArgs e)
         {
@@ -69,6 +66,8 @@ namespace Matriz
         }
         private void Form_Venda_Load(object sender, EventArgs e)
         {
+            ID_vendedor = "2";
+            tb_CondVendedor.Text = id_Vendedor;
             int Proximavenda;
             string ultimavenda;
             Tips.Dicas_Botões(bt_gravar, bt_Atualiza, bt_Deleta, Bt_busca1, bt_filtrar, bt_Sair);
@@ -84,7 +83,6 @@ namespace Matriz
                 Proximavenda = (int.Parse(ultimavenda)) + 1;
                 tb_IDVenda.Text = Proximavenda.ToString();
             }
-
         }
         private void bt_ConsultaPeca_Click(object sender, EventArgs e)
         {
@@ -112,7 +110,7 @@ namespace Matriz
                 if (dtgw_auxiliarCliente.CurrentRow != null)
                 {
                     tb_Cliente.Text = dtgw_auxiliarCliente.CurrentRow.Cells[1].Value.ToString();
-                    //GravaVendaTemp();
+                    GravaVendaTemp();
                     this.SelectNextControl(this.ActiveControl, true, true, true, true);
                 }
                 else
@@ -130,7 +128,9 @@ namespace Matriz
                 {
                     tb_descricaoPeca.Text = dtgw_auxiliarPecas.CurrentRow.Cells[1].Value.ToString();
                     tb_quantidadePecaEstoque.Text = dtgw_auxiliarPecas.CurrentRow.Cells[4].Value.ToString();
-                    tb_PrecoPecaUnita.Text = dtgw_auxiliarPecas.CurrentRow.Cells[5].Value.ToString();
+
+                    double valor = Convert.ToDouble(dtgw_auxiliarPecas.CurrentRow.Cells[5].Value)/10; //) / 100;
+                    tb_PrecoPecaUnita.Text = valor.ToString();
                     this.SelectNextControl(this.ActiveControl, true, true, true, true);
 
                 }
@@ -202,7 +202,7 @@ namespace Matriz
         {
             try
             {
-                dtg_Venda.DataSource = negocio.LerDados("ITENSVENDA");
+                dtg_Venda.DataSource = negocio.LerTabelaItensVenda(tb_IDVenda.Text);
             }
             catch (Exception erro)
             {

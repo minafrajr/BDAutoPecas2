@@ -464,6 +464,12 @@ namespace Camadas
             }
         }
 
+        public DataTable LerTabelaItensVenda(string ID_Venda)
+        {
+            DataTable itens = Acessoadados.LerTabelaItensdeVenda(ID_Venda);
+            return itens;
+        }
+
     }
 
 

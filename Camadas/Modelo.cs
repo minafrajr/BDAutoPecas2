@@ -16,7 +16,9 @@ namespace Camadas
         private SqlConnection conexaoSql;
         private SqlCommand comandoSql;
         //private const string NOME_SERVIDOR = "PHLP";
-        private const string NOME_SERVIDOR = "DELL";
+        //private const string NOME_SERVIDOR = "DELL";
+        //private const string NOME_SERVIDOR = "SESA-10267";
+        private const string NOME_SERVIDOR = "CASA";
         private const string NOME_BANCO_DADOS = "AUTOPECAS";
         private string stringConexao = string.Format("Data Source = {0}; Initial Catalog = {1}; Integrated Security = True;", NOME_SERVIDOR, NOME_BANCO_DADOS);
 
@@ -273,14 +275,14 @@ namespace Camadas
                     case "Peca":
                         Peca peca = (Peca)paraAtualizar;
                         nomeTabela = "PECAS";
-                        instrucaoSql += string.Format(" {0} SET NOMEPECA = @NOMEPECA, IDFORNECEDOR = @IDFORNECEDOR, IDVEICULO = @IDVEICULO, QUANTIDADE = @QUANTIDADE, PRECOPECA = @PRECOPECA, IDCATEGORIA = @IDCATEGORIA, PRECOESTOCADO = @PRECOESTOCADO WHERE IDPECA = @IDPECA", nomeTabela);
+                        instrucaoSql += string.Format(" {0} SET NOMEPECA = @NOMEPECA, IDFORNECEDOR = @IDFORNECEDOR, IDVEICULO = @IDVEICULO, QUANTIDADE = @QUANTIDADE, PRECOPECA = @PRECOPECA, IDCATEGORIA = @IDCATEGORIA WHERE IDPECA = @IDPECA", nomeTabela);
                         comandoSql.Parameters.AddWithValue("@NOMEPECA", peca.NomePeca);
                         comandoSql.Parameters.AddWithValue("@IDFORNECEDOR", peca.IDFornecedor);
                         comandoSql.Parameters.AddWithValue("@IDVEICULO", peca.IDVeiculo);
                         comandoSql.Parameters.AddWithValue("@QUANTIDADE", peca.Quantidade);
                         comandoSql.Parameters.AddWithValue("@PRECOPECA", peca.PrecoPeca);
                         comandoSql.Parameters.AddWithValue("@IDCATEGORIA", peca.IDCategoria);
-                        comandoSql.Parameters.AddWithValue("@PRECOESTOCADO", peca.PrecoEstocado);
+                        //comandoSql.Parameters.AddWithValue("@PRECOESTOCADO", peca.PrecoEstocado);
                         comandoSql.Parameters.AddWithValue("@IDPECA", peca.IDPeca);
                         break;
 

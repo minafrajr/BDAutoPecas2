@@ -14,8 +14,8 @@ namespace Camadas
         private int _idVenda;
         private int _idVendedor;
         private int _idCliente;
-        private double _precoTotal;
-        private double _desconto;
+        private float _precoTotal;
+        private float _desconto;
         private string _CPF;
         private string _Nome;
         private string _Endereco;
@@ -47,12 +47,12 @@ namespace Camadas
             get { return _idVenda; }
             set { _idVenda = value; }
         }
-        public double PrecoTotal
+        public float PrecoTotal
         {
             get { return _precoTotal; }
             set { _precoTotal = value; }
         }
-        public double Desconto
+        public float Desconto
         {
             get { return _desconto; }
             set { _desconto = value; }

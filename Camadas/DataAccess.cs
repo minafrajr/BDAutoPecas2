@@ -18,13 +18,13 @@ namespace Camadas
         /*essa string conecta com o serviço local*/
         //private string conexao = "Data Source = PHLP; Initial Catalog = AUTOPECAS; Integrated Security = True; ";
 
-        private string conexao = "Data Source = DELL; Initial Catalog = AUTOPECAS; Integrated Security = True; ";
+        //private string conexao = "Data Source = DELL; Initial Catalog = AUTOPECAS; Integrated Security = True; ";
 
         //servidor trablaho luis
         //private string conexao = "Data Source = SESA-10267; Initial Catalog = AUTOPECAS; User ID = sa; Integrated Security = True; ";
         
         //servidor casa luis
-        //private string conexao = "Data Source = CASA; Initial Catalog = AUTOPECAS; User ID = sa; Integrated Security = True; ";
+        private string conexao = "Data Source = CASA; Initial Catalog = AUTOPECAS; User ID = sa; Integrated Security = True; ";
 
         //essa conexão deu certo no servidor GENESIS via IP
         //private string conexao = "Data Source=192.168.0.100,1433; Initial Catalog=AUTOPECAS; User ID=sa; Password=1234";
@@ -1273,6 +1273,32 @@ namespace Camadas
 
                 //throw;
             //}
+        }
+        public DataTable LerTabelaItensdeVenda(string id_Venda)
+        {
+            try
+            {
+                DataTable _datatable = new DataTable();
+                comandosql = "SELECT [IDPECA],[IDVENDA],[PRECOUNITARIO],[QUANTIDADE],[SUBTOTAL]FROM [AUTOPECAS].[dbo].[ITENSVENDA] where IDVENDA = " + id_Venda;
+                using (Conectionsql = new SqlConnection(conexao))
+                {
+                    Conectionsql.Open();
+                    using (ComandoTSQL = new SqlCommand(comandosql, Conectionsql))
+                    {
+                        SqlDataReader leitor = ComandoTSQL.ExecuteReader(CommandBehavior.CloseConnection);
+                        _datatable.Load(leitor);
+                        leitor.Close();
+                    }
+                    return _datatable;
+                    Conectionsql.Close();
+                }
+            }
+
+            catch (Exception err)
+            {
+
+                throw err;
+            }
         }
         public string ConsultaIDVendedor(string login)
         {

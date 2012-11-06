@@ -56,11 +56,11 @@
             this.dtgw_auxiliarPecas = new System.Windows.Forms.DataGridView();
             this.tb_IDVenda = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.tb_CondVendedor = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.tb_codCliente = new AutoPeçasUI.MyTextBox();
             this.tb_codPeca = new AutoPeçasUI.MyTextBox();
             this.tb_Cliente = new AutoPeçasUI.MyTextBox();
-            this.tb_CondVendedor = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Venda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgw_auxiliarCliente)).BeginInit();
@@ -306,10 +306,12 @@
             // tb_PrecoPecaUnita
             // 
             this.tb_PrecoPecaUnita.Location = new System.Drawing.Point(609, 139);
-            this.tb_PrecoPecaUnita.Mask = "000.00";
+            this.tb_PrecoPecaUnita.Mask = "00.00";
             this.tb_PrecoPecaUnita.Name = "tb_PrecoPecaUnita";
+            this.tb_PrecoPecaUnita.ReadOnly = true;
             this.tb_PrecoPecaUnita.Size = new System.Drawing.Size(112, 20);
             this.tb_PrecoPecaUnita.TabIndex = 31;
+            this.tb_PrecoPecaUnita.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // num_quantidadePecas
             // 
@@ -366,6 +368,24 @@
             this.label8.TabIndex = 36;
             this.label8.Text = "Venda nº:";
             // 
+            // tb_CondVendedor
+            // 
+            this.tb_CondVendedor.Location = new System.Drawing.Point(262, 30);
+            this.tb_CondVendedor.Name = "tb_CondVendedor";
+            this.tb_CondVendedor.ReadOnly = true;
+            this.tb_CondVendedor.Size = new System.Drawing.Size(79, 20);
+            this.tb_CondVendedor.TabIndex = 37;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(258, 9);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(83, 20);
+            this.label9.TabIndex = 38;
+            this.label9.Text = "Vendedor:";
+            // 
             // tb_codCliente
             // 
             this.tb_codCliente.Location = new System.Drawing.Point(58, 82);
@@ -389,24 +409,6 @@
             this.tb_Cliente.ReadOnly = true;
             this.tb_Cliente.Size = new System.Drawing.Size(353, 20);
             this.tb_Cliente.TabIndex = 14;
-            // 
-            // tb_CondVendedor
-            // 
-            this.tb_CondVendedor.Location = new System.Drawing.Point(262, 30);
-            this.tb_CondVendedor.Name = "tb_CondVendedor";
-            this.tb_CondVendedor.ReadOnly = true;
-            this.tb_CondVendedor.Size = new System.Drawing.Size(79, 20);
-            this.tb_CondVendedor.TabIndex = 37;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(258, 9);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(83, 20);
-            this.label9.TabIndex = 38;
-            this.label9.Text = "Vendedor:";
             // 
             // frmVenda
             // 
