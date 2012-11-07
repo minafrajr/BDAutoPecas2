@@ -19,6 +19,8 @@ namespace Matriz
         Controle obj_controle = new Controle();
         BussinessLayer negocio = new BussinessLayer();
         Venda obj_venda = new Venda();
+        bool statusCelulaClicada = false;
+
         private string id_Vendedor;
 
         public string ID_vendedor
@@ -70,7 +72,7 @@ namespace Matriz
             tb_CondVendedor.Text = id_Vendedor;
             int Proximavenda;
             string ultimavenda;
-            Tips.Dicas_Botões(bt_gravar, bt_Atualiza, bt_Deleta, Bt_busca1, bt_filtrar, bt_Sair);
+            Tips.Dicas_Botões(bt_gravar, bt_Atualiza, bt_Deleta, bt_Sair);
             //consultaTabelaCliente();
             tb_IDVenda.Text = negocio.ID_UltimaVenda();
             if (tb_IDVenda.Text == "")
@@ -122,6 +124,8 @@ namespace Matriz
             //dtgw_auxiliar.Rows.Clear();
             if (e.KeyChar == 13)
             {
+                num_quantidadePecas.ReadOnly = false;
+                num_quantidadePecas.Enabled = true;
                 DataTable _pecaEncontrata = negocio.pesquisa_ID_Peca(tb_codPeca.Text);
                 dtgw_auxiliarPecas.DataSource = _pecaEncontrata;
                 if (dtgw_auxiliarPecas.CurrentRow != null)
@@ -169,14 +173,7 @@ namespace Matriz
                 tb_preco.Clear();
                 tb_quantidadePecaEstoque.Clear();
                 num_quantidadePecas.Value = 1;
-                double total = 0;
-                for (int i = 0; i < dtg_Venda.RowCount; i++)
-                {
-                    string d = dtg_Venda[4, i].Value.ToString();
-                    total += double.Parse(d);
-                    //total = total + (double)dtg_Venda[4, i].Value;
-                }
-                tb_total.Text = total.ToString();
+                
 
             }
             catch (Exception erro)
@@ -210,6 +207,14 @@ namespace Matriz
             try
             {
                 dtg_Venda.DataSource = negocio.LerTabelaItensVenda(tb_IDVenda.Text);
+                double total = 0;
+                for (int i = 0; i < dtg_Venda.RowCount; i++)
+                {
+                    string d = dtg_Venda[4, i].Value.ToString();
+                    total += double.Parse(d);
+                    //total = total + (double)dtg_Venda[4, i].Value;
+                }
+                tb_total.Text = total.ToString();
             }
             catch (Exception erro)
             {
@@ -217,16 +222,15 @@ namespace Matriz
                 throw erro;
             }
         }
-
-        private void tb_desconto_KeyPress(object sender, KeyPressEventArgs e)
+        private void num_desconto_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 13)
             {
                 try
                 {
-                    double total = double.Parse(tb_total.Text);
-                    double desconto = double.Parse(tb_desconto.Text) / 100;
-                    total -= desconto;
+                    decimal total = decimal.Parse(tb_total.Text);
+                    decimal desc = total * (num_desconto.Value/100);
+                    total -= desc;
                     tb_total.Text = total.ToString();
                 }
                 catch (Exception erro)
@@ -234,7 +238,89 @@ namespace Matriz
 
                     MessageBox.Show(erro.ToString()); ;
                 }
-                
+
+            }
+        }
+
+        private void bt_Atualiza_Click(object sender, EventArgs e)
+        {
+            CarregaTabelaItensdeVenda();
+
+        }
+
+        private void dtg_Venda_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            statusCelulaClicada = true;
+            tb_codPeca.Text = dtg_Venda[0,dtg_Venda.CurrentCellAddress.Y].Value.ToString();
+            tb_descricaoPeca.Text = dtg_Venda[1, dtg_Venda.CurrentCellAddress.Y].Value.ToString();
+            tb_preco.Text = dtg_Venda[2, dtg_Venda.CurrentCellAddress.Y].Value.ToString();
+            num_quantidadePecas.Value = Convert.ToDecimal(dtg_Venda[3, dtg_Venda.CurrentCellAddress.Y].Value);
+            tb_IDItensVenda.Text = dtg_Venda[5, dtg_Venda.CurrentCellAddress.Y].Value.ToString();
+
+            num_quantidadePecas.ReadOnly = true;
+            num_quantidadePecas.Enabled = false;
+        }
+
+        private void bt_Deleta_Click(object sender, EventArgs e)
+        {
+            if (statusCelulaClicada)
+            {
+                try
+                {
+                    ItensVenda obj_Itemvenda = new ItensVenda();
+                    obj_Itemvenda.IDItensVenda = int.Parse(tb_IDItensVenda.Text);
+                    obj_controle.ControleDeletar(obj_Itemvenda);
+
+                    DataTable _pecaEncontrata = negocio.pesquisa_ID_Peca(tb_codPeca.Text);
+
+                    dtgw_auxiliarPecas.DataSource = _pecaEncontrata;
+
+                    if (dtgw_auxiliarPecas.CurrentRow != null)
+                    {
+                        Peca obj_peca = new Peca();
+                        obj_peca.IDPeca = int.Parse(tb_codPeca.Text);
+                        obj_peca.NomePeca = tb_descricaoPeca.Text;
+                        obj_peca.IDFornecedor = (int)dtgw_auxiliarPecas.CurrentRow.Cells[2].Value;
+                        obj_peca.IDVeiculo = (int)dtgw_auxiliarPecas.CurrentRow.Cells[3].Value;
+                        obj_peca.Quantidade = (int.Parse(tb_quantidadePecaEstoque.Text)) + ((int)num_quantidadePecas.Value);
+                        obj_peca.PrecoPeca = double.Parse(tb_preco.Text);
+                        obj_peca.IDCategoria = (int)dtgw_auxiliarPecas.CurrentRow.Cells[6].Value;
+                        obj_controle.ControleAtualizar(obj_peca);
+                    }
+                    bt_Atualiza_Click(sender, e);
+                    statusCelulaClicada = false;
+                }
+                catch (Exception erro)
+                {
+
+                    MessageBox.Show(erro.ToString());
+                }
+            }
+            else
+                MessageBox.Show("Selecione uma linha na tabela");
+        }
+
+        private void bt_Concluir_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Deseja realmente encerrar a compra?","Atenção",MessageBoxButtons.YesNo,MessageBoxIcon.Information).Equals(DialogResult.Yes))
+            {
+                obj_venda.IDVenda = int.Parse(tb_IDVenda.Text);
+                obj_venda.IDVendedor = int.Parse(tb_CondVendedor.Text);
+                obj_venda.DataVenda = DateTime.Now;
+                obj_venda.IDCliente = int.Parse(tb_codCliente.Text);
+                obj_venda.PrecoTotal = float.Parse(tb_total.Text);
+                float total = 0;
+                for (int i = 0; i < dtg_Venda.RowCount; i++)
+                {
+                    string d = dtg_Venda[4, i].Value.ToString();
+                    total += float.Parse(d);
+                    //total = total + (double)dtg_Venda[4, i].Value;
+                }
+
+                obj_venda.Desconto = total - obj_venda.PrecoTotal;
+                obj_controle.ControleAtualizar(obj_venda);
+                this.Close();
+ 
             }
         }     
     }

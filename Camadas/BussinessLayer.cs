@@ -10,7 +10,6 @@ namespace Camadas
     {
         DataAccess Acessoadados = new DataAccess(); //objeto da camada de acesso a dados
 
-
         public DataTable pesquisa_ID_Cliente(string pesquisa)
         {
 

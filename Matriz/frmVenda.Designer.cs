@@ -32,8 +32,6 @@
             this.Titulo_Form_pecas = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.bt_Sair = new System.Windows.Forms.Button();
-            this.bt_filtrar = new System.Windows.Forms.Button();
-            this.Bt_busca1 = new System.Windows.Forms.Button();
             this.bt_Atualiza = new System.Windows.Forms.Button();
             this.bt_Deleta = new System.Windows.Forms.Button();
             this.bt_gravar = new System.Windows.Forms.Button();
@@ -61,7 +59,9 @@
             this.label10 = new System.Windows.Forms.Label();
             this.tb_total = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.tb_desconto = new Matriz.Msktextbox();
+            this.num_desconto = new System.Windows.Forms.NumericUpDown();
+            this.label12 = new System.Windows.Forms.Label();
+            this.tb_IDItensVenda = new System.Windows.Forms.TextBox();
             this.tb_codCliente = new AutoPeçasUI.MyTextBox();
             this.tb_codPeca = new AutoPeçasUI.MyTextBox();
             this.tb_Cliente = new AutoPeçasUI.MyTextBox();
@@ -70,6 +70,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgw_auxiliarCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_quantidadePecas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgw_auxiliarPecas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_desconto)).BeginInit();
             this.SuspendLayout();
             // 
             // Titulo_Form_pecas
@@ -87,14 +88,12 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.bt_Sair);
-            this.panel1.Controls.Add(this.bt_filtrar);
-            this.panel1.Controls.Add(this.Bt_busca1);
             this.panel1.Controls.Add(this.bt_Atualiza);
             this.panel1.Controls.Add(this.bt_Deleta);
             this.panel1.Controls.Add(this.bt_gravar);
             this.panel1.Location = new System.Drawing.Point(624, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(323, 73);
+            this.panel1.Size = new System.Drawing.Size(243, 73);
             this.panel1.TabIndex = 12;
             // 
             // bt_Sair
@@ -104,39 +103,12 @@
             this.bt_Sair.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bt_Sair.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.bt_Sair.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.bt_Sair.Location = new System.Drawing.Point(273, 17);
+            this.bt_Sair.Location = new System.Drawing.Point(174, 17);
             this.bt_Sair.Name = "bt_Sair";
             this.bt_Sair.Size = new System.Drawing.Size(47, 44);
             this.bt_Sair.TabIndex = 11;
             this.bt_Sair.UseVisualStyleBackColor = false;
             this.bt_Sair.Click += new System.EventHandler(this.bt_Sair_Click);
-            // 
-            // bt_filtrar
-            // 
-            this.bt_filtrar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.bt_filtrar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bt_filtrar.BackgroundImage")));
-            this.bt_filtrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bt_filtrar.Enabled = false;
-            this.bt_filtrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.bt_filtrar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.bt_filtrar.Location = new System.Drawing.Point(202, 18);
-            this.bt_filtrar.Name = "bt_filtrar";
-            this.bt_filtrar.Size = new System.Drawing.Size(47, 44);
-            this.bt_filtrar.TabIndex = 10;
-            this.bt_filtrar.UseVisualStyleBackColor = false;
-            // 
-            // Bt_busca1
-            // 
-            this.Bt_busca1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.Bt_busca1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Bt_busca1.BackgroundImage")));
-            this.Bt_busca1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Bt_busca1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.Bt_busca1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Bt_busca1.Location = new System.Drawing.Point(155, 18);
-            this.Bt_busca1.Name = "Bt_busca1";
-            this.Bt_busca1.Size = new System.Drawing.Size(47, 44);
-            this.Bt_busca1.TabIndex = 6;
-            this.Bt_busca1.UseVisualStyleBackColor = false;
             // 
             // bt_Atualiza
             // 
@@ -150,6 +122,7 @@
             this.bt_Atualiza.Size = new System.Drawing.Size(47, 44);
             this.bt_Atualiza.TabIndex = 7;
             this.bt_Atualiza.UseVisualStyleBackColor = false;
+            this.bt_Atualiza.Click += new System.EventHandler(this.bt_Atualiza_Click);
             // 
             // bt_Deleta
             // 
@@ -163,6 +136,7 @@
             this.bt_Deleta.Size = new System.Drawing.Size(47, 44);
             this.bt_Deleta.TabIndex = 8;
             this.bt_Deleta.UseVisualStyleBackColor = false;
+            this.bt_Deleta.Click += new System.EventHandler(this.bt_Deleta_Click);
             // 
             // bt_gravar
             // 
@@ -188,6 +162,7 @@
             this.dtg_Venda.Name = "dtg_Venda";
             this.dtg_Venda.Size = new System.Drawing.Size(780, 266);
             this.dtg_Venda.TabIndex = 13;
+            this.dtg_Venda.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dtg_Venda_CellMouseClick);
             // 
             // label1
             // 
@@ -238,6 +213,7 @@
             this.bt_Concluir.Size = new System.Drawing.Size(50, 44);
             this.bt_Concluir.TabIndex = 21;
             this.bt_Concluir.UseVisualStyleBackColor = false;
+            this.bt_Concluir.Click += new System.EventHandler(this.bt_Concluir_Click);
             // 
             // bt_ConsultaPeca
             // 
@@ -339,7 +315,7 @@
             // 
             this.dtgw_auxiliarPecas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgw_auxiliarPecas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgw_auxiliarPecas.Location = new System.Drawing.Point(338, 340);
+            this.dtgw_auxiliarPecas.Location = new System.Drawing.Point(91, 340);
             this.dtgw_auxiliarPecas.Name = "dtgw_auxiliarPecas";
             this.dtgw_auxiliarPecas.Size = new System.Drawing.Size(413, 98);
             this.dtgw_auxiliarPecas.TabIndex = 34;
@@ -418,15 +394,42 @@
             this.label11.TabIndex = 42;
             this.label11.Text = "Desconto:";
             // 
-            // tb_desconto
+            // num_desconto
             // 
-            this.tb_desconto.Location = new System.Drawing.Point(873, 376);
-            this.tb_desconto.Mask = "00,00";
-            this.tb_desconto.Name = "tb_desconto";
-            this.tb_desconto.Size = new System.Drawing.Size(71, 20);
-            this.tb_desconto.TabIndex = 43;
-            this.tb_desconto.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
-            this.tb_desconto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_desconto_KeyPress);
+            this.num_desconto.Location = new System.Drawing.Point(873, 376);
+            this.num_desconto.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.num_desconto.Name = "num_desconto";
+            this.num_desconto.Size = new System.Drawing.Size(47, 20);
+            this.num_desconto.TabIndex = 43;
+            this.num_desconto.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.num_desconto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.num_desconto_KeyPress);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(920, 376);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(23, 20);
+            this.label12.TabIndex = 44;
+            this.label12.Text = "%";
+            // 
+            // tb_IDItensVenda
+            // 
+            this.tb_IDItensVenda.Location = new System.Drawing.Point(843, 340);
+            this.tb_IDItensVenda.Name = "tb_IDItensVenda";
+            this.tb_IDItensVenda.ReadOnly = true;
+            this.tb_IDItensVenda.Size = new System.Drawing.Size(100, 20);
+            this.tb_IDItensVenda.TabIndex = 45;
+            this.tb_IDItensVenda.Visible = false;
             // 
             // tb_codCliente
             // 
@@ -459,7 +462,9 @@
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(959, 450);
             this.ControlBox = false;
-            this.Controls.Add(this.tb_desconto);
+            this.Controls.Add(this.tb_IDItensVenda);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.num_desconto);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.tb_total);
             this.Controls.Add(this.label10);
@@ -501,6 +506,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgw_auxiliarCliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_quantidadePecas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgw_auxiliarPecas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_desconto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -511,8 +517,6 @@
         private System.Windows.Forms.Label Titulo_Form_pecas;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button bt_Sair;
-        private System.Windows.Forms.Button bt_filtrar;
-        private System.Windows.Forms.Button Bt_busca1;
         private System.Windows.Forms.Button bt_Atualiza;
         private System.Windows.Forms.Button bt_Deleta;
         private System.Windows.Forms.Button bt_gravar;
@@ -543,6 +547,8 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox tb_total;
         private System.Windows.Forms.Label label11;
-        private Msktextbox tb_desconto;
+        private System.Windows.Forms.NumericUpDown num_desconto;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox tb_IDItensVenda;
     }
 }
