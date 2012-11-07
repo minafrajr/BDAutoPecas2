@@ -50,7 +50,6 @@
             this.tb_quantidadePecaEstoque = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.tb_PrecoPecaUnita = new System.Windows.Forms.MaskedTextBox();
             this.num_quantidadePecas = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.dtgw_auxiliarPecas = new System.Windows.Forms.DataGridView();
@@ -58,6 +57,11 @@
             this.label8 = new System.Windows.Forms.Label();
             this.tb_CondVendedor = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.tb_preco = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tb_total = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.tb_desconto = new Matriz.Msktextbox();
             this.tb_codCliente = new AutoPeçasUI.MyTextBox();
             this.tb_codPeca = new AutoPeçasUI.MyTextBox();
             this.tb_Cliente = new AutoPeçasUI.MyTextBox();
@@ -176,13 +180,13 @@
             // 
             // dtg_Venda
             // 
-            this.dtg_Venda.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dtg_Venda.AllowUserToAddRows = false;
+            this.dtg_Venda.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
             this.dtg_Venda.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtg_Venda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtg_Venda.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dtg_Venda.Location = new System.Drawing.Point(0, 258);
+            this.dtg_Venda.Location = new System.Drawing.Point(-1, 181);
             this.dtg_Venda.Name = "dtg_Venda";
-            this.dtg_Venda.Size = new System.Drawing.Size(959, 192);
+            this.dtg_Venda.Size = new System.Drawing.Size(780, 266);
             this.dtg_Venda.TabIndex = 13;
             // 
             // label1
@@ -269,25 +273,25 @@
             // 
             this.dtgw_auxiliarCliente.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgw_auxiliarCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgw_auxiliarCliente.Location = new System.Drawing.Point(12, 199);
+            this.dtgw_auxiliarCliente.Location = new System.Drawing.Point(35, 321);
             this.dtgw_auxiliarCliente.Name = "dtgw_auxiliarCliente";
-            this.dtgw_auxiliarCliente.Size = new System.Drawing.Size(450, 53);
+            this.dtgw_auxiliarCliente.Size = new System.Drawing.Size(450, 98);
             this.dtgw_auxiliarCliente.TabIndex = 26;
             // 
             // tb_quantidadePecaEstoque
             // 
-            this.tb_quantidadePecaEstoque.Location = new System.Drawing.Point(491, 139);
+            this.tb_quantidadePecaEstoque.Location = new System.Drawing.Point(539, 139);
             this.tb_quantidadePecaEstoque.Multiline = true;
             this.tb_quantidadePecaEstoque.Name = "tb_quantidadePecaEstoque";
             this.tb_quantidadePecaEstoque.ReadOnly = true;
-            this.tb_quantidadePecaEstoque.Size = new System.Drawing.Size(112, 20);
+            this.tb_quantidadePecaEstoque.Size = new System.Drawing.Size(74, 20);
             this.tb_quantidadePecaEstoque.TabIndex = 27;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(487, 116);
+            this.label5.Location = new System.Drawing.Point(497, 116);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(116, 20);
             this.label5.TabIndex = 28;
@@ -297,32 +301,22 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(608, 116);
+            this.label6.Location = new System.Drawing.Point(619, 116);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(113, 20);
             this.label6.TabIndex = 30;
             this.label6.Text = "Preço Unitario:";
             // 
-            // tb_PrecoPecaUnita
-            // 
-            this.tb_PrecoPecaUnita.Location = new System.Drawing.Point(609, 139);
-            this.tb_PrecoPecaUnita.Mask = "00.00";
-            this.tb_PrecoPecaUnita.Name = "tb_PrecoPecaUnita";
-            this.tb_PrecoPecaUnita.ReadOnly = true;
-            this.tb_PrecoPecaUnita.Size = new System.Drawing.Size(112, 20);
-            this.tb_PrecoPecaUnita.TabIndex = 31;
-            this.tb_PrecoPecaUnita.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // num_quantidadePecas
             // 
-            this.num_quantidadePecas.Location = new System.Drawing.Point(732, 139);
+            this.num_quantidadePecas.Location = new System.Drawing.Point(794, 140);
             this.num_quantidadePecas.Maximum = new decimal(new int[] {
             9999,
             0,
             0,
             0});
             this.num_quantidadePecas.Name = "num_quantidadePecas";
-            this.num_quantidadePecas.Size = new System.Drawing.Size(69, 20);
+            this.num_quantidadePecas.Size = new System.Drawing.Size(51, 20);
             this.num_quantidadePecas.TabIndex = 3;
             this.num_quantidadePecas.Value = new decimal(new int[] {
             1,
@@ -335,7 +329,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(730, 116);
+            this.label7.Location = new System.Drawing.Point(749, 116);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(96, 20);
             this.label7.TabIndex = 33;
@@ -345,9 +339,9 @@
             // 
             this.dtgw_auxiliarPecas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgw_auxiliarPecas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgw_auxiliarPecas.Location = new System.Drawing.Point(491, 199);
+            this.dtgw_auxiliarPecas.Location = new System.Drawing.Point(338, 340);
             this.dtgw_auxiliarPecas.Name = "dtgw_auxiliarPecas";
-            this.dtgw_auxiliarPecas.Size = new System.Drawing.Size(413, 53);
+            this.dtgw_auxiliarPecas.Size = new System.Drawing.Size(413, 98);
             this.dtgw_auxiliarPecas.TabIndex = 34;
             // 
             // tb_IDVenda
@@ -386,6 +380,54 @@
             this.label9.TabIndex = 38;
             this.label9.Text = "Vendedor:";
             // 
+            // tb_preco
+            // 
+            this.tb_preco.Location = new System.Drawing.Point(663, 139);
+            this.tb_preco.Name = "tb_preco";
+            this.tb_preco.ReadOnly = true;
+            this.tb_preco.Size = new System.Drawing.Size(69, 20);
+            this.tb_preco.TabIndex = 39;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(819, 418);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(48, 20);
+            this.label10.TabIndex = 40;
+            this.label10.Text = "Total:";
+            // 
+            // tb_total
+            // 
+            this.tb_total.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_total.Location = new System.Drawing.Point(873, 412);
+            this.tb_total.Name = "tb_total";
+            this.tb_total.ReadOnly = true;
+            this.tb_total.Size = new System.Drawing.Size(70, 26);
+            this.tb_total.TabIndex = 41;
+            this.tb_total.Text = "0,00";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(785, 376);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(82, 20);
+            this.label11.TabIndex = 42;
+            this.label11.Text = "Desconto:";
+            // 
+            // tb_desconto
+            // 
+            this.tb_desconto.Location = new System.Drawing.Point(873, 376);
+            this.tb_desconto.Mask = "00,00";
+            this.tb_desconto.Name = "tb_desconto";
+            this.tb_desconto.Size = new System.Drawing.Size(71, 20);
+            this.tb_desconto.TabIndex = 43;
+            this.tb_desconto.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.tb_desconto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_desconto_KeyPress);
+            // 
             // tb_codCliente
             // 
             this.tb_codCliente.Location = new System.Drawing.Point(58, 82);
@@ -417,13 +459,17 @@
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(959, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.tb_desconto);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.tb_total);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.tb_preco);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.tb_CondVendedor);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.tb_IDVenda);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.num_quantidadePecas);
-            this.Controls.Add(this.tb_PrecoPecaUnita);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tb_quantidadePecaEstoque);
@@ -486,7 +532,6 @@
         private System.Windows.Forms.TextBox tb_quantidadePecaEstoque;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.MaskedTextBox tb_PrecoPecaUnita;
         private System.Windows.Forms.NumericUpDown num_quantidadePecas;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView dtgw_auxiliarPecas;
@@ -494,5 +539,10 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox tb_CondVendedor;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox tb_preco;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox tb_total;
+        private System.Windows.Forms.Label label11;
+        private Msktextbox tb_desconto;
     }
 }

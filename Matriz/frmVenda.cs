@@ -129,8 +129,8 @@ namespace Matriz
                     tb_descricaoPeca.Text = dtgw_auxiliarPecas.CurrentRow.Cells[1].Value.ToString();
                     tb_quantidadePecaEstoque.Text = dtgw_auxiliarPecas.CurrentRow.Cells[4].Value.ToString();
 
-                    double valor = Convert.ToDouble(dtgw_auxiliarPecas.CurrentRow.Cells[5].Value)/10; //) / 100;
-                    tb_PrecoPecaUnita.Text = valor.ToString();
+                    double valor = Convert.ToDouble(dtgw_auxiliarPecas.CurrentRow.Cells[5].Value); //) / 100;
+                    tb_preco.Text = valor.ToString();
                     this.SelectNextControl(this.ActiveControl, true, true, true, true);
 
                 }
@@ -149,9 +149,9 @@ namespace Matriz
                 _ItemdeVenda = new ItensVenda();
                 _ItemdeVenda.IDVenda = int.Parse(tb_IDVenda.Text);
                 _ItemdeVenda.IDPeca = int.Parse(tb_codPeca.Text);
-                _ItemdeVenda.PrecoUnitario = double.Parse(tb_PrecoPecaUnita.Text);
+                _ItemdeVenda.PrecoUnitario = double.Parse(tb_preco.Text);
                 _ItemdeVenda.Quantidade = (int)num_quantidadePecas.Value;
-                _ItemdeVenda.Subtotal = ((double)num_quantidadePecas.Value * (double.Parse(tb_PrecoPecaUnita.Text)));
+                _ItemdeVenda.Subtotal = ((double)num_quantidadePecas.Value * (double.Parse(tb_preco.Text)));
                 obj_controle.ControleInserir(_ItemdeVenda);
 
                 Peca obj_peca = new Peca();
@@ -160,17 +160,24 @@ namespace Matriz
                 obj_peca.IDFornecedor = (int)dtgw_auxiliarPecas.CurrentRow.Cells[2].Value;
                 obj_peca.IDVeiculo = (int)dtgw_auxiliarPecas.CurrentRow.Cells[3].Value;
                 obj_peca.Quantidade = (int.Parse(tb_quantidadePecaEstoque.Text)) - ((int)num_quantidadePecas.Value);
-                obj_peca.PrecoPeca = double.Parse(tb_PrecoPecaUnita.Text);
+                obj_peca.PrecoPeca = double.Parse(tb_preco.Text);
                 obj_peca.IDCategoria = (int)dtgw_auxiliarPecas.CurrentRow.Cells[6].Value;
                 obj_controle.ControleAtualizar(obj_peca);
-                CarregaTabelaItensdeVenda();                
-                
-                MessageBox.Show("Test");
+                CarregaTabelaItensdeVenda();
                 tb_codPeca.Clear();
                 tb_descricaoPeca.Clear();
-                tb_PrecoPecaUnita.Clear();
+                tb_preco.Clear();
                 tb_quantidadePecaEstoque.Clear();
                 num_quantidadePecas.Value = 1;
+                double total = 0;
+                for (int i = 0; i < dtg_Venda.RowCount; i++)
+                {
+                    string d = dtg_Venda[4, i].Value.ToString();
+                    total += double.Parse(d);
+                    //total = total + (double)dtg_Venda[4, i].Value;
+                }
+                tb_total.Text = total.ToString();
+
             }
             catch (Exception erro)
             {
@@ -211,8 +218,24 @@ namespace Matriz
             }
         }
 
-        
+        private void tb_desconto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                try
+                {
+                    double total = double.Parse(tb_total.Text);
+                    double desconto = double.Parse(tb_desconto.Text) / 100;
+                    total -= desconto;
+                    tb_total.Text = total.ToString();
+                }
+                catch (Exception erro)
+                {
 
-        
+                    MessageBox.Show(erro.ToString()); ;
+                }
+                
+            }
+        }     
     }
 }

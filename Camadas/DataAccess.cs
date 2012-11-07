@@ -1279,7 +1279,9 @@ namespace Camadas
             try
             {
                 DataTable _datatable = new DataTable();
-                comandosql = "SELECT [IDPECA],[IDVENDA],[PRECOUNITARIO],[QUANTIDADE],[SUBTOTAL]FROM [AUTOPECAS].[dbo].[ITENSVENDA] where IDVENDA = " + id_Venda;
+                comandosql = "SELECT dbo.ITENSVENDA.IDPECA, dbo.PECAS.NOMEPECA, dbo.ITENSVENDA.PRECOUNITARIO, dbo.ITENSVENDA.QUANTIDADE, "
+                    +"dbo.ITENSVENDA.SUBTOTAL FROM dbo.PECAS INNER JOIN dbo.ITENSVENDA ON dbo.PECAS.IDPECA = dbo.ITENSVENDA.IDPECA "
+                    + "WHERE (dbo.ITENSVENDA.IDVENDA = "+ id_Venda +" ) ";
                 using (Conectionsql = new SqlConnection(conexao))
                 {
                     Conectionsql.Open();
