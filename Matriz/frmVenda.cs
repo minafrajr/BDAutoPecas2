@@ -10,6 +10,8 @@ using AutoPeçasUI;
 using System.Data.SqlClient;
 using System.Data.Sql;
 using Camadas;
+using System.Xml.Linq;
+using System.IO;
 
 namespace Matriz
 {
@@ -68,7 +70,7 @@ namespace Matriz
         }
         private void Form_Venda_Load(object sender, EventArgs e)
         {
-            ID_vendedor = "2";
+            ID_vendedor = "1";
             tb_CondVendedor.Text = id_Vendedor;
             int Proximavenda;
             string ultimavenda;
@@ -178,8 +180,8 @@ namespace Matriz
             }
             catch (Exception erro)
             {
-                
-                throw erro;
+
+                MessageBox.Show(erro.Message);
             }
             
 
@@ -214,7 +216,7 @@ namespace Matriz
                     total += double.Parse(d);
                     //total = total + (double)dtg_Venda[4, i].Value;
                 }
-                tb_total.Text = total.ToString();
+                tb_total.Text = string.Format("{0:.00}",total);
             }
             catch (Exception erro)
             {
@@ -231,7 +233,7 @@ namespace Matriz
                     decimal total = decimal.Parse(tb_total.Text);
                     decimal desc = total * (num_desconto.Value/100);
                     total -= desc;
-                    tb_total.Text = total.ToString();
+                    tb_total.Text = string.Format("{0:f2}", total);
                 }
                 catch (Exception erro)
                 {
@@ -250,12 +252,20 @@ namespace Matriz
 
         private void dtg_Venda_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+           
             statusCelulaClicada = true;
             tb_codPeca.Text = dtg_Venda[0,dtg_Venda.CurrentCellAddress.Y].Value.ToString();
             tb_descricaoPeca.Text = dtg_Venda[1, dtg_Venda.CurrentCellAddress.Y].Value.ToString();
             tb_preco.Text = dtg_Venda[2, dtg_Venda.CurrentCellAddress.Y].Value.ToString();
             num_quantidadePecas.Value = Convert.ToDecimal(dtg_Venda[3, dtg_Venda.CurrentCellAddress.Y].Value);
             tb_IDItensVenda.Text = dtg_Venda[5, dtg_Venda.CurrentCellAddress.Y].Value.ToString();
+            DataTable _pecaEncontrata = negocio.pesquisa_ID_Peca(tb_codPeca.Text);
+            dtgw_auxiliarPecas.DataSource = _pecaEncontrata;
+            if (dtgw_auxiliarPecas.CurrentRow != null)
+            {
+                tb_quantidadePecaEstoque.Text = dtgw_auxiliarPecas.CurrentRow.Cells[4].Value.ToString();
+
+            }           
 
             num_quantidadePecas.ReadOnly = true;
             num_quantidadePecas.Enabled = false;
@@ -281,8 +291,8 @@ namespace Matriz
                         obj_peca.IDPeca = int.Parse(tb_codPeca.Text);
                         obj_peca.NomePeca = tb_descricaoPeca.Text;
                         obj_peca.IDFornecedor = (int)dtgw_auxiliarPecas.CurrentRow.Cells[2].Value;
-                        obj_peca.IDVeiculo = (int)dtgw_auxiliarPecas.CurrentRow.Cells[3].Value;
-                        obj_peca.Quantidade = (int.Parse(tb_quantidadePecaEstoque.Text)) + ((int)num_quantidadePecas.Value);
+                        obj_peca.IDVeiculo = (int)dtgw_auxiliarPecas.CurrentRow.Cells[3].Value;                        
+                        obj_peca.Quantidade = ((int)dtgw_auxiliarPecas.CurrentRow.Cells[4].Value) + ((int)num_quantidadePecas.Value);
                         obj_peca.PrecoPeca = double.Parse(tb_preco.Text);
                         obj_peca.IDCategoria = (int)dtgw_auxiliarPecas.CurrentRow.Cells[6].Value;
                         obj_controle.ControleAtualizar(obj_peca);
@@ -322,6 +332,35 @@ namespace Matriz
                 this.Close();
  
             }
-        }     
+        }
+
+        /*private void Grava_xml_Movimento()
+        {
+
+            if (!File.Exists(@"C:\Temp\venda_Temp.xml"))            
+               File.Create(@"C:\Temp\venda_Temp.xml");
+            
+            
+            string NomeArquivo = @"C:\Temp\venda_Temp.xml";
+            XElement Movimento_XML = new XElement("Venda");
+
+            for (int i = 0; i < dtg_Venda.RowCount ; i++)
+            {
+                //string[] aux = (string[])Movimento_consultado[i];
+                // Adiciona Elemento XML
+                Movimento_XML.Add(new XElement("Paciente", new XElement("Numero", (i + 1)), new XElement("Pronturario", aux[0]), new XElement("Nome", aux[1]), new XElement("Hora", aux[2]), new XElement("Data", aux[3]), new XElement("Medico", aux[4])));
+
+
+            }
+            Movimento_XML.Save(NomeArquivo);// Salva o Arquivo*/            
+            //File.Copy(@"movimento_impresso.xml", @"C:\LISTAGEM ACS\movimento_impresso.xml", true);*/
+            //MessageBox.Show("Movimento criado com Sucesso!");
+        //}
+     
+
+
+
+
+
     }
 }
