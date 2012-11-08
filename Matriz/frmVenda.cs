@@ -17,11 +17,13 @@ namespace Matriz
 {
     public partial class frmVenda : Form
     {
-        ItensVenda _ItemdeVenda;
+        ItensVenda _ItemdeVenda = new ItensVenda();
         Controle obj_controle = new Controle();
         BussinessLayer negocio = new BussinessLayer();
+        Peca obj_peca = new Peca();
         Venda obj_venda = new Venda();
         bool statusCelulaClicada = false;
+        decimal _Desconto;
 
         private string id_Vendedor;
 
@@ -61,7 +63,20 @@ namespace Matriz
         }
         private void bt_Sair_Click(object sender, EventArgs e)
         {
-            this.Close();
+            try
+            {
+                if (MessageBox.Show("Deseja realmente sair e cancelar a venda?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Stop).Equals(DialogResult.Yes))
+                {
+                    MessageBox.Show("Venda cancelada!");
+                    this.Close();
+                }
+            }
+            catch (Exception err)
+            {
+
+                MessageBox.Show(err.Message); ;
+            }
+            
         }
         private void bt_Cliente_Click(object sender, EventArgs e)
         {           
@@ -124,35 +139,44 @@ namespace Matriz
         private void tb_codPeca_KeyPress(object sender, KeyPressEventArgs e)
         {
             //dtgw_auxiliar.Rows.Clear();
-            if (e.KeyChar == 13)
+
+            try
             {
-                num_quantidadePecas.ReadOnly = false;
-                num_quantidadePecas.Enabled = true;
-                DataTable _pecaEncontrata = negocio.pesquisa_ID_Peca(tb_codPeca.Text);
-                dtgw_auxiliarPecas.DataSource = _pecaEncontrata;
-                if (dtgw_auxiliarPecas.CurrentRow != null)
+                if (e.KeyChar == 13)
                 {
-                    tb_descricaoPeca.Text = dtgw_auxiliarPecas.CurrentRow.Cells[1].Value.ToString();
-                    tb_quantidadePecaEstoque.Text = dtgw_auxiliarPecas.CurrentRow.Cells[4].Value.ToString();
+                    num_quantidadePecas.ReadOnly = false;
+                    num_quantidadePecas.Enabled = true;
+                    DataTable _pecaEncontrata = negocio.pesquisa_ID_Peca(tb_codPeca.Text);
+                    dtgw_auxiliarPecas.DataSource = _pecaEncontrata;
+                    if (dtgw_auxiliarPecas.CurrentRow != null)
+                    {
+                        tb_descricaoPeca.Text = dtgw_auxiliarPecas.CurrentRow.Cells[1].Value.ToString();
+                        tb_quantidadePecaEstoque.Text = dtgw_auxiliarPecas.CurrentRow.Cells[4].Value.ToString();
 
-                    double valor = Convert.ToDouble(dtgw_auxiliarPecas.CurrentRow.Cells[5].Value); //) / 100;
-                    tb_preco.Text = valor.ToString();
-                    this.SelectNextControl(this.ActiveControl, true, true, true, true);
+                        double valor = Convert.ToDouble(dtgw_auxiliarPecas.CurrentRow.Cells[5].Value); //) / 100;
+                        tb_preco.Text = valor.ToString();
+                        this.SelectNextControl(this.ActiveControl, true, true, true, true);
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Peça não encontrada!");
+                    }
 
                 }
-                else
-                {
-                    MessageBox.Show("Peça não encontrada!");
-                }
 
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show(erro.Message); ;
             }
 
         }
         private void bt_gravar_Click(object sender, EventArgs e)
         {
             try
-            {
-                _ItemdeVenda = new ItensVenda();
+            {   
                 _ItemdeVenda.IDVenda = int.Parse(tb_IDVenda.Text);
                 _ItemdeVenda.IDPeca = int.Parse(tb_codPeca.Text);
                 _ItemdeVenda.PrecoUnitario = double.Parse(tb_preco.Text);
@@ -160,7 +184,7 @@ namespace Matriz
                 _ItemdeVenda.Subtotal = ((double)num_quantidadePecas.Value * (double.Parse(tb_preco.Text)));
                 obj_controle.ControleInserir(_ItemdeVenda);
 
-                Peca obj_peca = new Peca();
+                
                 obj_peca.IDPeca = int.Parse(tb_codPeca.Text);
                 obj_peca.NomePeca = tb_descricaoPeca.Text;
                 obj_peca.IDFornecedor = (int)dtgw_auxiliarPecas.CurrentRow.Cells[2].Value;
@@ -189,18 +213,27 @@ namespace Matriz
 
         private void num_quantidadePecas_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
+            try
             {
-                if (num_quantidadePecas.Value > int.Parse(tb_quantidadePecaEstoque.Text))
+                if (e.KeyChar == 13)
                 {
-                    MessageBox.Show("Quantidade superior ao estoque");
+                    if (num_quantidadePecas.Value > int.Parse(tb_quantidadePecaEstoque.Text))
+                    {
+                        MessageBox.Show("Quantidade superior ao estoque");
+                    }
+                    else
+                    {
+                        bt_gravar_Click(sender, e);
+                        this.SelectNextControl(this.ActiveControl, false, true, true, true);
+
+                    }
                 }
-                else
-                {
-                    bt_gravar_Click(sender, e);
-                    this.SelectNextControl(this.ActiveControl,false,true,true,true);
-                    
-                }
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show(erro.Message); ;
             }
         }
 
@@ -231,8 +264,8 @@ namespace Matriz
                 try
                 {
                     decimal total = decimal.Parse(tb_total.Text);
-                    decimal desc = total * (num_desconto.Value/100);
-                    total -= desc;
+                    _Desconto = total * (num_desconto.Value/100);
+                    total -= _Desconto;
                     tb_total.Text = string.Format("{0:f2}", total);
                 }
                 catch (Exception erro)
@@ -329,38 +362,59 @@ namespace Matriz
 
                 obj_venda.Desconto = total - obj_venda.PrecoTotal;
                 obj_controle.ControleAtualizar(obj_venda);
+                Grava_xml_VendaTemp();
+                frmNotaFiscalVenda nf = new frmNotaFiscalVenda();
+                nf.ShowDialog();
                 this.Close();
+
  
             }
         }
 
-        /*private void Grava_xml_Movimento()
+        private void Grava_xml_VendaTemp()
         {
-
-            if (!File.Exists(@"C:\Temp\venda_Temp.xml"))            
-               File.Create(@"C:\Temp\venda_Temp.xml");
-            
-            
-            string NomeArquivo = @"C:\Temp\venda_Temp.xml";
-            XElement Movimento_XML = new XElement("Venda");
-
-            for (int i = 0; i < dtg_Venda.RowCount ; i++)
+            try
             {
-                //string[] aux = (string[])Movimento_consultado[i];
-                // Adiciona Elemento XML
-                Movimento_XML.Add(new XElement("Paciente", new XElement("Numero", (i + 1)), new XElement("Pronturario", aux[0]), new XElement("Nome", aux[1]), new XElement("Hora", aux[2]), new XElement("Data", aux[3]), new XElement("Medico", aux[4])));
+                if (!Directory.Exists(@"C:\Temp"))
+                {
+                    Directory.CreateDirectory(@"C:\Temp");
+                    if (!File.Exists(@"C:\Temp\venda_Temp.xml"))
+                    {
+                        File.Create(@"C:\Temp\venda_Temp.xml");
+                    }
+                }
+                
+                string NomeArquivo = @"C:\Temp\venda_Temp.xml";
+                
+                XElement Venda_XML = new XElement("Venda");
 
+                string idvenda = obj_venda.IDVenda.ToString();
+                string data = obj_venda.DataVenda.ToShortDateString();
+                string cliente = tb_Cliente.Text;
+                string vendedor = tb_CondVendedor.Text;
+                string descon = string.Format("{0:f2}", _Desconto);
+                string total = tb_total.Text;
 
+                Venda_XML.Add("VENDA_INFO",new XElement("ID_Venda", idvenda), new XElement("Data", data), new XElement("Cliente", cliente), new XElement("Vendedor", vendedor), new XElement("Desconto", descon), new XElement("Total", total));
+                
+                for (int i = 0; i < dtg_Venda.RowCount; i++)
+                {
+                    string item = (i + 1).ToString();
+                    string codigo = dtg_Venda[0, i].Value.ToString();
+                    string nomepeca = dtg_Venda[1, i].Value.ToString();
+                    string precouni = string.Format("{0:f2}", dtg_Venda[2, i].Value);
+                    string quant = dtg_Venda[3, i].Value.ToString();
+                    string subtotal = string.Format("{0:f2}", dtg_Venda[4, i].Value);
+                    Venda_XML.Add(new XElement("Itens", new XElement("Item", item), new XElement("Codigo", codigo), new XElement("Nome_Peca", nomepeca), new XElement("Preco_Unit", precouni), new XElement("Quantidade", quant), new XElement("Subtotal", subtotal)));
+                    
+                }
+                Venda_XML.Save(NomeArquivo);// Salva o Arquivo*/
             }
-            Movimento_XML.Save(NomeArquivo);// Salva o Arquivo*/            
-            //File.Copy(@"movimento_impresso.xml", @"C:\LISTAGEM ACS\movimento_impresso.xml", true);*/
-            //MessageBox.Show("Movimento criado com Sucesso!");
-        //}
-     
+            catch (Exception err)
+            {
 
-
-
-
-
+                MessageBox.Show(err.Message); ;
+            }
+        }
     }
 }

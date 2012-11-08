@@ -368,7 +368,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(819, 418);
+            this.label10.Location = new System.Drawing.Point(794, 418);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(48, 20);
             this.label10.TabIndex = 40;
@@ -377,10 +377,10 @@
             // tb_total
             // 
             this.tb_total.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_total.Location = new System.Drawing.Point(873, 412);
+            this.tb_total.Location = new System.Drawing.Point(848, 412);
             this.tb_total.Name = "tb_total";
             this.tb_total.ReadOnly = true;
-            this.tb_total.Size = new System.Drawing.Size(70, 26);
+            this.tb_total.Size = new System.Drawing.Size(95, 26);
             this.tb_total.TabIndex = 41;
             this.tb_total.Text = "0,00";
             // 

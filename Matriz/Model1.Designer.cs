@@ -8,13 +8,12 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.ComponentModel;
-using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Linq;
-using System.Runtime.Serialization;
+using System.Data.EntityClient;
+using System.ComponentModel;
 using System.Xml.Serialization;
+using System.Runtime.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
@@ -222,7 +221,6 @@ namespace Matriz
         private ObjectSet<VENDEDORES> _VENDEDORES;
 
         #endregion
-
         #region AddTo Methods
     
         /// <summary>
@@ -298,11 +296,11 @@ namespace Matriz
         }
 
         #endregion
-
     }
+    
 
     #endregion
-
+    
     #region Entities
     
     /// <summary>
@@ -329,7 +327,6 @@ namespace Matriz
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -408,7 +405,6 @@ namespace Matriz
         partial void OnDESCRICAOChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -435,7 +431,6 @@ namespace Matriz
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -466,7 +461,6 @@ namespace Matriz
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -737,7 +731,6 @@ namespace Matriz
         partial void OnUFChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -764,7 +757,6 @@ namespace Matriz
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -795,7 +787,6 @@ namespace Matriz
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -1018,7 +1009,6 @@ namespace Matriz
         partial void OnDATACONTRATOChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -1045,7 +1035,6 @@ namespace Matriz
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1078,7 +1067,6 @@ namespace Matriz
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -1229,7 +1217,6 @@ namespace Matriz
         partial void OnSUBTOTALChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -1310,7 +1297,6 @@ namespace Matriz
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1339,7 +1325,6 @@ namespace Matriz
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -1538,7 +1523,6 @@ namespace Matriz
         partial void OnPRECOESTOCADOChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -1679,7 +1663,6 @@ namespace Matriz
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1708,7 +1691,6 @@ namespace Matriz
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -1835,7 +1817,6 @@ namespace Matriz
         partial void OndefinitionChanged();
 
         #endregion
-
     
     }
     
@@ -1867,7 +1848,6 @@ namespace Matriz
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -1994,7 +1974,6 @@ namespace Matriz
         partial void OnANOFINALChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -2021,7 +2000,6 @@ namespace Matriz
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -2046,7 +2024,6 @@ namespace Matriz
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -2197,7 +2174,6 @@ namespace Matriz
         partial void OnDESCONTOChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -2300,7 +2276,6 @@ namespace Matriz
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -2331,7 +2306,6 @@ namespace Matriz
         }
 
         #endregion
-
         #region Primitive Properties
     
         /// <summary>
@@ -2554,7 +2528,6 @@ namespace Matriz
         partial void OnESTADOCIVILChanged();
 
         #endregion
-
     
         #region Navigation Properties
     
@@ -2581,10 +2554,8 @@ namespace Matriz
         }
 
         #endregion
-
     }
 
     #endregion
-
     
 }

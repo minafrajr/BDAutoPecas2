@@ -16,9 +16,9 @@ namespace Camadas
         private SqlConnection conexaoSql;
         private SqlCommand comandoSql;
         //private const string NOME_SERVIDOR = "PHLP";
-        private const string NOME_SERVIDOR = "DELL";
+        //private const string NOME_SERVIDOR = "DELL";
         //private const string NOME_SERVIDOR = "SESA-10267";
-        //private const string NOME_SERVIDOR = "CASA";
+        private const string NOME_SERVIDOR = "CASA";
         private const string NOME_BANCO_DADOS = "AUTOPECAS";
         private string stringConexao = string.Format("Data Source = {0}; Initial Catalog = {1}; Integrated Security = True;", NOME_SERVIDOR, NOME_BANCO_DADOS);
 
