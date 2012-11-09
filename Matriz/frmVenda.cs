@@ -17,6 +17,27 @@ namespace Matriz
 {
     public partial class frmVenda : Form
     {
+        Vendedor vendedor;
+        Cliente cliente;
+
+        private void CarregarCmbVendedor()
+        {
+            cmbVendedor.DataSource = null;
+            cmbVendedor.Refresh();
+            cmbVendedor.DataSource = (new Controle()).ControleRecuperarVendedores();
+            cmbVendedor.Refresh();
+        }
+
+
+
+
+
+
+
+
+
+
+
         ItensVenda _ItemdeVenda = new ItensVenda();
         Controle obj_controle = new Controle();
         BussinessLayer negocio = new BussinessLayer();
@@ -44,6 +65,7 @@ namespace Matriz
         {
             try
             {
+                //obj_venda.IDVendedor = 0;
                 obj_venda.IDVendedor = int.Parse(tb_CondVendedor.Text);
                 obj_venda.DataVenda = DateTime.Now;
                 obj_venda.IDCliente = int.Parse(tb_codCliente.Text);
@@ -85,6 +107,8 @@ namespace Matriz
         }
         private void Form_Venda_Load(object sender, EventArgs e)
         {
+            CarregarCmbVendedor();
+
             ID_vendedor = "1";
             tb_CondVendedor.Text = id_Vendedor;
             int Proximavenda;
@@ -347,8 +371,13 @@ namespace Matriz
         {
             if (MessageBox.Show("Deseja realmente encerrar a compra?","Atenção",MessageBoxButtons.YesNo,MessageBoxIcon.Information).Equals(DialogResult.Yes))
             {
+                // Dúvida: É necessário passar o ID da venda, uma vez que o mesmo é gerado automaticamente no banco?
                 obj_venda.IDVenda = int.Parse(tb_IDVenda.Text);
-                obj_venda.IDVendedor = int.Parse(tb_CondVendedor.Text);
+                //obj_venda.IDVendedor = int.Parse(tb_CondVendedor.Text);
+
+                // Passando o ID do vendedor selecionado no cmbVendedor
+                obj_venda.IDVendedor = ((Vendedor)cmbVendedor.SelectedItem).IDVendedor;
+
                 obj_venda.DataVenda = DateTime.Now;
                 obj_venda.IDCliente = int.Parse(tb_codCliente.Text);
                 obj_venda.PrecoTotal = float.Parse(tb_total.Text);

@@ -159,12 +159,6 @@
     <Compile Include="frmVenda.Designer.cs">
       <DependentUpon>frmVenda.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmVenda2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmVenda2.Designer.cs">
-      <DependentUpon>frmVenda2.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmVendedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -235,9 +229,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmVenda.resx">
       <DependentUpon>frmVenda.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmVenda2.resx">
-      <DependentUpon>frmVenda2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVendedor.af.resx">
       <DependentUpon>frmVendedor.cs</DependentUpon>

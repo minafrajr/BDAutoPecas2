@@ -449,20 +449,6 @@ namespace Camadas
         }
         #endregion
 
-
-        //////////////////////////////////////////////
-        public List<Vendedor> getVendedores()
-        {
-            try
-            {
-                return Acessoadados.getVendedores();
-            }
-            catch
-            {
-                throw new Exception("Ocorreu um erro ao pegar os vendedores");
-            }
-        }
-
         public DataTable LerTabelaItensVenda(string ID_Venda)
         {
             DataTable itens = Acessoadados.LerTabelaItensdeVenda(ID_Venda);

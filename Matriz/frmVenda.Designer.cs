@@ -62,9 +62,14 @@
             this.num_desconto = new System.Windows.Forms.NumericUpDown();
             this.label12 = new System.Windows.Forms.Label();
             this.tb_IDItensVenda = new System.Windows.Forms.TextBox();
-            this.tb_codCliente = new AutoPeçasUI.MyTextBox();
-            this.tb_codPeca = new AutoPeçasUI.MyTextBox();
-            this.tb_Cliente = new AutoPeçasUI.MyTextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.cmbVendedor = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.mskClienteFisico = new System.Windows.Forms.MaskedTextBox();
+            this.txtCliente = new System.Windows.Forms.TextBox();
+            this.mskClienteJuridico = new System.Windows.Forms.MaskedTextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Venda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgw_auxiliarCliente)).BeginInit();
@@ -158,7 +163,7 @@
             this.dtg_Venda.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
             this.dtg_Venda.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtg_Venda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtg_Venda.Location = new System.Drawing.Point(-1, 181);
+            this.dtg_Venda.Location = new System.Drawing.Point(3, 305);
             this.dtg_Venda.Name = "dtg_Venda";
             this.dtg_Venda.Size = new System.Drawing.Size(780, 266);
             this.dtg_Venda.TabIndex = 13;
@@ -168,7 +173,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(15, 116);
+            this.label1.Location = new System.Drawing.Point(15, 230);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(103, 20);
             this.label1.TabIndex = 15;
@@ -178,7 +183,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(128, 116);
+            this.label2.Location = new System.Drawing.Point(128, 230);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(84, 20);
             this.label2.TabIndex = 17;
@@ -186,7 +191,7 @@
             // 
             // tb_descricaoPeca
             // 
-            this.tb_descricaoPeca.Location = new System.Drawing.Point(132, 140);
+            this.tb_descricaoPeca.Location = new System.Drawing.Point(132, 254);
             this.tb_descricaoPeca.Multiline = true;
             this.tb_descricaoPeca.Name = "tb_descricaoPeca";
             this.tb_descricaoPeca.ReadOnly = true;
@@ -197,7 +202,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(128, 60);
+            this.label3.Location = new System.Drawing.Point(599, 106);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 20);
             this.label3.TabIndex = 20;
@@ -208,7 +213,7 @@
             this.bt_Concluir.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.bt_Concluir.BackgroundImage = global::Matriz.Properties.Resources._7689_64x64;
             this.bt_Concluir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bt_Concluir.Location = new System.Drawing.Point(897, 126);
+            this.bt_Concluir.Location = new System.Drawing.Point(897, 240);
             this.bt_Concluir.Name = "bt_Concluir";
             this.bt_Concluir.Size = new System.Drawing.Size(50, 44);
             this.bt_Concluir.TabIndex = 21;
@@ -217,7 +222,7 @@
             // 
             // bt_ConsultaPeca
             // 
-            this.bt_ConsultaPeca.Location = new System.Drawing.Point(19, 137);
+            this.bt_ConsultaPeca.Location = new System.Drawing.Point(19, 251);
             this.bt_ConsultaPeca.Name = "bt_ConsultaPeca";
             this.bt_ConsultaPeca.Size = new System.Drawing.Size(33, 23);
             this.bt_ConsultaPeca.TabIndex = 22;
@@ -227,7 +232,7 @@
             // 
             // bt_PesquisarCliente
             // 
-            this.bt_PesquisarCliente.Location = new System.Drawing.Point(19, 80);
+            this.bt_PesquisarCliente.Location = new System.Drawing.Point(490, 126);
             this.bt_PesquisarCliente.Name = "bt_PesquisarCliente";
             this.bt_PesquisarCliente.Size = new System.Drawing.Size(28, 23);
             this.bt_PesquisarCliente.TabIndex = 23;
@@ -239,7 +244,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(15, 60);
+            this.label4.Location = new System.Drawing.Point(486, 106);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(99, 20);
             this.label4.TabIndex = 25;
@@ -256,7 +261,7 @@
             // 
             // tb_quantidadePecaEstoque
             // 
-            this.tb_quantidadePecaEstoque.Location = new System.Drawing.Point(539, 139);
+            this.tb_quantidadePecaEstoque.Location = new System.Drawing.Point(539, 253);
             this.tb_quantidadePecaEstoque.Multiline = true;
             this.tb_quantidadePecaEstoque.Name = "tb_quantidadePecaEstoque";
             this.tb_quantidadePecaEstoque.ReadOnly = true;
@@ -267,7 +272,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(497, 116);
+            this.label5.Location = new System.Drawing.Point(497, 230);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(116, 20);
             this.label5.TabIndex = 28;
@@ -277,7 +282,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(619, 116);
+            this.label6.Location = new System.Drawing.Point(619, 230);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(113, 20);
             this.label6.TabIndex = 30;
@@ -285,7 +290,7 @@
             // 
             // num_quantidadePecas
             // 
-            this.num_quantidadePecas.Location = new System.Drawing.Point(794, 140);
+            this.num_quantidadePecas.Location = new System.Drawing.Point(794, 254);
             this.num_quantidadePecas.Maximum = new decimal(new int[] {
             9999,
             0,
@@ -305,7 +310,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(749, 116);
+            this.label7.Location = new System.Drawing.Point(749, 230);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(96, 20);
             this.label7.TabIndex = 33;
@@ -322,7 +327,7 @@
             // 
             // tb_IDVenda
             // 
-            this.tb_IDVenda.Location = new System.Drawing.Point(365, 29);
+            this.tb_IDVenda.Location = new System.Drawing.Point(873, 126);
             this.tb_IDVenda.Name = "tb_IDVenda";
             this.tb_IDVenda.ReadOnly = true;
             this.tb_IDVenda.Size = new System.Drawing.Size(75, 20);
@@ -332,7 +337,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(360, 9);
+            this.label8.Location = new System.Drawing.Point(868, 106);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(79, 20);
             this.label8.TabIndex = 36;
@@ -340,7 +345,7 @@
             // 
             // tb_CondVendedor
             // 
-            this.tb_CondVendedor.Location = new System.Drawing.Point(262, 30);
+            this.tb_CondVendedor.Location = new System.Drawing.Point(770, 127);
             this.tb_CondVendedor.Name = "tb_CondVendedor";
             this.tb_CondVendedor.ReadOnly = true;
             this.tb_CondVendedor.Size = new System.Drawing.Size(79, 20);
@@ -350,7 +355,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(258, 9);
+            this.label9.Location = new System.Drawing.Point(766, 106);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(83, 20);
             this.label9.TabIndex = 38;
@@ -358,7 +363,7 @@
             // 
             // tb_preco
             // 
-            this.tb_preco.Location = new System.Drawing.Point(663, 139);
+            this.tb_preco.Location = new System.Drawing.Point(663, 253);
             this.tb_preco.Name = "tb_preco";
             this.tb_preco.ReadOnly = true;
             this.tb_preco.Size = new System.Drawing.Size(69, 20);
@@ -368,7 +373,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(794, 418);
+            this.label10.Location = new System.Drawing.Point(794, 540);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(48, 20);
             this.label10.TabIndex = 40;
@@ -377,7 +382,7 @@
             // tb_total
             // 
             this.tb_total.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_total.Location = new System.Drawing.Point(848, 412);
+            this.tb_total.Location = new System.Drawing.Point(848, 534);
             this.tb_total.Name = "tb_total";
             this.tb_total.ReadOnly = true;
             this.tb_total.Size = new System.Drawing.Size(95, 26);
@@ -388,7 +393,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(785, 376);
+            this.label11.Location = new System.Drawing.Point(785, 498);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(82, 20);
             this.label11.TabIndex = 42;
@@ -396,7 +401,7 @@
             // 
             // num_desconto
             // 
-            this.num_desconto.Location = new System.Drawing.Point(873, 376);
+            this.num_desconto.Location = new System.Drawing.Point(873, 498);
             this.num_desconto.Maximum = new decimal(new int[] {
             9999,
             0,
@@ -416,7 +421,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(920, 376);
+            this.label12.Location = new System.Drawing.Point(920, 498);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(23, 20);
             this.label12.TabIndex = 44;
@@ -424,44 +429,99 @@
             // 
             // tb_IDItensVenda
             // 
-            this.tb_IDItensVenda.Location = new System.Drawing.Point(843, 340);
+            this.tb_IDItensVenda.Location = new System.Drawing.Point(843, 462);
             this.tb_IDItensVenda.Name = "tb_IDItensVenda";
             this.tb_IDItensVenda.ReadOnly = true;
             this.tb_IDItensVenda.Size = new System.Drawing.Size(100, 20);
             this.tb_IDItensVenda.TabIndex = 45;
             this.tb_IDItensVenda.Visible = false;
             // 
-            // tb_codCliente
+            // label13
             // 
-            this.tb_codCliente.Location = new System.Drawing.Point(58, 82);
-            this.tb_codCliente.Name = "tb_codCliente";
-            this.tb_codCliente.Size = new System.Drawing.Size(68, 20);
-            this.tb_codCliente.TabIndex = 1;
-            this.tb_codCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_codCliente_KeyPress_1);
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(12, 91);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(83, 20);
+            this.label13.TabIndex = 46;
+            this.label13.Text = "Vendedor:";
             // 
-            // tb_codPeca
+            // cmbVendedor
             // 
-            this.tb_codPeca.Location = new System.Drawing.Point(58, 139);
-            this.tb_codPeca.Name = "tb_codPeca";
-            this.tb_codPeca.Size = new System.Drawing.Size(68, 20);
-            this.tb_codPeca.TabIndex = 2;
-            this.tb_codPeca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_codPeca_KeyPress);
+            this.cmbVendedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbVendedor.FormattingEnabled = true;
+            this.cmbVendedor.Location = new System.Drawing.Point(132, 90);
+            this.cmbVendedor.Name = "cmbVendedor";
+            this.cmbVendedor.Size = new System.Drawing.Size(348, 21);
+            this.cmbVendedor.TabIndex = 47;
             // 
-            // tb_Cliente
+            // label14
             // 
-            this.tb_Cliente.Location = new System.Drawing.Point(132, 83);
-            this.tb_Cliente.Name = "tb_Cliente";
-            this.tb_Cliente.ReadOnly = true;
-            this.tb_Cliente.Size = new System.Drawing.Size(353, 20);
-            this.tb_Cliente.TabIndex = 14;
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(12, 134);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(62, 20);
+            this.label14.TabIndex = 48;
+            this.label14.Text = "Cliente:";
+            // 
+            // mskClienteFisico
+            // 
+            this.mskClienteFisico.Location = new System.Drawing.Point(132, 134);
+            this.mskClienteFisico.Mask = "000.000.000-00";
+            this.mskClienteFisico.Name = "mskClienteFisico";
+            this.mskClienteFisico.Size = new System.Drawing.Size(114, 20);
+            this.mskClienteFisico.TabIndex = 49;
+            // 
+            // txtCliente
+            // 
+            this.txtCliente.Location = new System.Drawing.Point(252, 148);
+            this.txtCliente.Name = "txtCliente";
+            this.txtCliente.ReadOnly = true;
+            this.txtCliente.Size = new System.Drawing.Size(228, 20);
+            this.txtCliente.TabIndex = 50;
+            // 
+            // mskClienteJuridico
+            // 
+            this.mskClienteJuridico.Location = new System.Drawing.Point(132, 160);
+            this.mskClienteJuridico.Mask = "00.000.000/0000-00";
+            this.mskClienteJuridico.Name = "mskClienteJuridico";
+            this.mskClienteJuridico.Size = new System.Drawing.Size(114, 20);
+            this.mskClienteJuridico.TabIndex = 51;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(85, 137);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(36, 13);
+            this.label15.TabIndex = 52;
+            this.label15.Text = "Físico";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(85, 163);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(45, 13);
+            this.label16.TabIndex = 53;
+            this.label16.Text = "Jurídico";
             // 
             // frmVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.ClientSize = new System.Drawing.Size(959, 450);
+            this.ClientSize = new System.Drawing.Size(959, 574);
             this.ControlBox = false;
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.mskClienteJuridico);
+            this.Controls.Add(this.txtCliente);
+            this.Controls.Add(this.mskClienteFisico);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.cmbVendedor);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.tb_IDItensVenda);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.num_desconto);
@@ -478,7 +538,6 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tb_quantidadePecaEstoque);
-            this.Controls.Add(this.tb_codCliente);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.bt_PesquisarCliente);
             this.Controls.Add(this.bt_ConsultaPeca);
@@ -486,9 +545,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tb_descricaoPeca);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.tb_codPeca);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.tb_Cliente);
             this.Controls.Add(this.dtg_Venda);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Titulo_Form_pecas);
@@ -550,5 +607,13 @@
         private System.Windows.Forms.NumericUpDown num_desconto;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox tb_IDItensVenda;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox cmbVendedor;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.MaskedTextBox mskClienteFisico;
+        private System.Windows.Forms.TextBox txtCliente;
+        private System.Windows.Forms.MaskedTextBox mskClienteJuridico;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
     }
 }

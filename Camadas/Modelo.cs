@@ -15,11 +15,12 @@ namespace Camadas
         private string nomeTabela;
         private SqlConnection conexaoSql;
         private SqlCommand comandoSql;
-        //private const string NOME_SERVIDOR = "PHLP";
+        private const string NOME_SERVIDOR = "PHLP";
         //private const string NOME_SERVIDOR = "DELL";
         //private const string NOME_SERVIDOR = "SESA-10267";
-        private const string NOME_SERVIDOR = "CASA";
-        private const string NOME_BANCO_DADOS = "AUTOPECAS";
+        //private const string NOME_SERVIDOR = "CASA";
+        //private const string NOME_BANCO_DADOS = "AUTOPECAS";
+        private const string NOME_BANCO_DADOS = "AutoPecasBD";
         private string stringConexao = string.Format("Data Source = {0}; Initial Catalog = {1}; Integrated Security = True;", NOME_SERVIDOR, NOME_BANCO_DADOS);
 
         /// <summary>
@@ -65,7 +66,7 @@ namespace Camadas
                             comandoSql.Parameters.AddWithValue("@CNPJ", '-');
                         }
 
-                        if (cliente.CPF!=null)
+                        if (cliente.CPF != null)
                         {
                             comandoSql.Parameters.AddWithValue("@CPF", cliente.CPF);
                         }
@@ -212,7 +213,7 @@ namespace Camadas
 
 
 
-                        if (cliente.CNPJ!=null)
+                        if (cliente.CNPJ != null)
                         {
                             comandoSql.Parameters.AddWithValue("@CNPJ", cliente.CNPJ);
                         }
@@ -221,7 +222,7 @@ namespace Camadas
                             comandoSql.Parameters.AddWithValue("@CNPJ", '-');
                         }
 
-                        if (cliente.CPF!=null)
+                        if (cliente.CPF != null)
                         {
                             comandoSql.Parameters.AddWithValue("@CPF", cliente.CPF);
                         }
@@ -431,6 +432,56 @@ namespace Camadas
                 {
                     conexaoSql.Close();
                 }
+            }
+        }
+
+        /// <summary>
+        /// Método para recuperar todos os vendedores do banco de dados.
+        /// </summary>
+        /// <returns>Lista de vendedores.</returns>
+        public List<Vendedor> ModeloRecuperarVendedores()
+        {
+            try
+            {
+                instrucaoSql = @"SELECT * FROM VENDEDORES ORDER BY NOMEVENDEDOR";
+                //instrucaoSql = @"SELECT * FROM VENDEDORES";
+
+                List<Vendedor> listaVendedores = new List<Vendedor>();
+
+                conexaoSql = new SqlConnection(stringConexao);
+                comandoSql = new SqlCommand(instrucaoSql, conexaoSql);
+                conexaoSql.Open();
+
+                SqlDataReader leitorDados = comandoSql.ExecuteReader();
+
+                Vendedor vendedor;
+
+                while (leitorDados.Read())
+                {
+                    vendedor = new Vendedor();
+
+                    vendedor.IDVendedor = (int)leitorDados["IDVENDEDOR"];
+                    vendedor.NomeVendedor = (string)leitorDados["NOMEVENDEDOR"];
+                    vendedor.NCadastro = (int)leitorDados["N_CADASTRO"];
+                    vendedor.DataAdm = (DateTime)leitorDados["DATAADM"];
+                    vendedor.Endereco = (string)leitorDados["ENDERECO"];
+                    vendedor.TelFixo = (string)leitorDados["TELFIXO"];
+                    vendedor.TelCel = (string)leitorDados["TELCEL"];
+                    vendedor.CPF = (string)leitorDados["CPF"];
+                    vendedor.EstadoCivil = (string)leitorDados["ESTADOCIVIL"];
+
+                    listaVendedores.Add(vendedor);
+                }
+
+                return listaVendedores;
+            }
+            catch
+            {
+                throw new Exception("Erro ao carregar a lista de vendedores! Camada: Modelo");
+            }
+            finally
+            {
+                conexaoSql.Close();
             }
         }
     }

@@ -59,5 +59,21 @@ namespace Camadas
                 throw erro;
             }
         }
+
+        /// <summary>
+        /// Método para controlar a recuperação de todos os vendedores no banco de dados.
+        /// </summary>
+        /// <returns>Lista de vendedores.</returns>
+        public List<Vendedor> ControleRecuperarVendedores()
+        {
+            try
+            {
+                return (new Modelo()).ModeloRecuperarVendedores();
+            }
+            catch
+            {
+                throw new Exception("Erro ao retornar a lista de vendedores! Camada: Controle");
+            }
+        }
     }
 }
